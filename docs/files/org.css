@@ -1,5 +1,18 @@
-pre,code{
-    background: ghostwhite;
+body {
+    margin: 40px auto;
+    max-width: 800px;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 0 10px
+}
+
+@media (prefers-color-scheme: light) {    
+    body {
+        background: white;
+    }
+    pre,code{
+        background: ghostwhite;
+    }
 }
 
 @media (prefers-color-scheme: dark) {    
@@ -28,6 +41,7 @@ pre,code{
     h6 {
         color: #859900;
     }
+
 
     pre, code{
         background: #073642;
