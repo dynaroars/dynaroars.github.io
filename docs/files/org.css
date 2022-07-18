@@ -27,7 +27,7 @@ body {
     a:visited {
         color: #cb4b16;
     }    
-    b {
+    strong {
         color: darkgray
     }
     h1 {
