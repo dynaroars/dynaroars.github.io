@@ -5,6 +5,18 @@ body {
     padding: 0 10px
 }
 
+blockquote {
+  background: #f9f9f9;
+  border-left: 10pt solid #ccc;
+  margin: 1.5em 10pt; 
+  padding: 0.5em 10pt;
+}
+
+
+blockquote p {
+  display: inline;
+}
+
 @media (prefers-color-scheme: light) {    
     body {
         background: white;
