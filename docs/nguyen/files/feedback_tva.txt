@@ -1,0 +1,81 @@
+CSCE 467/867: Software Testing, Verification, and Analysis
+Fall 2020
+
+
+
+1. If I had any questions the professor was very helpful and quick to respond. The only thing I would change is maybe providing or providing documentation on the file input and output because I had the most difficulty with that portion of the PAs.
+
+2. You should take this class because it gets you to thinking about programming in a different way. It gives you a new perspective, which whether or not you intend to further explore these topics, is extremely useful. You should PA1 early so that you get an idea of how long the PAs will typically take you to do.
+
+
+---
+
+1. My  favorite  aspect  of  the  class  is  the  instructors  notes.   In  general  the  class  was  fun.   However,  if  I  was  to change one thing it would be the final.  Most classes that have a final usually don’t require students to do a project.  I think for some students this is too much.  I think last time the final was based on the projects.
+
+2. You should take this class if you’re interested in software testing.  Even if you are not particularly interested you might take it because you’ll know cool computer science topics such as software verification.  Quoc-Sang(Facebook Researcher) told the class that there aren’t enough talent on the market who know about software verification.  Take the class to be one of the few people on the verification market.
+
+
+---
+
+1. Overall, I think this is a pretty useful class. We've learned many techniques regarding software testing and verification. It is a very good class as an intro to testing and verification.Everything was interesting to me, except for the Hoare-logic. That was kinda tricky. One thing the professor did and I really liked was that, the studnts were forced to learn how to use a tool. I am glad that I was forced to learn ANGR, I think it is a fun tool to play with. It also extended my ability to read documentations.Bad thing is that there is no recording available, can't afford to miss class, but this only applies to 2020 I guess, cause we're having COVID this semester.
+
+2. Take this class if you want to learn some interesting things about testing&varification (and some ez GPA). Pay attention to the materials,this is not a hard class, but indeed very useful and interesting.Start the PAs early, not only PA4. Also make sure you understand the examples given in class.
+
+---
+
+1. Assignments are great. Interesting and encouraging to think. Some group assignments would be good to have also. Favorite topics? Genetic Algorithms is very appealing. It is fascinating how genetic concepts are applied to software testing.
+
+Favorite things the professor did or didnt do? Thank you for all the efforts you put into a class to make it as useful as possible for us.  While repeating the same assignmets several times doesn’t look interesting,that exactly what helps to remember things.  Repetition is the mother of all learning.  Once you start doing, you realize that there is something you either forgot or misunderstood at the first place.
+
+2. you  should  take  this  class  because  it  gives  a  broad  overview  of  testing  and  verification  tools  and techniques, which is useful for the career in academia and industry.  Start working on the project early, it will help to understand testing and verification techniques in-depth.
+
+---
+
+1. My favorite assignment was the genetic algorithm, I really like the mutation and crossover challenges. I really liked that I could do all the assignments in Python. My least favorite aspects in this class were how the assignments were written (unclear order of instructions and content) and how we got no starter code. For the DNN assignment, I wrote a DNN in a file and wrote Python code to take that file and use it in PA4. The feedback I got was that the DNN wasn’t in the right format, even though I mirrored it as closely as possible. I would have liked to get starter code and DNN in a file so that I could see the proper format. This goes for all assignments where there is file input and file output as a thing to change.
+
+2. You should take this class because it fulfills a tech elective and is relatively unique amongst the tech elective options offered. My advice for future students is to start assignments once they are assigned so that you can ask questions if you need to. Also, one issue I encountered was with the CSE server and not well known. You can’t access your files on the CSE server if you are using Ethernet, this is not a well known issue and caused me strife several times.
+
+---
+
+1. My favorite aspects of this course were getting to apply what we learned through the coding assignments. I enjoyed being able to implement some of the algorithms we learned about. I personally didn't enjoy the more formal proofs as much towards the verification stage of the class. However, I did think that the professor did a good job of walking through examples in class and was always willing to answer any questions. In terms of what I would change, I think it might help to walk through some more in-class examples of the more formal proofs for verification and provide a list of examples and solutions that students can practice and check against.
+
+I recommend taking this class because it provides you the opportunity to learn about interesting but challenging problems in one area of computer science that applies to many real-world problems. Additionally, the class allows you to gain experience implenting interesting yet intuitive algorithms through the programming assignments. In this class, I recommend trying to start assignments as early as possible and reaching out to the instructor if you have any questions or confusion about topics discussed during class.
+
+---
+
+1. Favorite: cover useful testing/verification techniques. Least favorite: n/a.
+Favorite topics: Hoare Logic. I didn't know about it before this class, and I think it's a greattechnique.
+Favorite things the professor did or didn't do: I think web conference classes were great (better than normal video-only classes).
+What would you change: more challenging PA, and dive deeper into some areas.
+
+2.This class is useful if you are interested in software testing and verification. Advice: Learn Z3 early will make your like much easier. And for DD problems, just write a smallprogram to print out DD steps, and it will save you a lot of manual works.
+
+---
+
+1. Favorite part was testing, where verification was less interesting (perhaps because testing was more concrete). Fuzzing was intimidating at first, but turned out to be pretty interesting and fun to work with. I am very grateful for the classnotes provided on the professor’s website, as they came in handy countless times, allowing me to go back to a subject I didn’t quite get at the time, or providing enough context for me to look it up for myself. I honestly would have done better in the course if it was in person - I tend to get pretty lazy when working from home, and the added social pressure of being in a classroom forces me to focus and write notes, instead of being tempted to be on my phone. I know this isn’t feasible with the current pandemic, but it’s something I’ve learned quite well about myself through this semester.
+
+2. You should take this class because it has good information that can come in handy outside of the classroom. It can help you create better code, through testing and verifying it though the various ways we learn about in lecture. Don't be like me, starting the programming assignments a couple days before (or even the day of). The first few may make it seem like that’s something you can do, but the later ones require more thinking and planning than the ones that came before, so if you start late, you won’t be able to complete it fully (partial points are better than none, but full credit is even better than partial credit!)
+
+--- 
+
+1. Favorite aspect of class was learning all of the different tools that are used in the real world for testing and analysis. Favorite topic was either Hoare logic or research project. Favorite thing the professor did was always being willing to answer student questions.
+
+2. You should take this class because you will learn a lot about testing and analysis and even get a chance to apply it to real world applications. For students taking this class next year, do not be afraid to ask questions. No matter what type of question you have, there is a good chance another student in the class has the same question.
+
+---
+1. My least favourite part was probably not being able to graduate and move on. My favorite thing was the programming assignments. I thought they were very interesting
+
+2. My one piece of advice for future students is don't miss announcements.
+
+---
+1. My favorite part about this course was the material regarding genetical gorithms. It was interesting to see how to manipulate candidates and easily achieve a solution in PA2. I felt that sometimes it was difficult to grasp the importance of some of the topics, but I think most of that has todo with the online format. Overall, I think the professor did a great job getting acclimated to teaching through an online environment. If I could change one thing, I would add a bit more hints/helper functions to the programming assignments. Most of the time that I spent on the assignments was not on the implementation of the tool at hand, but random bugs about errors outside the scope of the algorithms taught. (ex. PA1, more trouble figuring out how to organize file inputs and coverage rather than the mutation function itself.
+
+2. Students should take this class because fuzzing is both interesting and necessary to know. Having a deeper understanding of testing and verification helps build skills as a developer as you think about maintainability and scalability. My bit of advice for this class is to start the programming assignments early. There are often multiple moving parts that take time to comprehend.
+
+---
+1. My favorite things that I learned from this class were how to code and implement genetic algorithms and fuzz testing. I also enjoyed having python as the class’s language of choice. My least favorite thing was not being able to use a python code analysis tool for my final project.
+
+2. You should take this class because testing knowledge is an extremely valuable skill to possess when coding in industry. You could potentially save yourself hundreds of hours of future frustration by learning the testing methods provided in this class. A bit of advice: I’d recommend getting your final project tool to run on a github project at least a day before you present on it.
+
+
+------
