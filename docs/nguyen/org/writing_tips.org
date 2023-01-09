@@ -1,0 +1,210 @@
+#+TITLE: Writing
+#+date: <2021-02-01 03:39>
+#+description: how I write LaTeX stuff
+#+filetags: computer setup blog writing
+#+HTML_HEAD: <link rel="stylesheet" href="https://dynaroars.github.io/files/org.css">
+
+Managing my $\LaTeX$ writings. 
+
+* Writing Technical Papers
+  :PROPERTIES:
+  :CUSTOM_ID: writing-papers
+  :END:
+
+
+** Order
+
+   I often write papers in the following order. For a concrete example, see the [[https://dynaroars.github.io/pubs/ishimwe2021dynaplex.pdf][Dynaplex paper]] published at OOPSLA'21.
+   
+   1. =Overview= section (Section 2).
+      - start with this section, which should contain an =illustrative example=.
+        - after reading this illustrative example (and perhaps the =Introduction=, the readers should have a good understanding of the approach.
+        - /The goal is to have the readers (or reviewers) make up their mind whether they like or do not like the proposed work after reading this part/.
+      - A good place to add some overview =figure= highlighting the main components of the technique or tool.
+      - Can also summarize background or important concepts in this section
+      - Typically contains:
+        - An architecture or overview figure of the approach (e.g., Fig 1 in the Dynaplex paper)
+        - A motivation or illustration example
+          - Sec 2.1: Show how Dynaplex works at high level on an input program, what results does it produce.
+        - Main definitions and background (optional)
+          - Sec 2.2: general background on dynamic inference and specific features/properties of Dynaplex
+   
+   - =Experimental= section (Section 4).
+     1. Some implementation details     
+     1. Benchmark programs: descript benchmarks used
+     1. Experiment Setup
+        - Machine specs
+        - How experiments were run (multiple times and report the mean, etc)
+     1. Research Questions
+       - E.g., How accurate is the technique? How efficient ?  Comparing to existing approaches
+       - Experimental results are designed to answer these questions
+       
+   - =Algorithm/Techniques= (Section 3)
+     
+   - =Related Work= (Section 5)
+     - Break into multiple subsections if necessary
+     - After each subsection that talks about related work, have a new paragraph and talk about why my work is different/related to other work.
+       
+   - =Conclusion= (Section 6).
+     - This should be the /conclusion/ not the /summary/.
+     - Future work can also go here
+       
+   - =Introduction= (Section 1).
+     - write this last, because by the time I write the Intro, I would already have all needed info (e.g., so I can summarize the diff with state of the art, technical contributions, and results.
+     - Typically contains several main things:
+       - What is the problem?  Why is it important (i.e., if we can solve it, then what do we accomplishes)? 
+       - Existing work:  basically answering why it is challenging (i.e., why existing work is not sufficient)?
+       - The proposed approach of this paper: how does it address the limitations of existing work listed above?  What other benefits does it have?
+       - Results: briefly summarize the results.
+   
+   
+
+** Paper naming convention
+   :PROPERTIES:
+   :CUSTOM_ID: paper-naming-convention
+   :END:
+
+- I use Google Scholar's convention  =lastnameoffirstauthor~publishedyear~firsttitleword=, e.g., =nguyen2021gentree.pdf= for the paper  =KimHao Nguyen and ThanhVu Nguyen. GenTree: Using Decision Trees to Learn Interactions for Configurable Software=
+- I also use this convention for =bibtex= entry and reference, e.g.,
+  =GenTree paper~\cite{nguyen2021gentree}=
+- If there's a conflict, then append the name with a number, e.g.,
+  =nguyen2021gentree1=, =nguyen2021gentree2=
+
+
+  
+** Citation
+   :PROPERTIES:
+   :CUSTOM_ID: citation
+   :END:
+   
+- As with [[#paper-naming-convention][paper naming]], for citation I follow Google Scholar's convention and thus often use Google Scholar to search for  =bibtex= entry of a paper I want to cite.  For example, to cite the GenTree example paper, I search for it on Google Scholar and get the =bibtex= content.
+  #+begin_src bibtex
+    @inproceedings{nguyen2021gentree,
+      title={GenTree: Using decision trees to learn interactions for configurable software},
+      author={Nguyen, KimHao and Nguyen, ThanhVu},
+      booktitle={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)},
+      pages={1598--1609},
+      year={2021},
+      organization={IEEE}
+    }
+  #+end_src
+Then I copy/paste this =bibtex= content to my the bib file of my project, and cite the paper with =\cite{nguyen2021gentree}=.
+  
+** Do and Don't
+   - Do
+     - Split into multiple paragraphs.  Long paragraphs are simply hard to read!
+
+   - Do not
+
+     - Delay talking about the main work until the 2nd page of the introduction.  It's not good if people read a whole page and still don't know what you're proposing!
+       
+     - Use unnecessary roadmaps.  Eg.., at the end of an intro, many papers have something like this
+       #+begin_src txt
+       This paper is organized as follows. In Section 2, we describe the background. In Section 3, we establish theorem X. In Section 4, we describe algorithm Y and implementation Z. In Section 5, we present experimental results from our implementation and compare to the state of the art.  In Section 6, we review related work and conclude in Section 7.
+       #+end_src
+       - This might make sense for a long Ph.D. thesis or book (in fact, I wouldn't use this roadmap even for these), but doesn't make much sense for a 10 page paper where one easily guess all these from the section names?
+
+     - Similarly, we can elimiate roadmap at the beginning of a section
+        #+begin_src txt
+        In this section, we first describe X, then present Y.  We also do Z.
+        #+end_src
+        - This might be OK, especially for a long section.  But in general I prefer just start talking about the main stuff in the section.
+
+          
+   
+** Trimming / Space saving
+   - Rewrite and shorten sentences!! 
+     
+
+** Miscs
+- One setence per line
+  
+  #+begin_example
+      This is a line.
+      This is another, longer line.
+  #+end_example
+
+- If possible, put figures, tables, code, etc on top, e.g., using
+  =\begin{figure}[t]=
+- Rewrite to avoid lines with single or lone words
+
+  #+begin_example
+      It just looks
+      bad.
+  #+end_example
+
+- Comment:  so that my coauthors and I can add comments to paper, e.g., =\tvn{This is my comment}= 
+  #+begin_src latex
+    \newcommand{\mycomment}[3][\color{red}]{{#1{[{#2}: {#3}]}}}
+    \newcommand{\tvn}[1]{\mycomment[\color{red}]{TVN}{#1}}
+   #+end_src
+
+
+* Managing Git repo and File structures
+   :PROPERTIES:
+   :CUSTOM_ID: git-repo
+   :END:
+
+- 1 Git repo for each paper
+  - Name the repo =paper_name=, e.g., =paper_gentree= where =gentree= is the name of the work. 
+  - I do not put conference name as part of the repo name because it might end up not being in that conference. Instead I use git =tag= ([[#after-submission][shown below]]) to identify submission to conference.
+
+** Paper structure
+    :PROPERTIES:
+    :CUSTOM_ID: paper-structure
+    :END:
+
+- 1 directory per paper (which is a clone of a Github repo as described [[#git-repo][above]]), e.g., =paper_gentree/=
+- Within the directory, I use very few files:
+  - =paper.tex=: I use a single $\TeX$ file for the entire paper.
+    - Others like to split into multiple files (e.g., =intro.tex=, =eval.txt=, =related.txt=, etc). But I find it easier for me to just use 1 file. Even when sharing or collaborating with others, in which conflict edits can arise, a single file still works well as git is pretty good at resolving conflict issues.
+  - =paper.bib=: I use a single =bib= file for bibs. My collaborators sometimes put in their own =bib= files. 
+  - =arch.(pdf|png)= (optional): a diagram describing the architecture of the framework or tool
+
+** After submission
+   :PROPERTIES:
+   :CUSTOM_ID: after-submission
+   :END:
+
+After submitting a paper, I save a copy of the submitted pdf file and create a tag for the latest commit to keep a history of that submission.
+   
+1. Save the submitted pdf file as =VenueYearX.pdf=, where ~X~ is ~submit~ for the original submission version, ~final~ for final (camera-ready) version, and ~rI~ for the $i^{th}$ revision for additional revision submissions between the original submission and final (e.g., for jounal).
+   #+begin_example
+     git add icse2021submit.pdf  
+   #+end_example
+1. Create an annotated =tag= for the commit
+  #+begin_example bash
+    git tag -a icse2021submit -m "ICSE 2021 original submission" commit_hashid (optional)
+    git push origin icse2021submit
+    git show icse2020submit
+  #+end_example
+
+
+* Quick Fixes
+   1. Avoid passive tense
+   - Know the difference between /Such as/  and /like/
+   - Avoid long paragraphs
+   - Spell out numbers less than 10 (/three/ steps instead of /3/ steps).
+   - Use Eq. X instead of Equation X
+   - Don't put /etc/ in e.g., or such as
+   - In order to do this -> To do this
+   - New paragraph for new thought/idea. Sentences in the same paragraph should be connected.
+
+* Presentation/Talk
+  :PROPERTIES:
+  :CUSTOM_ID: presentation
+  :END:
+
+- Slides
+
+  - Put numbers on every slide: so that people can refer to slide X
+  - For an N-minute presentation: create about N slides
+  - Don't put too much words, also no need to put full sentences
+
+
+
+
+
+   
+* Useful Links
+  - http://www.cs.cmu.edu/%7Ejrs/sins.html

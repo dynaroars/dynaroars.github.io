@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Summarization of Mike's post}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Mathematical Logic}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Static Analysis}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Soundiness}{3}{subsubsection.1.2.1}%
+\contentsline {section}{\numberline {2}Extension to Dynamic Analysis}{3}{section.2}%

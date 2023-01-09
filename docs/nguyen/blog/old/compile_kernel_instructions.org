@@ -1,0 +1,250 @@
+#+TITLE:     Configure and Compile Linux Kernel (Debian)
+#+AUTHOR:    ThanhVu H. Nguyen
+#+EMAIL:     tnguyen@cse.unl.edu
+
+#+DESCRIPTION: My website
+#+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+TAGS:       Write(w) Update(u) Fix(f) Check(c)
+#+HTML_HEAD: <link rel="stylesheet" href="https://cse.unl.edu/~tnguyen/css/worg_orig.css" />
+#+LINK_HOME: https://cse.unl.edu/~tnguyen/
+#+LINK_UP: https://cse.unl.edu/~tnguyen/
+
+
+* General Step
+   :PROPERTIES:
+   :CUSTOM_ID: general-step
+   :END:
+
+Below describes a hybrid way that I use to compile the kernel. This
+means the procedure uses some manual compilation steps but also takes
+advantages of distribution specific tools, e.g., Debian package
+management. There are /distro-specific/ ways, but this hybrid method
+seems to be the easiest and simplest for me.
+
+*Note*: from experience I found most people don't have problems
+compiling kernel, but they get frustrated because not being able to boot
+to the new kernel or after booting into the kernel they lose their GUI
+and other stuff such as VirtualBox. In general if the new kernel won't
+boot, you still can go to back the old/current one. For graphic driver,
+just manually build it from src (see the simple steps below for NVIDIA
+cards). You can also build graphic drivers using other methods but for
+me from src is the easiest. Can't coment about AMD/ATI driver since I
+don't have one -- but the steps probably are similar.
+
+1. Obtain the latest kernel source
+
+   #+BEGIN_EXAMPLE
+     wget  http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.5.tar.bz2  
+     tar xf linux-3.19.tar.bz2  
+     cd linux-3.19
+   #+END_EXAMPLE
+
+- Build the kernel (see distribution specific below)
+
+- Post kernel install
+
+  - Build Graphic driver (NVIDIA)
+
+    #+BEGIN_EXAMPLE
+      sudo sh  path/where/you/save/nvidia/driver/NVIDIA-Linux-x86_64-260.19.44.run
+    #+END_EXAMPLE
+
+  - Others
+
+  #+BEGIN_EXAMPLE
+    /etc/init.d/vboxdrv setup #for Virtualbox
+    ln -sf /path/to/linux-3.19.tar.bz2   /usr/src/linux  #I don't know if this is really necessary
+  #+END_EXAMPLE
+
+* Debian/Ubuntu
+   :PROPERTIES:
+   :CUSTOM_ID: debianubuntu
+   :END:
+
+1. install the package =build-essential= (and =kernel-package= for
+   Debian < 8)
+
+- Inside the unpacked kernel source =linux-3.19=
+
+  #+BEGIN_EXAMPLE
+    # copy the default config of your distro as template,
+    # it's quite important to start from a working config
+    cp /boot/config-2.6.32-5-amd64  .config
+    make olddefconfig
+    # make oldconfig    (it's most likely safe to hit Enter to accept default selections)
+    make localmodconfig:  only use this if you know what it does
+  #+END_EXAMPLE
+
+- Customize the kernel
+
+  #+BEGIN_EXAMPLE
+    make menuconfig
+    # See below section for some configs for optimization
+    # After done, save the config changes
+  #+END_EXAMPLE
+
+- Edit .config
+  #+BEGIN_SRC 
+  # edit .config and set the TRUSTED_KEY to "", otherwise will get error message about debian/certs/.pem
+  CONFIG_SYSTEM_TRUSTED_KEYS = ""   
+  #+END_SRC
+
+
+- Build
+
+  #+BEGIN_EXAMPLE
+    make deb-pkg LOCALVERSION=-giaochi112017 KDEB_PKGVERSION=$(make kernelversion)-1.  
+    #See https://debian-handbook.info/browse/stable/sect.kernel-compilation.html for details.
+  #+END_EXAMPLE
+
+  Go do something while it compiles -- the time it takes depends on the performance of your machine and features you build.
+
+  - For older Debian (e.g., <= 8), use
+
+  #+BEGIN_EXAMPLE
+
+    export CONCURRENCY_LEVEL=5
+
+    # if you have multicores then this allows parallel compilation. 
+    # The convention setting is N+1 where N is the number of available processors 
+    # Note: do this at the same terminal screen where you plan to compile the kernel,
+    # otherwise this VARIABLE will not be known.
+    # Also many of the build steps are done sequentially so don't expect 100% parallelism.
+
+    # Then exec the below command to create to 2 deb files : `linux-image`  and `linux-headers`
+
+    $ sudo make-kpkg clean; 
+    $ sudo fakeroot make-kpkg --initrd --append-to-version=-gcmmddyy-4 --revision=3.19 kernel_image kernel_headers
+  #+END_EXAMPLE
+
+  Note: =append-to-version=-something= will make a custom name for your
+  linux version (uname -r). I use the abbreviation of my machine (gc),
+  the date (mmddyy), and a number (4) indicating this is the fourth time
+  I compile this kernel on this date.
+
+  =revision=some_number= sets the version of the kernel for apt (not
+  terribly important). I set mine the building kernel version (3.19 in
+  this case).
+
+
+- Install
+
+  #+BEGIN_EXAMPLE
+    cd ..   # go to the parent directory where the built deb files are stored
+    sudo dpkg -i linux-headers-3.19-gcmmddyy-4_3.19_amd64.deb linux-image-3.19-gcmmddyy-4_3.19_amd64.deb
+
+    # If this is the first time you compile the kernel then 
+    (Note this is required on my Debian Squeeze, so probably not necessary 
+    for other/newer systems - though doing it shouldn't cause problem)
+    cp -v /usr/share/kernel-package/examples/etc/kernel/postinst.d/initramfs /etc/kernel/postinst.d/
+  #+END_EXAMPLE
+
+- Reboot and choose the new kernel from the boot menu.
+
+  If the kernel fails to boot (e.g. kernel panic), that means something
+  is wrong -- perhaps you've disable some required options. Reboot with
+  your old kernel
+
+/Note/: you might lose your GUI/X log in -- if that's the case then
+install the appropriate Graphic driver. The way I do it is manually
+installing it from source (see steps for NVIDIA at the top of the page)
+
+Type =uname -a= to see something like
+=Linux GiaoChi 3.19-gcmmddyy-4 #1 SMP PREEMPT ... x86_64 GNU/Linux=,
+which indicates you're running the new kernel.
+
+*** Some configs (kernel 3.19):
+    :PROPERTIES:
+    :CUSTOM_ID: some-configs-kernel-3.19
+    :END:
+
+1. General Setup
+
+- Kernel Compression Mode : Bzip2
+
+- Control Group support
+
+- Group CPU Scheduler
+
+- Automatic Process Group Scheduling
+
+- Optimize for size: off
+
+- Processor Type and Feature
+
+- Processor family: Core 2 / newer Xeon\\
+
+- Preemption Model : Preemptible Kernel (Low-Latency Desktop)
+
+- Timer frequency : 1000 HZ
+
+In general you can turn off the stuff you don't need -- e.g., if you
+don't use ISDN then turn off its support. If you have XYZ branded sound
+card then you can turn off the supports for others. I generally don't
+modify these settings because most are built as modules (loaded only
+when needed).
+
+Below are specific configs for /my/ machines -- probably will not work
+for you.
+
+1. Power Management Support
+  - Suspend to RAM and standby: off
+  - Hibernation: off
+  - SFI support: off (not needed for my machine)
+- Networking Support
+  - Amateur Radio: off
+  - CAN bus subsystem support: off
+  - Plan 9: off
+- Device Driver
+  - Parallel port support: off
+  - ATA/ATAPI/MFM/RLL support (DEPRECATED): off (was M)
+
+- ISDN support: off
+
+- Telephony support: off
+
+- Input device support
+
+- Joysticks/Gamepads: Off
+
+- Tablets: off
+
+- Touchscreens: off
+
+- Misc devices: off
+
+- Xen virtual kb and mouse: off
+
+- HW I/O ports
+
+- Gameport support: off
+
+- Block devices
+
+- Normal floppy disk: off
+
+- Sound card support
+
+- ALSA
+
+- SPI sound devices: off
+
+- USB sound devices: off
+
+- PCMCIA sound devices: off
+
+- Networking device support
+
+- Ethernet (10000 Mbit): off
+
+- Token Ring: off
+
+- PCMCIA network device: off
+
+- PPP support: off
+
+- SLIP support: off
+
+- Graphic Support
+
+- /dev/agpgart: off

@@ -1,0 +1,126 @@
+* Grammar
+  :PROPERTIES:
+  :CUSTOM_ID: grammar
+  :END:
+** Hyphen vs Em dash vs En dash
+   :PROPERTIES:
+   :CUSTOM_ID: hyphen-vs-em-dash-vs-en-dash
+   :END:
+
+- Hyphen: connect words, e.g., red-haired actress, award-winning essay
+
+  - In LaTeX, use -
+
+- En dash: same width as N, used to link words
+
+  - range: pages 8--12, My LA--NY flight, Sixers beat Lakers 110-108
+  - Note: can also use to connect words: (same as hypohen) red-haired
+    actress, award-winning work
+  - In LaTeX, use -- or =\textendash=
+
+- Em dash: same width as M, used to separate words
+
+  - can usually replaced by commas, parentheses, or colons
+  - In LaTeX, use --- or =\textemdash=
+
+* Presentation
+  :PROPERTIES:
+  :CUSTOM_ID: presentation
+  :END:
+
+- Slides
+
+  - Put numbers on every slide: so that people can refer to slide X
+  - For an N-minute presentation: create about N slides
+  - Don't put too much words, also no need to put full sentences
+
+* Writing Papers
+  :PROPERTIES:
+  :CUSTOM_ID: writing-papers
+  :END:
+** Writing Papers in LaTeX
+   :PROPERTIES:
+   :CUSTOM_ID: writing-papers-in-latex
+   :END:
+
+- One setence per line
+
+#+begin_example
+      This is a line.
+      This is another, longer line.
+#+end_example
+
+- If possible, put figures, tables, code, etc on top, e.g., using
+  =\begin{figure}[t]=
+- Rewrite so that you don't have a line with single or lone word
+
+#+begin_example
+      It just looks
+      bad.
+#+end_example
+
+** Git Repo
+   :PROPERTIES:
+   :CUSTOM_ID: git-repo
+   :END:
+
+- 1 Git repo for each paper
+
+  - Give it some name such as =paper_toolname=. I do not put conference
+    name as part of the reponame because it might end up not being in
+    that conference.
+  - Instead I use git =tag= (below) to identify submission to
+    conference.
+
+*** Paper structure
+    :PROPERTIES:
+    :CUSTOM_ID: paper-structure
+    :END:
+
+- 1 directory per paper, e.g., =gentree/=
+- Within the directory:
+
+  - =main.tex=: I often use a single =tex= file for the entire paper.
+    Others like to split into multiple files (e.g., =intro.tex=,
+    =eval.txt=, etc). But I find it easier for me to just use 1 file
+    (even when sharing or collaboring with others, I find that 1 file
+    also works well as git is pretty good at handling multiple edits and
+    conflicts).
+  - =main.bib=: I use a single =bib= file for bibs
+
+** After submission
+   :PROPERTIES:
+   :CUSTOM_ID: after-submission
+   :END:
+
+1. Save the submission pdf file
+
+#+begin_example
+  git add confname_year_submit.pdf
+#+end_example
+
+2. Create an annotated =tag= for the commit
+
+#+begin_example
+  git tag -a ConfYearSubmit -m "confname submission" commit_hashid (optional)
+  git push origin ConfYearSubmit
+  git show ConfYearSubmit
+#+end_example
+
+* File naming
+  :PROPERTIES:
+  :CUSTOM_ID: file-naming
+  :END:
+** *Paper naming convention*:
+   :PROPERTIES:
+   :CUSTOM_ID: paper-naming-convention
+   :END:
+
+- I use Google Scholar's convention:
+  =lastname1stauthor~publishedyearfirsttitleword~=
+- e.g., =nguyen2021gentree.pdf= for the paper
+  =KimHao Nguyen and   ThanhVu Nguyen. GenTree: Using Decision Trees to Learn Interactions   for Configurable Software=
+- I also use this convention for bibtex entry and reference, e.g.,
+  =GenTree paper~\cite{nguyen2021gentree}=
+- If there's a conflict, then append the name with a number, e.g.,
+  =nguyen2021gentree1=, =nguyen2021gentree2=

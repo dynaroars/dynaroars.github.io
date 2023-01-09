@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="loop invariants">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>Loop Invariants</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">31 May 2020</div><h1 class="post-title"><a href="./loopinv.html">Loop Invariants</a></h1>
+<p>
+A loop invariant is a property <code>I</code> that always holds at the loop entrance. For
+a given loop
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #e45649;">while</span> (c):
+    ... <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">loop body</span>
+</pre>
+</div>
+
+<p>
+we can rewrite it as
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #e45649;">while</span> <span style="color: #b751b6;">True</span>:
+    <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">l:   anything property that holds here is a loop invariant</span>
+    <span style="color: #e45649;">if</span> <span style="color: #e45649;">not</span>(c): <span style="color: #e45649;">break</span>
+    ... <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">loop body</span>
+</pre>
+</div>
+
+<p>
+and the loop invariant is a property <code>I</code> that always hold at the given
+location <code>l</code>.
+</p>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-blog.html">blog</a> <a href="./tag-research.html">research</a> <a href="./tag-invariants.html">invariants</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>

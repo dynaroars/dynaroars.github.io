@@ -1,0 +1,130 @@
+#+TITLE: My FreeBSD Setup
+#+date: <2022-09-05 Mon>
+#+description: My FreeBSD Setup
+#+filetags: computer setup blog bsd
+
+#+HTML_HEAD: <link rel="stylesheet" href="https://dynaroars.github.io/files/org.css">
+
+
+#+NAME:   fig:vulam
+#+ATTR_HTML: :width 50% :height 50%
+[[../files/freebsd-vl.jpg]]
+
+
+My home machine running Debian (built in 2007) was getting old and loud. So I decided to setup a new home system on a small Dell Optiplex that I got from school. I also put FreeBSD on it instead of my favorite Debian Linux (because ... why not?  my [[https://dynaroars.github.io/][lab]] already has two servers running Debian).
+
+This is the first time that I seriously use FreeBSD (I tried it before for a couple of weeks and went back to Linux). Below is my experience.
+
+
+* Timeline
+- <2022-10-07 Fri> Things are going strong. Using the machine everyday when I am at home. 
+- <2022-09-14 Wed> Add a Dell Ultrasharp 43" monitor
+- <2022-09-08 Thu> Got the [[https://nostarch.com/absfreebsd3][Asolute FreeBSD]] book -- it has ben a while since I bought a computer book
+- <2022-09-05 Mon> Setup FreeBSD on Dell Optiplex
+
+
+
+* Machine Specs
+#+begin_src txt
+⚓ ~/g/w/n/d/org main⨯  neofetch 
+```                        `       tnguyen@ROARS 
+  ` `.....---.......--.```   -/    ------------- 
+  +o   .--`         /y:`      +.   OS: FreeBSD 13.1-RELEASE-p2 amd64 
+   yo`:.            :o      `+-    Uptime: 10 days, 14 hours, 1 min 
+    y/               -/`   -o/     Packages: 1366 (pkg) 
+   .-                  ::/sy+:.    Shell: fish 3.5.1 
+   /                     `--  /    Resolution: 3840x2160 
+  `:                          :`   DE: Plasma 5.24.6 
+  `:                          :`   WM: KWin 
+   /                          /    Theme: [Plasma], Emacs [GTK2/3] 
+   .-                        -.    Icons: [Plasma], breeze-dark [GTK2/3] 
+    --                      -.     Terminal: konsole 
+     `:`                  `:`      CPU: Intel i7-7700 (8) @ 3.600GHz 
+       .--             `--.        GPU: HD Graphics 630 
+          .---.....----.           Memory: 24318MiB / 32434MiB 
+#+end_src
+
+* Installation
+
+Installation was straight-forward by downloading and installing [[https://download.freebsd.org/releases/amd64/amd64/ISO-IMAGES/13.1/][the ISO]]. 
+Then for installation I pretty much just accepted all default options. I believe I unchecked all server capabilities during installation because this will be used mainly as a desktop, and not a server.
+
+FreeBSD doesn't seem to give me an option to install software (e.g., X, desktop environment, ..). That is fine, I can install them later.
+
+Installation was very quick. In fact so quick that I don't recall seeing anything being installed.
+
+* Using 
+
+After the first boot I then logged in as root to update the system, install ~X~, ~KDE~, ~emacs~, and various things. But I didn't really know to do any of these. So I openned my iPad and go to read FreeBSD manual.
+
+** Installing Things
+From the manual, I've learned various new commands for upgrading and installing software and so
+#+begin_src
+  # updating the system
+  freebsd-upgrade fetch
+  freebsd-upgrade install
+
+  # updating package
+  pkg upgrade
+#+end_src
+
+Next is installing and using X, which I encountered some problems.  This is mainly because of me, as I didn't even know what graphic card this computer has other than some integrated one (likely Intel).
+
+#+begin_src 
+  # installing X was easy
+  pkg install xorg
+#+end_src
+
+Installing X is easy, then I tried =startx= and it failed immediately, which is not surprising because I haven't configured any graphic driver. I then tried the Linux way which is editing ~xorg.conf~ file, and I found the FreeBSD manual also has section about doing this. So I spent half an hr doing this without much success (because the [[https://docs.freebsd.org/en/books/handbook/x11/][manual]] says use "intel" as Driver). It was pretty late and I was so sleepy to debug and so went to bed.
+
+On the next day, I quickly googled for FreeBSD, X, Intel and fond out that the correct dirver is ~i915kms~ (not ~intel~). Moreover, I shouldn't even have to edit ~xorg.con~ or any file, everything should be automatically detected and loaded.  Anyway, don't remember all the details but I think I did something like below
+
+#+begin_src 
+pkg install drm-kmod
+
+
+# /etc/rc.conf
+kld_list="i915kms"
+dbus_enable="YES"  # for KDE
+#+end_src
+
+
+Now ~startx~ works and so I don't need use ~root~ and so added the username I created to the ~video~ group and log in using that username (I also found out that I cannot ~su~ to root and then had to also add my username to ~wheel~).
+
+** KDE
+Anyway, I then installed KDE, created a simple  ~~/.xinitrc~ file
+#+begin_src 
+exec ck-launch-session startplasma-x11
+#+end_src
+
+and ~startx~ to start KDE.
+
+- Why KDE? In the past I typically used either [[https://www.windowmaker.org/][WindowMaker]] or [[https://www.trinitydesktop.org/][Trinity]] desktop. I guess I want to try something new. Probably soon I will switch back to WindowMaker, but so far I like that the new KDE because it allows me to do  natural (invert) mouse scrolling in Firefox (when I was in Linux I was never able to get Firefox to do this kind of scrolling with Trinity or WindowMaker).
+
+* Other stuff
+I was able to install Firefox and Thunderbird and setup my mails and such. Pretty straightforward.
+
+** Things that don't work
+- Sometimes it won't automatically turn off my monitor. Never had this problem with the older, smaller monitor. 
+- Can't get my Canon printer to work. It sees the printer (wireless) but Canon does not have the driver for this printer for BSD.
+- Slack is not available on FreeBSD, so I had to run it inside Firefox.
+- +I can't get my monitor to output any sound. The monitor has a speaker. And KDE reports that sound driver working fine, but I can't hear any sound+.
+  - got this to work, not sure how though.  
+
+** My .dot files
+
+- =/boot/loader.conf=
+#+INCLUDE: "/boot/loader.conf" src bash
+
+- =/etc/rc.conf=
+#+INCLUDE: "/etc/rc.conf" src bash
+
+- =~/.config/gtk-3.0/settings.ini=
+#+INCLUDE: "~/.config/gtk-3.0/settings.ini" src txt
+
+* Thoughts
+
+So far I only use FreeBSD for three days (and my son has already explored and played various KDE games on it already). I haven't done much advanced tweaks or setups yet.  It doesn't feel much different than my old Debian desktop (though the new machine is very quiet, comparing to my old computer). I was able to start working and being productive on it right away.
+
+
+
