@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="how I set up my CV">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>My CV LaTeX Setup</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">24 May 2021</div><h1 class="post-title"><a href="./cv.html">My CV LaTeX Setup</a></h1>
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8ba5952">1. Bib files</a>
+<ul>
+<li><a href="#org50790d6">1.1. BibLaTeX</a></li>
+<li><a href="#orgc3177fd">1.2. A single <code>bib</code> file</a></li>
+</ul>
+</li>
+<li><a href="#conditions">2. Generating different outputs</a></li>
+<li><a href="#orge6feff3">3. Other stuff</a>
+<ul>
+<li><a href="#orgb6578f0">3.1. The <code>enumitem</code> package</a></li>
+<li><a href="#orgc2d1ee2">3.2. Other Macros</a></li>
+</ul>
+</li>
+<li><a href="#org1fd1c26">4. Building</a></li>
+</ul>
+</div>
+</nav>
+<p>
+Worked my CV in \(\LaTeX\) + BibLaTeX over the weekend.  Quite some work but I am happy with the result <a href="https://github.com/dynaroars/latex-cv/blob/main/cv-nguyen.pdf">cv-nguyen.pdf</a> (built from these 3 files <a href="https://raw.githubusercontent.com/dynaroars/latex-cv/main/cv.tex">cv.tex</a>, <a href="https://raw.githubusercontent.com/dynaroars/latex-cv/main/cv.bib">cv.bib, </a><a href="https://raw.githubusercontent.com/dynaroars/latex-cv/main/tvn.png">tvn.png</a> using these <a href="#org1fd1c26">commands).</a> The full git repo is at <a href="https://github.com/dynaroars/latex-cv">https://github.com/dynaroars/latex-cv</a>.
+</p>
+
+<p>
+Here are some main things the CV has:
+</p>
+
+<ul class="org-ul">
+<li><b>Minimal</b>:  build from scratch, e.g., <code>documentclass{article}</code>; just use some few common packages; very little customizations (default on most things).  This is a personal preference as I try to avoid using too many additional packages and having to learn about them.</li>
+
+<li><b>Use a single <code>.bib</code> file</b> to generate publications: also customize various fields (e.g., bold and styles to specific authors, conference names, etc).</li>
+
+<li><b>Can generate different versions</b>: generate different contents depending on a boolean flag. I have a single flag that when <code>true</code>, generate my CV based on required format for College of Engineering, and when <code>false</code>, generate a CV for my own use. Both versions share as much contents as possible.</li>
+</ul>
+
+<div id="outline-container-org8ba5952" class="outline-2">
+<h2 id="org8ba5952"><span class="section-number-2">1.</span> Bib files</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Previously, I put my publication entries directly in the CV.  But since I have already maintained a <code>cv.bib</code> file containing all my publications, I can just use information from that file instead. This means integrating my CV with <code>cv.bib</code>.
+</p>
+
+<p>
+It is easy to just print out entries from a bib file (e.g., using <code>natlib</code> with <code>\bibentry{key}</code>  or <code>biblatex</code> with <code>\fullcite{key}</code>).  However, I also want some customizations in certain bib fields (e.g., some conferences or journalds being bold and different formatting for my students, and additional information like url, acceptance rates).  One easy way is to add these customizations directly to the bib entries in the <code>cv.bib</code> file (e.g.,  we can do <code>author={\textbf{authorA}, authorB}</code>).  But this will affect other files that use the modfified entries in <code>cv.bib</code>.  There are also various suggestions on hacking the bib display driver or style, but these hacks break easily and I found them complicated and not <i>elegant</i>.  
+</p>
+
+<p>
+After various tries, I end up with this approach of "extending" bib entries using <code>crossref</code> and customizing specific fields.  I found this approach easy and does not mess up my original bib entries.
+</p>
+</div>
+
+<div id="outline-container-org50790d6" class="outline-3">
+<h3 id="org50790d6"><span class="section-number-3">1.1.</span> BibLaTeX</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Below I describe the method using <code>biblatex</code> and <code>biber</code> (<code>bibtex</code> should work similarly). My preamble has something like this
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #e45649;">\documentclass</span>[<span style="color: #6a1868;">11pt</span>]{<span style="color: #a626a4;">article</span>}
+
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">the max parameters limit the number of authors,  e.g., print et al after the first 10 names</span>
+<span style="color: #e45649;">\usepackage</span>[<span style="color: #6a1868;">backend=biber,doi=false,isbn=false,maxcitenames=10,maxbibnames=10,style=alphabetic</span>]{<span style="color: #a626a4;">biblatex</span>}
+<span style="color: #e45649;">\addbibresource</span>{<span style="color: #b751b6;">cv.bib</span>}  
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3177fd" class="outline-3">
+<h3 id="orgc3177fd"><span class="section-number-3">1.2.</span> A single <code>bib</code> file</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Consists of 2 parts:  the first part are regular bib entries, the second are additional customizations and formats for those entries.  
+</p>
+
+<ol class="org-ol">
+<li><p>
+This part contains standard bib entries, e.g., 
+</p>
+<div class="org-src-container">
+<pre class="src src-bibtex"><span style="color: #a626a4;">@inproceedings</span>{<span style="color: #b751b6;">nguyen2021gentree</span>,
+  <span style="color: #6a1868;">title</span>={GenTree: Using decision trees to learn interactions for configurable software},
+  <span style="color: #6a1868;">author</span>={Nguyen, KimHao and Nguyen, ThanhVu},
+  <span style="color: #6a1868;">booktitle</span>={International Conference on Software Engineering (ICSE)},
+  <span style="color: #6a1868;">pages</span>={1598--1609},
+  <span style="color: #6a1868;">year</span>={2021},
+  <span style="color: #6a1868;">organization</span>={IEEE}
+}
+
+<span style="color: #a626a4;">@article</span>{<span style="color: #b751b6;">le2020dynamite</span>,
+  <span style="color: #6a1868;">title</span>     = {DynamiTe: dynamic termination and non-termination proofs},
+  <span style="color: #6a1868;">author</span>    = {Le, TonChanh and Antonopoulos, Timos and Fathololumi, Parisa and Koskinen, Eric and Nguyen, ThanhVu},
+  <span style="color: #6a1868;">journal</span>   = {Proceedings of the ACM on Programming Languages},
+  <span style="color: #6a1868;">volume</span>    = {4},
+  <span style="color: #6a1868;">number</span>    = {OOPSLA},
+  <span style="color: #6a1868;">pages</span>     = {1--30},
+  <span style="color: #6a1868;">year</span>      = {2020},
+  <span style="color: #6a1868;">publisher</span> = {ACM New York, NY, USA}
+}
+... 
+</pre>
+</div></li>
+
+<li><p>
+This part has bib entries that "inherit" the standard ones in the previous part. They allow us to customize the standard bib entries , e.g., <b>bold</b> top venues, students' names, additional info such as acceptance rate, etc.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bibtex">
+<span style="color: #a626a4;">@String</span>{
+<span style="color: #b751b6;">ICSE</span>={\textbf{International Conference on Software Engineering (ICSE)}}}
+<span style="color: #a626a4;">@String</span>{
+<span style="color: #b751b6;">PACMPL</span>={\textbf{Proceedings of the ACM on Programming Languages}}
+}
+...
+
+<span style="color: #a626a4;">@inproceedings</span>{<span style="color: #b751b6;">nguyen2021gentreec</span>,
+<span style="color: #6a1868;">crossref</span> = {<span style="color: #4078f2; font-weight: bold; text-decoration: underline;">nguyen2021gentree</span>},
+<span style="color: #6a1868;">author</span>={Nguyen<span style="color: #50a14f;">$^1$</span>, KimHao and Nguyen, ThanhVu},
+<span style="color: #6a1868;">booktitle</span>=ICSE,
+<span style="color: #6a1868;">url</span>={<span style="color: #4078f2; font-weight: bold; text-decoration: underline;">https://dynaroars.github.io/pubs/nguyen2021gentree.pdf</span>},
+<span style="color: #6a1868;">addendum</span>={acceptance rate 22\%}
+}
+
+<span style="color: #a626a4;">@article</span>{<span style="color: #b751b6;">le2020dynamitec</span>,
+<span style="color: #6a1868;">crossref</span>={<span style="color: #4078f2; font-weight: bold; text-decoration: underline;">le2020dynamite</span>},
+  <span style="color: #6a1868;">journal</span> = PACMPL,
+  <span style="color: #6a1868;">url</span>={<span style="color: #4078f2; font-weight: bold; text-decoration: underline;">https://dynaroars.github.io/pubs/le2020dynamite.pdf</span>},
+  <span style="color: #6a1868;">addendum</span>= {acceptance rate 36\%}
+}
+
+...
+</pre>
+</div></li>
+</ol>
+
+<p>
+<span class="underline">Note</span>: you can also create 2 <code>bib</code> files for these two parts (but I prefer to have as few files as possible).
+</p>
+
+<p>
+As can be seen, the entries from from the second part inherit those from the first part using <code>crossref</code>, and override only fields that need to be customized (e.g., <code>booktile</code> and <code>author</code> in <code>nguyen2021gentreec</code>). Entries from the second part also contain additional fields and information such as <code>url</code> and <code>acceptance rate</code>.
+</p>
+
+<p>
+Now all I need to do is use cite the keys in the second part in my main <code>TeX</code> files, e.g., calling <code>\fullcite{nguyen2021gentreec}</code>
+will display the <code>nguyen2021gentree</code> standard entry in  but with customized author and book title, and the new information on url and acceptance rates.  For example, the following 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #e45649;">\begin</span>{<span style="color: #a626a4;">itemize</span>}
+<span style="color: #e45649;">\item</span> <span style="color: #e45649;">\fullcite</span>{<span style="color: #b751b6;">nguyen2021gentreec</span>}
+<span style="color: #e45649;">\end</span>{<span style="color: #a626a4;">itemize</span>}
+</pre>
+</div>
+
+<p>
+will display:
+</p>
+
+<ul class="org-ul">
+<li>KimHao Nguyen\(^1\) and ThanhVu Nguyen. “GenTree: Using decision trees to learn interactions for configurable software”. In: <b>International Conference on Software Engineering (ICSE)</b>. IEEE. 2021, pp. 1598–1609. url: <a href="https://dynaroars.github.io/pubs/nguyen2021gentree.pdf">https://dynaroars.github.io/pubs/nguyen2021gentree.pdf</a>. acceptance rate 22%</li>
+</ul>
+
+
+<p>
+Of course, we can add other customizations like changing color of authors and other fancy stuff by additing LaTeX commands to the entry like above (e.g., <code>\textbf{...}</code>). For example, instead of having a separate URL field, you might want directly link the title to the file like this
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bibtex">
+<span style="color: #a626a4;">@inproceedings</span>{<span style="color: #b751b6;">nguyen2021gentreec</span>,
+<span style="color: #6a1868;">crossref</span> = {<span style="color: #4078f2; font-weight: bold; text-decoration: underline;">nguyen2021gentree</span>},
+<span style="color: #6a1868;">title</span>={\href{https://dynaroars.github.io/pubs/nguyen2021gentree.pdf}{GenTree: Using decision trees to learn interactions for configurable software}},
+<span style="color: #6a1868;">author</span>={Nguyen<span style="color: #50a14f;">$^1$</span>, KimHao and Nguyen, ThanhVu},
+<span style="color: #6a1868;">booktitle</span>=ICSE,
+<span style="color: #6a1868;">addendum</span>={acceptance rate 22\%}
+}
+</pre>
+</div>
+
+<p>
+A note on <b>naming convention</b>: I simply append the letter <code>c</code> to the keys to indicate customized bib entries.  I also use the Google Scholar naming convention (<code>LastnameYearFirstWordInTitle</code>) to manage my bib entries and pdf files.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-conditions" class="outline-2">
+<h2 id="conditions"><span class="section-number-2">2.</span> Generating different outputs</h2>
+<div class="outline-text-2" id="text-conditions">
+<p>
+Previously, I maintain 2 CV versions:  a personal one (posted on my website and updated more frequently) and a work one (for annual evaluation with the College of Engineering).  They have many differences in styles and structures but also share many things (after all, both are about me!).  So now I decide to merge them into one so that I can reuse things and only have to maintain only one version.  The simplest way I found is simply using conditions in the <b><code>etoolbox</code></b> package.
+</p>
+
+<p>
+In the preamble, I have    
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #696969;">\newtoggle</span>{usecoe}
+<span style="color: #696969;">\settoggle</span>{usecoe}{false} <span style="color: #9ca0a4;">% not CoE version</span>
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\coe</span>}[<span style="color: #6a1868;">1</span>]{<span style="color: #a626a4;">\iftoggle</span><span style="color: #a626a4;">{usecoe}{#1}{}</span>}
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\notcoe</span>}[<span style="color: #6a1868;">1</span>]{<span style="color: #a626a4;">\nottoggle</span><span style="color: #a626a4;">{usecoe}{#1}{}</span>}
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\coeite</span>}[<span style="color: #6a1868;">2</span>]{<span style="color: #a626a4;">\iftoggle</span><span style="color: #a626a4;">{usecoe}{#1}{#2}</span>}
+</pre>
+</div>
+
+<p>
+Alternatively, if you don't want to use <code>etoolbox</code>, you can use something like below
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #696969;">\newif\ifusecoe</span>
+<span style="color: #9ca0a4;">%</span><span style="color: #9ca0a4;">\usecoetrue</span><span style="color: #9ca0a4;">  </span>
+<span style="color: #696969;">\usecoefalse</span>  <span style="color: #9ca0a4;">% not CoE version</span>
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\coe</span>}[<span style="color: #6a1868;">1</span>]{<span style="color: #a626a4;">{</span><span style="color: #a626a4;">\ifusecoe</span><span style="color: #a626a4;"> #1</span><span style="color: #a626a4;">\fi</span><span style="color: #a626a4;">}</span>}
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\notcoe</span>}[<span style="color: #6a1868;">1</span>]{<span style="color: #a626a4;">{</span><span style="color: #a626a4;">\ifusecoe</span><span style="color: #a626a4;"> </span><span style="color: #a626a4;">\else</span><span style="color: #a626a4;"> #1 </span><span style="color: #a626a4;">\fi</span><span style="color: #a626a4;">}</span>}
+<span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\coeite</span>}[<span style="color: #6a1868;">2</span>]{<span style="color: #a626a4;">{</span><span style="color: #a626a4;">\ifusecoe</span><span style="color: #a626a4;"> #1 </span><span style="color: #a626a4;">\else</span><span style="color: #a626a4;"> #2</span><span style="color: #a626a4;">\fi</span><span style="color: #a626a4;">}</span>}
+
+</pre>
+</div>
+
+<p>
+This allows me to have something such as
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">CoE requires this section, so only include this when </span><span style="color: #9ca0a4;">\coetrue</span><span style="color: #9ca0a4;"> is set</span>
+<span style="color: #696969;">\coe</span>{
+  <span style="color: #e45649;">\section</span>{<span style="color: #b751b6;">CoE Specific</span>} 
+  ...
+}
+
+
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">Only include this when not generating a CV format, i.e., </span><span style="color: #9ca0a4;">\coefalse</span><span style="color: #9ca0a4;"> is set</span>
+<span style="color: #696969;">\notcoe</span>{
+  <span style="color: #e45649;">\section</span>{<span style="color: #b751b6;">Personal</span>} 
+  ...
+}
+
+
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">Or switch things</span>
+<span style="color: #696969;">\coeite</span>{
+  <span style="color: #e45649;">\section</span>{<span style="color: #b751b6;">CoE Specific</span>}
+  ...
+}
+{
+  <span style="color: #e45649;">\section</span>{<span style="color: #b751b6;">Personal</span>}
+  ...
+}
+
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">another example</span>
+I like the College of <span style="color: #696969;">\coeite</span>{Engineering}{Art and Science}  
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge6feff3" class="outline-2">
+<h2 id="orge6feff3"><span class="section-number-2">3.</span> Other stuff</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb6578f0" class="outline-3">
+<h3 id="orgb6578f0"><span class="section-number-3">3.1.</span> The <code>enumitem</code> package</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+I use the <code>enumitem</code> package to itemize/enumerate and reference things with releveant prefixes (e.g., conference papers with C and journals paper with J,  e.g.,  My undergraduate freshman student, KimHao, got a full research paper at ICSE'21 [C1])
+</p>
+
+<div class="org-src-container">
+<pre class="src src-latex">
+  <span style="color: #9ca0a4;">% Conference paper list</span>
+  <span style="color: #e45649;">\begin</span>{<span style="color: #a626a4;">enumerate</span>}[label=C<span style="color: #986801;">\</span><span style="color: #e45649;">arabic</span>*]
+    <span style="color: #e45649;">\item</span> <span style="color: #e45649;">\label</span>{<span style="color: #b751b6;">nguyen2021gentree</span>} <span style="color: #e45649;">\fullcite</span>{<span style="color: #b751b6;">nguyen2021gentreec</span>}
+  <span style="color: #e45649;">\end</span>{<span style="color: #a626a4;">enumarate</span>}
+
+  <span style="color: #9ca0a4;">% Journal paper list</span>
+  <span style="color: #e45649;">\begin</span>{<span style="color: #a626a4;">enumerate</span>}[label=J<span style="color: #986801;">\</span><span style="color: #e45649;">arabic</span>*]
+    <span style="color: #e45649;">\item</span> <span style="color: #e45649;">\label</span>{<span style="color: #b751b6;">le2020dynamite</span>} <span style="color: #e45649;">\fullcite</span>{<span style="color: #b751b6;">le2020dynamitec</span>}
+  <span style="color: #e45649;">\end</span>{<span style="color: #a626a4;">enumarate</span>}
+
+<span style="color: #9ca0a4;">% </span><span style="color: #9ca0a4;">referering to a paper</span>
+My undergraduate freshman student, KimHao, got a full research paper at ICSE'21~<span style="color: #e45649;">\ref</span>{<span style="color: #b751b6;">nguyen2021gentree</span>}.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2d1ee2" class="outline-3">
+<h3 id="orgc2d1ee2"><span class="section-number-3">3.2.</span> Other Macros</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Other than the <code>\coe</code>, <code>\notcoe</code>, <code>\coeite</code> macros <a href="#conditions">above</a>, I have several more macros to make things easier.  I try not to use too many macros to keep things simple.  One macros that I use often for listing publication entries is
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #e45649;">\newcommand</span>{<span style="color: #a626a4;">\mypubc</span>}[<span style="color: #6a1868;">2</span>]{<span style="color: #a626a4;">\item</span><span style="color: #a626a4;"> </span><span style="color: #e45649;">\label</span><span style="color: #a626a4;">{</span><span style="color: #b751b6;">#1</span><span style="color: #a626a4;">} </span><span style="color: #e45649;">\fullcite</span><span style="color: #a626a4;">{</span><span style="color: #b751b6;">#1c</span><span style="color: #a626a4;">}</span><span style="color: #a626a4;">\coe</span><span style="color: #a626a4;">{, contribution #2}</span>}   <span style="color: #9ca0a4;">%label,contribution percentage (CoE only)</span>
+</pre>
+</div>
+
+<p>
+This allows me to not having to type 
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #e45649;">\item</span> <span style="color: #e45649;">\label</span>{<span style="color: #b751b6;">nguyen2021gentree</span>} <span style="color: #e45649;">\fullcite</span>{<span style="color: #b751b6;">nguyen2021gentreec</span>}
+</pre>
+</div>
+
+<p>
+like above. Instead, I can just type
+</p>
+<div class="org-src-container">
+<pre class="src src-latex">
+<span style="color: #696969;">\mypubc</span>{nguyen2021gentree}{50\%}
+</pre>
+</div>
+
+<p>
+The last argument <code>#2</code> is an additional information that only appears in the CoE version (to show how much you contribute in a paper, 50% in this example).  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fd1c26" class="outline-2">
+<h2 id="org1fd1c26"><span class="section-number-2">4.</span> Building</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-shell">$ latexmk -c  <span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">clean up things but don't delete pdf/dvi outputs</span>
+$ <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">latexmk -C  #really clean up everything</span>
+$ latexmk cv.tex -pdf  <span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">build the file , this will also invoke biber (or bitex) and does everything</span>
+</pre>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-tex.html">TeX</a> <a href="./tag-cv.html">cv</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>

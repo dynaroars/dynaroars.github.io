@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="letter head">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>LaTeX Letterhead </title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">26 Aug 2021</div><h1 class="post-title"><a href="./letter.html">LaTeX Letterhead </a></h1>
+<p>
+A minimal letter head with logo
+</p>
+
+<p>
+Need to write a letter of reference for a student and realize I don't have a professional looking letter template.  So I work a bit on a simple letter template in \(\LaTeX\) that has a GMU logo on top.  Here is the code and result.
+</p>
+
+<ul class="org-ul">
+<li>Github code repo: <a href="https://github.com/dynaroars/letterhead">https://github.com/dynaroars/letterhead</a></li>
+
+<li>Pdf result: <a href="https://github.com/unsat/letterhead/blob/main/ref-letter.pdf">ref-letter.pdf</a></li>
+
+<li>Src: <a href="https://github.com/unsat/letterhead/blob/main/ref-letter.tex">ref-letter.tex</a>, <a href="https://github.com/unsat/letterhead/blob/main/gmu.png">gmu.png</a></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #e45649;">\documentclass</span>[<span style="color: #6a1868;">11pt</span>]{<span style="color: #a626a4;">letter</span>}
+<span style="color: #e45649;">\usepackage</span>[<span style="color: #6a1868;">top=1in,bottom=1in,left=1in,right=1in</span>]{<span style="color: #a626a4;">geometry</span>}
+<span style="color: #e45649;">\usepackage</span>{<span style="color: #a626a4;">graphicx</span>}
+<span style="color: #e45649;">\usepackage</span>{<span style="color: #a626a4;">tcolorbox</span>}
+<span style="color: #e45649;">\usepackage</span>{<span style="color: #a626a4;">lipsum</span>}
+<span style="color: #e45649;">\usepackage</span>{<span style="color: #a626a4;">hyperref</span>}
+<span style="color: #696969;">\colorlet</span>{dkgreen}{green!20!black}  
+<span style="color: #696969;">\hypersetup</span>{
+  colorlinks=true,
+  allcolors=dkgreen
+}
+
+<span style="color: #e45649;">\address</span>{
+<span style="color: #986801;">  </span><span style="color: #e45649;">\begin</span><span style="color: #986801;">{</span><span style="color: #a626a4;">tcolorbox</span><span style="color: #986801;">}[colback=white,colframe=dkgreen,sharp corners=uphill]</span>
+<span style="color: #986801;">    </span><span style="color: #e45649;">\vspace</span><span style="color: #986801;">{</span><span style="color: #a626a4;">-0.7in</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">    </span><span style="color: #e45649;">\begin</span><span style="color: #986801;">{</span><span style="color: #a626a4;">minipage</span><span style="color: #986801;">}[b]{0.55</span><span style="color: #986801;">\textwidth</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">      </span><span style="color: #986801;">\colorbox</span><span style="color: #986801;">{white}{</span><span style="color: #986801;">\includegraphics</span><span style="color: #986801;">[height=1.0in]{gmu.png}}</span>
+<span style="color: #986801;">    </span><span style="color: #e45649;">\end</span><span style="color: #986801;">{</span><span style="color: #a626a4;">minipage</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">    </span><span style="color: #e45649;">\begin</span><span style="color: #986801;">{</span><span style="color: #a626a4;">minipage</span><span style="color: #986801;">}{0.50</span><span style="color: #986801;">\textwidth</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">      </span><span style="color: #e45649;">\vspace</span><span style="color: #986801;">{</span><span style="color: #a626a4;">0.3in</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">      {</span><span style="color: #986801;">\Large</span><span style="color: #986801;"> </span><span style="color: #986801; font-weight: bold;">\bf</span><span style="color: #986801;"> </span><span style="color: #986801;">\myname</span><span style="color: #986801;">}</span><span style="color: #986801;">\\</span>
+<span style="color: #986801;">      {</span><span style="color: #986801;">\mytitle</span><span style="color: #986801;">}</span><span style="color: #986801;">\\</span>
+<span style="color: #986801;">      {</span><span style="color: #986801;">\mydept</span><span style="color: #986801;">}</span><span style="color: #986801;">\\</span>
+<span style="color: #986801;">      {</span><span style="color: #986801;">\myaddress</span><span style="color: #986801;">}</span><span style="color: #986801;">\\</span>
+<span style="color: #986801;">      {</span><span style="color: #986801;">\myemail</span><span style="color: #986801;">}; {</span><span style="color: #986801;">\myweb</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">    </span><span style="color: #e45649;">\end</span><span style="color: #986801;">{</span><span style="color: #a626a4;">minipage</span><span style="color: #986801;">}</span>
+<span style="color: #986801;">  </span><span style="color: #e45649;">\end</span><span style="color: #986801;">{</span><span style="color: #a626a4;">tcolorbox</span><span style="color: #986801;">}  </span>
+}
+
+<span style="color: #696969;">\signature</span>{<span style="color: #696969;">\myname</span>}
+
+<span style="color: #9ca0a4;">%%% </span><span style="color: #9ca0a4;">Customizations below</span>
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\myname</span>{<span style="color: #a626a4;">ThanhVu Nguyen</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\mytitle</span>{<span style="color: #a626a4;">Assistant Professor</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\mydept</span>{<span style="color: #a626a4;">Department of Computer Science</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\myschool</span>{<span style="color: #a626a4;">George Mason University</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\myaddress</span>{<span style="color: #a626a4;">Research Hall 356</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\myemail</span>{<span style="color: #a626a4;">\href</span><span style="color: #a626a4;">{mailto:tvn@gmu.edu}{tvn@gmu.edu}</span>}
+<span style="color: #e45649;">\newcommand</span><span style="color: #a626a4;">\myweb</span>{<span style="color: #a626a4;">\href</span><span style="color: #a626a4;">{https://nguyenthanhvuh.github.io}{nguyenthanhvuh.github.io}</span>}
+
+
+<span style="color: #e45649;">\begin</span>{<span style="color: #a626a4;">document</span>}
+<span style="color: #e45649;">\begin</span>{<span style="color: #a626a4;">letter</span>}{}
+
+  <span style="color: #e45649;">\date</span>{<span style="color: #986801;">\today</span>}  
+  <span style="color: #696969;">\opening</span>{To whom it may concern:}
+
+  <span style="color: #696969;">\lipsum</span>[2-8]
+
+  <span style="color: #696969;">\closing</span>{Sincerely,}
+  <span style="color: #9ca0a4;">%</span><span style="color: #9ca0a4;">\ps</span><span style="color: #9ca0a4;">{}  %P.S. goes here</span>
+  <span style="color: #9ca0a4;">%</span><span style="color: #9ca0a4;">\encl</span><span style="color: #9ca0a4;">{} %Enclosures goes here</span>
+<span style="color: #e45649;">\end</span>{<span style="color: #a626a4;">letter</span>}
+<span style="color: #e45649;">\end</span>{<span style="color: #a626a4;">document</span>}
+</pre>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-tex.html">TeX</a> <a href="./tag-letter.html">letter</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>

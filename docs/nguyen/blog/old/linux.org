@@ -1,0 +1,46 @@
+
+
+
+
+** Installing
+
+- I chose =netinstall= and download a 350 MB iso and put that on my USB key.
+- Partition:  I use 2GB for =swap= and the rest of =/=. In the past I use to put =/home= on its own partition, but this time I just want a single large partition.  The benefit is that I don't have to worry about resizing partitions (either =/home= or =/=) if they run out of space.
+
+- 
+
+
+
+** Emacs
+The first thing I do is installing =emacs=.  Simply put, without =emacs=, it would be hard for me to do anything because most of my configurations are done via editing various =.conf= and "dot" files.
+
+#+begin_src 
+
+#+end_src
+
+Then I also change the functionality of the =capslock= key to =control=.  I have been using capslock as a control key for so long that it became a habit.
+
+#+begin_src 
+
+#+end_src
+
+Then I start installing software via =apt-get= and making various customizations.
+
+- sudo
+- /etc/apt/sources.list
+- fish
+- ssh stuff:
+  - generate ssh pub key
+  - add ssh pub key to github
+  - add ssh pub key to other machines that I often log in
+  
+
+
+** NVIDIA
+
+
+ 
+** Kernel
+
+
+

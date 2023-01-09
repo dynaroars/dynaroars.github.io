@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Notes on FoL">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>Notes on First-Order Logic</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">24 May 2021</div><h1 class="post-title"><a href="./logic.html">Notes on First-Order Logic</a></h1>
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgbe5634d">1. Convertion to CNF</a></li>
+<li><a href="#org5b7136f">2. Tseitin Encoding</a></li>
+</ul>
+</div>
+</nav>
+<p>
+<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form#Conversion_into_CNF">https://en.wikipedia.org/wiki/Conjunctive_normal_form#Conversion_into_CNF</a>
+</p>
+<div id="outline-container-orgbe5634d" class="outline-2">
+<h2 id="orgbe5634d"><span class="section-number-2">1.</span> Convertion to CNF</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>exponential growth example
+
+<ul class="org-ul">
+<li><p>
+input: 
+</p>
+<pre class="example" id="org62b489f">
+(x1 and y1) or (x2 and y2) or (x3 and y3) or (x4 and y4) or ... or (xn and yn)
+</pre></li>
+<li>ouput CNF has \(2^n\) clauses</li>
+</ul></li>
+</ul>
+
+
+
+<dl class="org-dl">
+<dt>Equisatisabile (equisat)</dt><dd>two formulae <code>a</code> and <code>b</code> are equisat if <code>a</code> is sat iff <code>b</code> is sat (either both are sat or bot are unsat).</dd>
+</dl>
+
+
+<p>
+<code>a or b</code> and <code>(a or n) and (!n o b)</code> are equisat.
+</p>
+
+<p>
+Note that these are equisat, but not equivalent, e.g., given <code>b=T, a=n=F</code>, the formula <code>a or b</code> is <code>T</code> but the formula <code>(a or n) and (!n o b)</code> is <code>F</code>.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5b7136f" class="outline-2">
+<h2 id="org5b7136f"><span class="section-number-2">2.</span> Tseitin Encoding</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Every boolean formula <code>F</code> can be converted into an <i>equivalent</i> CNF formula <code>F'</code>, but <code>F'</code> can be exponential in the size of <code>F</code>.
+Tseitin encoding allows for <code>F</code> to be converted into an <i>equisatisabile</i> formula <code>F'</code>, where <code>F'</code> is only a linear increase in the size of <code>F</code>.
+</p>
+</div>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-computer.html">computer</a> <a href="./tag-setup.html">setup</a> <a href="./tag-blog.html">blog</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>

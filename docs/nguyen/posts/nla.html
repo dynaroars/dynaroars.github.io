@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="nonlinear invariants">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>Nonlinear Invariants</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">01 Jun 2020</div><h1 class="post-title"><a href="./nla.html">Nonlinear Invariants</a></h1>
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#examples">1. Examples</a>
+<ul>
+<li><a href="#capturing-program-semantics">1.1. Capturing Program Semantics</a></li>
+<li><a href="#complexity-analysis">1.2. Complexity Analysis</a></li>
+<li><a href="#representing-sortedness-and-permutation-properties">1.3. Representing Sortedness and Permutation Properties</a></li>
+</ul>
+</li>
+<li><a href="#dynamic-inference">2. <span class="todo TODO">TODO</span> Dynamic Inference</a>
+<ul>
+<li><a href="#equation-solving">2.1. <span class="todo TODO">TODO</span> Equation Solving</a></li>
+<li><a href="#deep-neural-network">2.2. <span class="todo TODO">TODO</span> Deep Neural Network</a></li>
+</ul>
+</li>
+<li><a href="#static-proving">3. <span class="todo TODO">TODO</span> Static Proving</a>
+<ul>
+<li><a href="#proving-invariants">3.1. Proving Invariants</a></li>
+<li><a href="#inductive-loop-invariants">3.2. <span class="todo TODO">TODO</span> Inductive Loop invariants</a></li>
+<li><a href="#strengthening">3.3. <span class="todo TODO">TODO</span> Strengthening</a></li>
+<li><a href="#k-induction">3.4. <span class="todo TODO">TODO</span> K-Induction</a></li>
+</ul>
+</li>
+<li><a href="#optimization">4. <span class="todo TODO">TODO</span> Optimization</a>
+<ul>
+<li><a href="#orgca1cf80">4.1. Using Derivatives to Estimate Maximum Degrees in Nonlinear</a></li>
+</ul>
+</li>
+<li><a href="#reduction">5. <span class="todo TODO">TODO</span> Reduction</a>
+<ul>
+<li><a href="#groebner-basis">5.1. <span class="todo TODO">TODO</span> Groebner Basis</a></li>
+<li><a href="#constraint-solving">5.2. <span class="todo TODO">TODO</span> Constraint Solving</a></li>
+</ul>
+</li>
+<li><a href="#more-examples">6. More Examples</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-examples" class="outline-2">
+<h2 id="examples"><span class="section-number-2">1.</span> Examples</h2>
+<div class="outline-text-2" id="text-examples">
+</div>
+
+<div id="outline-container-capturing-program-semantics" class="outline-3">
+<h3 id="capturing-program-semantics"><span class="section-number-3">1.1.</span> Capturing Program Semantics</h3>
+<div class="outline-text-3" id="text-capturing-program-semantics">
+<p>
+Nonlinear equalities can capture precise program semantics involving
+nontrivial arithmetics. Consider the <code>cohendiv</code> integer division
+algorithm below.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #986801;">int</span> <span style="color: #a626a4;">cohendiv</span>(<span style="color: #986801;">int</span> <span style="color: #6a1868;">x</span>, <span style="color: #986801;">int</span> <span style="color: #6a1868;">y</span>){
+    <span style="color: #9ca0a4;">// </span><span style="color: #9ca0a4;">performs integer division x // y</span>
+
+    assert(x &gt;= 1 &amp;&amp; y &gt;= 1);
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">q</span> = 0;
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">r</span> = x;
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">a</span> = 0;
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">b</span> = 0;
+    <span style="color: #e45649;">while</span>(1) {
+        <span style="color: #e45649;">if</span>(<span style="color: #4078f2; font-weight: bold;">!</span>(r&gt;=y)) <span style="color: #e45649;">break</span>;
+
+        a=1;
+        b=y;
+        <span style="color: #e45649;">while</span> (1){
+            <span style="color: #9ca0a4;">// </span><span style="color: #9ca0a4;">l1: inferred invariants</span>
+            <span style="color: #9ca0a4;">/*</span>
+<span style="color: #9ca0a4;">            1. x = qy+r</span>
+<span style="color: #9ca0a4;">            2. ay = b</span>
+<span style="color: #9ca0a4;">            3. b &lt;= x</span>
+<span style="color: #9ca0a4;">            4. y &lt;= r</span>
+<span style="color: #9ca0a4;">            5. 0 &lt;= q</span>
+<span style="color: #9ca0a4;">            6. 1 &lt;= b</span>
+<span style="color: #9ca0a4;">            7. 1 &lt;= y</span>
+<span style="color: #9ca0a4;">            */</span>
+
+            <span style="color: #e45649;">if</span>(<span style="color: #4078f2; font-weight: bold;">!</span>(r &gt;= 2*b)) <span style="color: #e45649;">break</span>;
+            a = 2*a;
+            b = 2*b;
+        }
+        r = r - b;
+        q = q + a;
+    }
+
+    <span style="color: #9ca0a4;">// </span><span style="color: #9ca0a4;">l2: inferred invariants</span>
+    <span style="color: #9ca0a4;">/*</span>
+<span style="color: #9ca0a4;">    1. x = yq*r</span>
+<span style="color: #9ca0a4;">    2. ay = b</span>
+<span style="color: #9ca0a4;">    3. r &lt;= y - 1</span>
+<span style="color: #9ca0a4;">    4. 0 &lt;= r</span>
+<span style="color: #9ca0a4;">    5. r &lt;= x</span>
+<span style="color: #9ca0a4;">    */</span>
+    <span style="color: #e45649;">return</span> q;
+}
+</pre>
+</div>
+
+<p>
+DIG automatically discovers the loop invariants at <code>l1</code> and the
+postconditions at <code>l2</code> shown as comments in the code. These relations
+are sufficiently strong to understand the semantics and verify the
+correctness of <code>cohendiv</code>. The key invariant is the nonlinear equality
+<code>x=qy+r</code>, which describes the precise behavior of integer division: the
+dividend <code>x</code> equals the divisor <code>y</code> times the quotient <code>q</code> plus the
+remainder <code>r</code>.
+</p>
+
+<p>
+The other inequalities also provide useful information for debugging.
+For example, the invariants at the program exit reveal several required
+properties of the remainder <code>r</code>, e.g., non-negative (<code>0 &lt;</code> r=), at most
+the dividend (<code>r &lt;</code> x=), but strictly less than the divisor
+(<code>r &lt;</code> y - 1=).
+</p>
+</div>
+</div>
+
+<div id="outline-container-complexity-analysis" class="outline-3">
+<h3 id="complexity-analysis"><span class="section-number-3">1.2.</span> Complexity Analysis</h3>
+<div class="outline-text-3" id="text-complexity-analysis">
+<p>
+Another rather surprising use of nonlinear equation is to characterize
+the <i>exact</i> computational complexity of a program, which is useful for
+identifying possible security problems. Consider the problem of
+determining the runtime complexity of the program <code>tripple</code> below. At
+first, <code>tripple</code> appears to take <code>O(NMP)</code> due to the three nested loops.
+A closer analysis shows a more precise bound <code>O(N+NM+P)</code> because the
+inner most loop, which is updated each time the middle loop executes,
+changes the behavior of the outer most loop.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #986801;">int</span> <span style="color: #a626a4;">tripple</span>(<span style="color: #986801;">int</span> <span style="color: #6a1868;">M</span>, <span style="color: #986801;">int</span> <span style="color: #6a1868;">N</span>, <span style="color: #986801;">int</span> <span style="color: #6a1868;">P</span>){
+    assert(0 &lt;= M);
+    assert(0 &lt;= N);
+    assert(0 &lt;= P);
+
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">t</span> = 0; <span style="color: #9ca0a4;">// </span><span style="color: #9ca0a4;">counter variable</span>
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">i</span> = 0;
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">j</span> = 0;
+    <span style="color: #986801;">int</span> <span style="color: #6a1868;">k</span> = 0;
+    <span style="color: #e45649;">while</span>(i &lt; N){
+        j = 0;
+        <span style="color: #e45649;">while</span>(j &lt; M){          
+            j = j + 1;
+            k = i;
+            t++;
+            <span style="color: #e45649;">while</span>(k &lt; P){           
+                k = k + 1;
+                t++;
+            }
+            i = k;
+        }
+        i = i + 1;
+        t++;
+    }
+
+    <span style="color: #9ca0a4;">/* </span><span style="color: #9ca0a4;">inferred invariants</span>
+<span style="color: #9ca0a4;">    1. M^2*N*t - M^2*P*t + M*N*P*t - M*P^2*t - M*N*t^2 + M*P*t^2 + 2*M*N*t - M*P*t + N*P*t - M*t^2 - N*t^2 - P*t^2 + t^3 + N*t - t^2 == 0</span>
+<span style="color: #9ca0a4;">    2. 0 &lt;= N</span>
+<span style="color: #9ca0a4;">    3. 0 &lt;= P </span>
+<span style="color: #9ca0a4;">    4. 0 &lt;= M </span>
+<span style="color: #9ca0a4;">    5. N  &lt;= t</span>
+<span style="color: #9ca0a4;">    */</span>
+
+    <span style="color: #e45649;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+When given this program, DIG discovers the invariants given as comments
+in <code>tripple</code>. Among these, the nonlinear equality <code>1</code> is rather
+interesting and complex. This invariant involves <code>t</code>, which is a ghost
+variable introduced to count loop iterations.
+</p>
+
+<p>
+This nonlinear equality is valid, but looks incomprehensible and quite
+different than the expected bound <code>N+NM+P</code> or even <code>NMP</code>. However, when
+solving this equation for <code>t</code> (finding the roots of <code>t</code>), we obtain
+three solutions showing that this program has different time
+complexities:
+</p>
+
+<pre class="example" id="org23efaa8">
+t == 0
+t == M + P + 1
+t == N - M(P - N)
+</pre>
+
+<p>
+Manual analysis further shows the precondition over the inputs leading
+to each complexity:
+</p>
+
+<pre class="example" id="orgab5bee8">
+t == 0 when N == 0
+t == P + M + 1 when N &lt;= P
+t == N - M(P - N) when N &gt; P
+</pre>
+
+<p>
+Indeed, these results represent the <b>exact</b> complexity bound of
+<code>tripple</code> and are more precise than the bound <code>O(N+MN+P)</code> analyzed
+above. Note that <code>O(N+MN+P)</code> is still a correct <i>upperbound</i> of
+<code>tripple</code> (e.g., when <code>N &gt; P</code> then <code>O(N+NM+P) = O(N+NM)</code>, which is
+equivalent to <code>O(N-M(P-N)) = O(N+MN)</code>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-representing-sortedness-and-permutation-properties" class="outline-3">
+<h3 id="representing-sortedness-and-permutation-properties"><span class="section-number-3">1.3.</span> Representing Sortedness and Permutation Properties</h3>
+<div class="outline-text-3" id="text-representing-sortedness-and-permutation-properties">
+<p>
+In this example we illustrate that nonlinear equalities can capture the
+permutation property required for sorting numbers. DIG can infer these
+nonlinear equalities and other invariants to capture both permutation
+and sortedness properties.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #986801;">int</span> <span style="color: #a626a4;">sort3</span>(<span style="color: #986801;">int</span> <span style="color: #6a1868;">x0</span>, <span style="color: #986801;">int</span> <span style="color: #6a1868;">x1</span>, <span style="color: #986801;">int</span> <span style="color: #6a1868;">x2</span>){
+    ...
+    <span style="color: #9ca0a4;">/* </span><span style="color: #9ca0a4;">invariants (postconds)</span>
+<span style="color: #9ca0a4;">    1. y0 - y1 &lt;= 0</span>
+<span style="color: #9ca0a4;">    2. y1 - y2 &lt;= 0</span>
+<span style="color: #9ca0a4;">    3. x0 + x1 + x2 - y0 - y1 - y2 == 0</span>
+<span style="color: #9ca0a4;">    4. x1^2 + x1*x2 + x2^2 - x1*y0 - x2*y0 - x1*y1 - x2*y1 + y0*y1 - x1*y2 - x2*y2 + y0*y2 + y1*y2 == 0</span>
+<span style="color: #9ca0a4;">    5. x2^3 - x2^2*y0 - x2^2*y1 + x2*y0*y1 - x2^2*y2 + x2*y0*y2 + x2*y1*y2 - y0*y1*y2 == 0</span>
+<span style="color: #9ca0a4;">    6. min(x0, x1, x2) - y0 == 0</span>
+<span style="color: #9ca0a4;">    7. y2 - max(x0, x1, x2) == 0</span>
+<span style="color: #9ca0a4;">    */</span>
+    <span style="color: #e45649;">return</span> (y1, y2, y3);
+}
+</pre>
+</div>
+
+<p>
+The above program <code>sort3</code> sorts 3 numbers <code>x0, x1, x2</code> as <code>y0, y1, y2</code>.
+DIG obtained the 7 invariants shown in the program. We show that these
+invariants establish the correctness of this function, i.e., the outputs
+are sorted and a permutation of the inputs.
+</p>
+
+<ol class="org-ol">
+<li>The inequalities <code>1</code> and <code>2</code> shows that the output are sorted in
+ascending order, i.e., <code>y0 &lt;</code> y1 &lt;= y2=.</li>
+
+<li><p>
+The next three equalities <code>4</code>, <code>5</code>, and <code>6</code> (especially <code>5</code> and <code>6</code>)
+are more complex and unexpected, but essentially together they
+indicate that the three outputs represent all possible permutations
+over the three inputs.
+</p>
+
+<ol class="org-ol">
+<li>First, by factoring eqt <code>6</code>, we get</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-C">x2^3 - x2^2*y0 - x2^2*y1 + x2*y0*y1 - x2^2*y2 + x2*y0*y2 + x2*y1*y2 - y0*y1*y2 == 0 
+&lt;=&gt; (x2 - y0) (x2 - y1) (x2 - y2) == 0
+</pre>
+</div>
+
+<p>
+This shows that <code>x2</code> can be <code>y0</code>, <code>y1</code>, or <code>y2</code>, i.e., <code>x2 =</code> y0= ,
+<code>x2 =</code> y1=, <code>x2 =</code> y2=. Then for each of the cases, we combine with
+equality <code>5</code> and then factor it to obtain values for <code>x1</code>. For
+example, for <code>x2=y0</code>, we get
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">(x2 == y0) <span style="color: #a626a4;">and</span> (x1^2 + x1x2 + x2^2 - x1y0 - x2y0 - x1y1 - x2y1 + y0y1 - x1y2 - x2y2 + y0y2 + y1y2 == 0)
+&lt;=&gt; (x1^2 - x1y1  - x1y2 + y1y2 == 0) &lt;=&gt; (x1 - y1) (x1 - y2) == 0
+</pre>
+</div>
+
+<p>
+This shows that <code>x1 =</code> y1= or <code>x1 =</code> y2= when <code>x2 =</code> y0=. We now can
+combine each case with equality <code>3</code> to obtain <code>x0</code>. For example, for
+<code>x1 =</code> y2=, we get
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">x2 == y0 and x1 == y2 and x0 + x1 + x2 - y0 - y1 - y2 == 0 
+&lt;=&gt; x0 - y1 == 0 
+</pre>
+</div>
+
+<p>
+This shows that <code>x0 =</code> y1= when <code>x1 =</code> y2= and <code>x2 =</code> y0=. Moreover,
+this result, <code>x0 =</code> y1=, <code>x1 =</code> y2]=, <code>x2 =</code> y0=, is a permutation of
+the three inputs.
+</p>
+
+<p>
+If we expand all cases as shown, we will obtain all 6 permutations of
+<code>x1,x2,x3</code>.
+</p></li>
+
+<li>Invariants <code>6</code> and <code>7</code> shows that <code>y0</code> and <code>y2</code> are the smallest and
+largest inputs, respectively. Technically, these are redundant
+because we can deduce them from the other invariants (which capture
+sortedness and permutations). But DIG still returns <code>6</code> and <code>7</code>
+because it might not be straightforward to understand the other
+invariants and realize that together they imply <code>6</code> and <code>7</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-dynamic-inference" class="outline-2">
+<h2 id="dynamic-inference"><span class="section-number-2">2.</span> <span class="todo TODO">TODO</span> Dynamic Inference</h2>
+<div class="outline-text-2" id="text-dynamic-inference">
+</div>
+
+<div id="outline-container-equation-solving" class="outline-3">
+<h3 id="equation-solving"><span class="section-number-3">2.1.</span> <span class="todo TODO">TODO</span> Equation Solving</h3>
+<div class="outline-text-3" id="text-equation-solving">
+</div>
+</div>
+
+<div id="outline-container-deep-neural-network" class="outline-3">
+<h3 id="deep-neural-network"><span class="section-number-3">2.2.</span> <span class="todo TODO">TODO</span> Deep Neural Network</h3>
+<div class="outline-text-3" id="text-deep-neural-network">
+</div>
+</div>
+</div>
+
+<div id="outline-container-static-proving" class="outline-2">
+<h2 id="static-proving"><span class="section-number-2">3.</span> <span class="todo TODO">TODO</span> Static Proving</h2>
+<div class="outline-text-2" id="text-static-proving">
+</div>
+
+<div id="outline-container-proving-invariants" class="outline-3">
+<h3 id="proving-invariants"><span class="section-number-3">3.1.</span> Proving Invariants</h3>
+<div class="outline-text-3" id="text-proving-invariants">
+<p>
+Consider the program <code>sqrt</code> below, which computes the square root of an
+integer using only addition. Our goal is to infer the loop invariants at
+location <code>l</code> in the program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #986801;">int</span> <span style="color: #a626a4;">sqrt</span>(<span style="color: #986801;">int</span> <span style="color: #6a1868;">x</span>){
+  assert(x&gt;=0); <span style="color: #9ca0a4;">//</span><span style="color: #9ca0a4;">precondition</span>
+
+  <span style="color: #986801;">int</span> <span style="color: #6a1868;">a</span>=0,<span style="color: #6a1868;">s</span>=1,<span style="color: #6a1868;">t</span>=1;
+  <span style="color: #e45649;">while</span>{
+    <span style="color: #9ca0a4;">// </span><span style="color: #9ca0a4;">l: dynamically inferred invariants</span>
+    <span style="color: #9ca0a4;">/*</span>
+<span style="color: #9ca0a4;">    t =  2a + 1</span>
+<span style="color: #9ca0a4;">    4s = t^2 + 2t + 1</span>
+<span style="color: #9ca0a4;">    s = (a + 1)^2</span>
+<span style="color: #9ca0a4;">    s &gt;= t</span>
+<span style="color: #9ca0a4;">    x &lt;=  9989</span>
+<span style="color: #9ca0a4;">    */</span>
+    <span style="color: #e45649;">if</span> (<span style="color: #4078f2; font-weight: bold;">!</span>(s &lt;= x)) <span style="color: #e45649;">break</span>;
+    a += 1;
+    t += 2;
+    s += t;
+  }
+  <span style="color: #e45649;">return</span> a;
+}
+</pre>
+</div>
+
+<p>
+The invariants given in the comments are <i>candidate</i> invariants inferred
+using dynamic analysis over some program execution traces, which are
+obtained by running the program on some finite inputs. To determine if
+these candiate invariants are valid, we need to formally prove them:
+ones that are proved are kept and those that are disproved are removed.
+</p>
+</div>
+</div>
+
+<div id="outline-container-inductive-loop-invariants" class="outline-3">
+<h3 id="inductive-loop-invariants"><span class="section-number-3">3.2.</span> <span class="todo TODO">TODO</span> Inductive Loop invariants</h3>
+<div class="outline-text-3" id="text-inductive-loop-invariants">
+<p>
+A loop invariant is a property that is hold whenever the progarm enters
+the loop, e.g., any property that holds at location <code>l</code> is the loop
+invariant of the <code>while</code> loop in the <code>sqrt</code> program above. One popular
+way to show if a property <code>I</code> is a loop invariant is using <i>standard
+induction</i> technique, which consists of two parts 1. we shows that <code>I</code>
+holds the first time the loop is entered 2. we assume that <code>I</code> holds
+when the loop is entered and shows that <code>I</code> is preserved after the loop
+body is executed.
+</p>
+
+<p>
+Loop invariants that are showed using such an induction technique are
+called <b>inductive loop invariants</b>. Note that if this induction
+technique fails (e.g., either 1 or 2 or both fail), then that just means
+standard induction cannot prove the property. It does not mean that the
+property is not a loop invariant as there are invariants that <i>cannot</i>
+be proved using induction (more on this later).
+</p>
+
+<p>
+<b>Example</b>: For the program <code>sqrt</code>, we prove that <code>t =</code> 2a + 1= and
+<code>4s =</code> t<sup>2</sup> + 2t + 1= are inductive loop invariants:
+</p>
+
+<pre class="example" id="org92f972a">
+# t == 2a + 1:
+1. (x &gt;= 0 &amp;&amp; a == 0 &amp;&amp; s == 1 &amp;&amp; t == 1)  =&gt; t == 2a + 1  # checked
+2.  (t == 2a + 1 &amp;&amp; s &lt;= x &amp;&amp; a' == a + 1 &amp;&amp; t' == t + 2 &amp;&amp; s' == s + t')  
+    =&gt; t' == 2a + 1 + 2 =&gt;  t' == 2(a' - 1) + 3 
+    =&gt; t' == 2a' + 1   #checked
+
+# 4s == t^2 + 2t + 1  # checked
+1. (x &gt;= 0 &amp;&amp; a == 0 &amp;&amp; s == 1 &amp;&amp; t == 1)  =&gt; 4s == t^2 + 2t + 1
+2. (4s == t^2 + 2t + 1 &amp;&amp; s &lt;= x &amp;&amp; a' == a + 1 &amp;&amp; t' == t + 2 &amp;&amp; s' == s + t') 
+  =&gt; 4(s' - t') == (t' - 2)^2 + 2(t' - 2) + 1 
+  =&gt; 4s' == t'^2 + 2t' + 1  #checked
+</pre>
+
+<p>
+However, we cannot use standard induction to show the other properties
+<code>s =</code> (a + 1)<sup>2</sup>= and <code>s &gt;</code> t=.
+</p>
+
+<pre class="example" id="org2911b0f">
+# s == (a + 1)^2:
+1. (x &gt;= 0 &amp;&amp; a == 0 &amp;&amp; s == 1 &amp;&amp; t == 1)  =&gt; s == (a + 1)^2  # this is ok
+2.  (s == (a + 1)^2 + 1 &amp;&amp; s &lt;= x &amp;&amp; a' == a + 1 &amp;&amp; t' == t + 2 &amp;&amp; s' == s + t')  
+    =&gt; 
+    =&gt; t' == 2a' + 1
+
+# 4s == t^2 + 2t + 1
+1. (x &gt;= 0 &amp;&amp; a == 0 &amp;&amp; s == 1 &amp;&amp; t == 1)  =&gt; 4s == t^2 + 2t + 1
+2. (4s == t^2 + 2t + 1 &amp;&amp; s &lt;= x &amp;&amp; a' == a + 1 &amp;&amp; t' == t + 2 &amp;&amp; s' == s + t') 
+  =&gt; 4(s' - t') == (t' - 2)^2 + 2(t' - 2) + 1 
+  =&gt; 4s' == t'^2 + 2t' + 1
+</pre>
+</div>
+</div>
+
+<div id="outline-container-strengthening" class="outline-3">
+<h3 id="strengthening"><span class="section-number-3">3.3.</span> <span class="todo TODO">TODO</span> Strengthening</h3>
+<div class="outline-text-3" id="text-strengthening">
+</div>
+</div>
+
+<div id="outline-container-k-induction" class="outline-3">
+<h3 id="k-induction"><span class="section-number-3">3.4.</span> <span class="todo TODO">TODO</span> K-Induction</h3>
+<div class="outline-text-3" id="text-k-induction">
+<p>
+KIP successfully distinguishes true and false invariants from these
+results. Specifically, we prove are inductive invariants and
+\(s == (a+1)^2\) is a $1$-inductive invariant (i.e., cannot be proved
+using standard induction). By using proved results as lemmas, KIP is
+able to show the invariant \(s \ge t\), which is not $k$-inductive for
+\(k \le \mathsf{maxK}\), where \(\mathsf{maxK}=5\) is the default setting of
+KIP. The prover also rejects spurious relations such as \(x\le 9989\) by
+producing counterexamples that invalidate those relations in &lt;{sqrt}.
+The parallel implementation allows the prover to check these candidate
+results simultaneously.
+</p>
+
+<hr>
+
+<p>
+A program execution can be modeled as a state transition system
+\(M=(I,T)\) with \(I\) representing the initial state of \(M\), and \(T\)
+specifying the transition relation of \(M\) from a state \(n-1\) to a state
+\(n\). To prove that \(p\) is a \emph{state invariant} that holds at every
+state of \(M\), $k$-induction requires that \(p\) hold for the first \(k+1\)
+states (base case) and that \(p\) hold for the state \(n+k+1\) assuming that
+it holds for the \(k+1\) previous states (induction step). Formally,
+$k$-induction proves the state invariant \(p\) of \(M=(I,T)\) by checking
+the base case and induction step formulas:
+</p>
+
+<p>
+\footnotesize
+\begin{align}
+  I &and; T<sub>1</sub> &and; &hellip; &and; T<sub>k</sub> \;&amp;&rArr; \; p<sub>0</sub> &and; &hellip; &and; p<sub>k\label</sub>{kind-1}<br>
+  p<sub>n</sub> &and; T<sub>n+1</sub> &and;  &hellip; &and; p<sub>n+k</sub> &and; T<sub>n+k+1</sub> \;&amp;&rArr; \; p<sub>n+k+1</sub>\label{kind-2}
+\end{align} \normalsize
+</p>
+
+<p>
+\noindent If both formulas hold then \(p\) is a $k$-inductive invariant.
+If the base case~\eqref{kind-1} fails then \(p\) is disproved and thus is
+not an invariant (assuming that \(M\) correctly models the program).
+However, if the base case holds but the induction step~\eqref{kind-2}
+fails, then \(p\) is not a $k$-inductive invariant, but it could still be
+a program invariant. Thus, $k$-induction is a sound but incomplete proof
+technique.
+</p>
+
+<p>
+By considering multiple consecutive transitions, $k$-induction can prove
+invariants that cannot be proved by standard induction ($0$-induction in
+this formulation). For instance, the invariant \(x\ne y\) of the machine
+\(M(I: (x=0 \wedge y=1 \wedge z=2)_0\),
+\(T_n: x_n == y_{n-1} \wedge y_n == z_{n-1} \wedge z_n = x_{n-1}\)) that
+rotates the values \(0,1,2\) through the variables \(x,y,z\) is not provable
+by standard induction but is $k$-inductive with \(k \ge 3\).<br>
+The notation \((P)_i\) denotes the formula \(P\) with all free variables
+subscripted by \(i\), e.g., \((x + y == 1)_0\) is \(x_0 + y_0 == 1\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-optimization" class="outline-2">
+<h2 id="optimization"><span class="section-number-2">4.</span> <span class="todo TODO">TODO</span> Optimization</h2>
+<div class="outline-text-2" id="text-optimization">
+</div>
+
+<div id="outline-container-orgca1cf80" class="outline-3">
+<h3 id="orgca1cf80"><span class="section-number-3">4.1.</span> Using Derivatives to Estimate Maximum Degrees in Nonlinear</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Invariants
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: using-derivatives-to-estimate-maximum-degrees-in-nonlinear-invariants
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-reduction" class="outline-2">
+<h2 id="reduction"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Reduction</h2>
+<div class="outline-text-2" id="text-reduction">
+</div>
+
+<div id="outline-container-groebner-basis" class="outline-3">
+<h3 id="groebner-basis"><span class="section-number-3">5.1.</span> <span class="todo TODO">TODO</span> Groebner Basis</h3>
+<div class="outline-text-3" id="text-groebner-basis">
+</div>
+</div>
+
+<div id="outline-container-constraint-solving" class="outline-3">
+<h3 id="constraint-solving"><span class="section-number-3">5.2.</span> <span class="todo TODO">TODO</span> Constraint Solving</h3>
+<div class="outline-text-3" id="text-constraint-solving">
+<hr>
+</div>
+</div>
+</div>
+
+<div id="outline-container-more-examples" class="outline-2">
+<h2 id="more-examples"><span class="section-number-2">6.</span> More Examples</h2>
+<div class="outline-text-2" id="text-more-examples">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #986801;">int</span> <span style="color: #a626a4;">bressenham</span>(){
+
+
+}
+</pre>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-blog.html">blog</a> <a href="./tag-research.html">research</a> <a href="./tag-invariants.html">invariants</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>
