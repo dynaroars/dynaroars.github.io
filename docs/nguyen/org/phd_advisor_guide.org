@@ -8,9 +8,18 @@ My answers to https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor
 
 ** Advisor Style & Expectations
 1. Does the professor have tenure yet? [engagement level, PhD might get interrupted]
+   A: No, not yet. I am applying for tenure this semester in Spring'23.
+
+   It is worth noting that when I moved from UNL to GMU in 2021, all but 1 of my students who was graduating the next semester came with me.
+   
 1. What is the professor’s formal training / background / PhD? [helps contextualize problems/approaches]
+   A: I did my Ph.D. in CS in the University of New Mexico-Albuquerque.  I started wanting to work on evolutionary computing, and then gradually changed to software engineering and programming languages.
+   
 1. What have previous lab members done after getting their PhD? [Gone to industry?/Post-doc?/Professor?]
+   
 1. What is the lab structure? [how collaborative/disjointed are lab members' projects?]
+
+   
 1. Does the advisor consider themselves a ‘hands-on’ or ‘hands-off’ advisor?
 1. How does the advisor give feedback on papers/what is their feedback style?
 1. How often does the advisor meet with their students? [1:1 or all together? Daily guidance by PI or post-doc?]
