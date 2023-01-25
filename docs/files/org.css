@@ -17,6 +17,23 @@ blockquote p {
   display: inline;
 }
 
+.styled {
+  list-style: none;
+  padding: 0;
+  /* margin: 0.1; */
+}
+
+.styled li {
+  padding-left: 1rem;
+}
+
+.styled li::before {
+  content: attr(data-icon);
+  /* Make slightly larger than the li font-size
+  but smaller than the li grid-gap */
+}
+
+
 @media (prefers-color-scheme: light) {    
     body {
         background: white;
