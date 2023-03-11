@@ -7,8 +7,4 @@ Nguyen's research interests are in Software Engineering and Programming
 Languages, with a focus on the safety and explanability of AI, and
 soundness and complexity of programs. He is the recipient of the Amazon
 Research Awards, NSF CAREER Award, the NSF CRII Award, an ACM SIGSOFT/IEEE TCSE Most
-Influential Paper Award, an ACM SIGEVO Most Impact Award, a Sigma Xi
-Award for Excellence in Research, a CACM Research Highlight, the IFIP
-TC2 Manfred Paul Award for Excellence in Software: Theory and Practice,
-the ACM SIGEVO ``Humies'' Gold Medal Award, a NASA Space Grant Graduate
-Fellowship, and several Distinguished and Best Paper Awards.
+Influential Paper Award, and an ACM SIGEVO Most Impact Award.
