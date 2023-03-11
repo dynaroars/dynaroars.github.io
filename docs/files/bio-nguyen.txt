@@ -6,5 +6,5 @@ University of Maryland-College Park.
 Nguyen's research focuses on the safety and explanability of AI and
 the soundness and complexity of programs. He is the recipient of an
 NSF CAREER Award, an NSF CRII Award, an Amazon Research Award, an ACM
-SIGSOFT/IEEE TCSE Most Influential Paper Award, and an ACM SIGEVO Most
-Impact Award.
+SIGSOFT/IEEE TCSE 10-year Most Influential Paper Award, and an ACM
+SIGEVO 10-year Most Impact Award.
