@@ -4,6 +4,8 @@
 
 
 ## Grades and Test Scores
+> For a Ph.D. in CS , these are somewhat important because you have to meet certain minimum to be considered. Having a good GPA from a *well-known* school helps!  But other than that, other documents including ref letters and your statement are much more important. 
+
 
 - GPA: at least 3.0 in your BS
   - but also consider the rank/prestige of your schools (**if** we know about it)
@@ -31,6 +33,10 @@
 ### Interviewing
 
 
+
+
+### What is the best way to get accepted to a Ph.D. in CS in the US?
+Simply state:  if a professor accepts you as an RA,  you are pretty much set.
 
 
 ## About me
