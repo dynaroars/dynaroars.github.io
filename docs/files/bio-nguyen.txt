@@ -4,7 +4,10 @@ the University of New Mexico-Albuquerque and a postdoc at the
 University of Maryland-College Park.
 
 Nguyen's research focuses on the safety and explanability of AI and
-the soundness and complexity of programs. He is the recipient of an
-NSF CAREER Award, an NSF CRII Award, an Amazon Research Award, an ACM
-SIGSOFT/IEEE TCSE 10-year Most Influential Paper Award, and an ACM
-SIGEVO 10-year Most Impact Award.
+the soundness and complexity of programs. He is the recipient of the
+NSF CAREER Award, the NSF CRII Award, an Amazon Research Award, an ACM
+SIGSOFT/IEEE TCSE 10-year Most Influential Paper Award, an ACM SIGEVO
+10-year Most Impact Award, a Sigma Xi Award for Excellence in
+Research, the IFIP TC2 Manfred Paul Award for Excellence in Software:
+Theory and Practice, the ACM SIGEVO "Humies" Gold Medal Award, and a
+NASA Space Grant Graduate Fellowship.
