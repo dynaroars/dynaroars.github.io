@@ -34,7 +34,7 @@ blockquote p {
 }
 
 
-@media (prefers-color-scheme: light) {    
+@media (prefers-color-scheme: light) {
     body {
         background: white;
     }
@@ -44,7 +44,7 @@ blockquote p {
 }
 
 @media (prefers-color-scheme: dark) {    
-    /* Solarized dark color */    
+    /* Solarized dark color */
     body {
         color: #839496;
         background: #002b36;
