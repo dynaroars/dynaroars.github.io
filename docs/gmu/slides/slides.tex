@@ -1,0 +1,264 @@
+\documentclass{beamer}%[handout]
+% \usetheme{CambridgeUS}
+
+%\usecolortheme{beaver}
+%note option
+%\setbeameroption{show only notes}
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen}
+% \setbeamertemplate{note page}[plain]
+% \setbeamerfont{note page}{size=\scriptsize}
+% \useoutertheme[subsection=false]{miniframes}
+% end note option
+
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{note page}[plain]
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize subsubitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{subsection in toc}[triangle unnumbered]
+\setbeamercolor{item}{fg=darkred}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{itemize/enumerate body begin}{\small}
+\setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
+\setbeamertemplate{footline}{\hfill\insertframenumber\vspace*{0.05in}\hspace*{0.05in}}
+
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{fancybox}
+\usepackage[justification=centering,scriptsize]{caption}
+\usepackage{colortbl}%for onslide uncover
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{multicol}
+\colorlet{darkred}{red!50!black}
+\colorlet{darkgreen}{green!50!black}
+\newcommand{\bluealert}[1]{\textcolor{blue}{#1}}
+\newcommand{\greenalert}[1]{\textcolor{darkgreen}{#1}}
+
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{
+    shapes
+  , shapes.misc
+  , shadows
+  , trees
+  , arrows
+  , arrows.meta
+  , fit
+  , calc
+  , positioning
+  , backgrounds
+  , decorations
+  , decorations.pathmorphing
+  , decorations.text
+  , decorations.pathreplacing
+  , patterns
+  , matrix
+  , shadows
+  , fit
+  , chains
+}
+
+
+\newenvironment<>{mblockvu}[1]{
+  \setbeamercolor{block title}{bg=white,fg=black}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+  \setbeamertemplate{sidebar canvas left}[horizontal shading][left=white!40!black,right=black]
+  \begin{block}#2{#1}}{\end{block}}
+
+
+\newenvironment<>{mblock}[1]{
+  \setbeamercolor{block title}{bg=white,fg=black}
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mredblock}[1]{
+  \setbeamercolor{block title}{bg=red!30,fg=black}
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mblueblock}[1]{
+  \setbeamercolor{block title}{bg=blue!30,fg=black}
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mgreenblock}[1]{
+  \setbeamercolor{block title}{bg=green!30,fg=black}
+  \begin{block}#2{#1}}{\end{block}}
+
+\newenvironment<>{mblock_nsd}[1]{
+  \setbeamercolor{block title}{bg=white,fg=black}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mredblock_nsd}[1]{
+  \setbeamercolor{block title}{bg=red!30,fg=black}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mblueblock_nsd}[1]{
+  \setbeamercolor{block title}{bg=blue!30,fg=black}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \begin{block}#2{#1}}{\end{block}}
+\newenvironment<>{mgreenblock_nsd}[1]{
+  \setbeamercolor{block title}{bg=green!30,fg=black}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \begin{block}#2{#1}}{\end{block}}
+
+\title{Computer Science at George Mason University}
+\author{}
+
+\institute{%George Mason University\\
+  Nguyen Engineering Building\\
+  4400 University Drive\\
+  Fairfax, VA 22030\\
+  \begin{figure}
+    \includegraphics[width=1.in]{graphics/gmu.png}
+  \end{figure}
+}
+
+
+%\date{\tiny{\alert{Virginia Tech, Nov 2022}}}
+\date{}
+
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\section{Introdution}
+\begin{frame}{Outline}
+  \tableofcontents[currentsection,currentsubsection]
+\end{frame}
+
+
+\begin{frame}{About GMU}
+  \begin{itemize}
+  \item Largest Public University in Virginia
+    \begin{itemize}
+    \item 39,000 students
+    \item 130 countries and all 50 states
+    \item R1: Very high research activity
+    \end{itemize}
+  \item Relatively Young
+    \begin{itemize}
+    \item Original founded as a Nova region branch of UVA
+    \item Became independent in 1972 (50 years old in 2022)
+    \end{itemize}
+  \item Multiple locations
+    \begin{itemize}
+    \item Fairfax (main campus)
+    \item Mason Square (Arlington)
+    \item Science and Technology (Manassas)
+    \item Mason Korea (Incheon, Korea)
+    \item and \href{https://info.gmu.edu/campus-information/campuses-sites/}{\bluealert{others}}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Computer Science at GMU}
+  \begin{itemize}
+      \item Faculty: \alert{78} (36 tenured, 21 tenure-track, 21 term)
+        \begin{itemize}
+        \item 38 new faculty (27 tenured/tenure-track, 11 term) during the 3 pandemic years 2020--2022
+%        \item Research in a wide range of areas:
+%          \begin{itemize}cybersecurity, cryptography, systems and networks, machine learning and data mining, artificial intelligence, robotics, mobile computing, natural language processing, theory, databases, bioinformatics, computer graphics, computer vision, HCI, and software engineering
+%        \end{itemize}
+        \end{itemize}
+      \item Students
+        \begin{itemize}
+        \item > 200 Ph.D
+        \item > 1000 M.S (quite big compared to most other schools)
+        \item  > 2200 undergraduate
+        \end{itemize}
+      \item Degrees
+        \begin{itemize}
+        \item Ph.D. in CS
+      \item MS in CS, Information Systems, Information Security Assurance, and Software Engineering
+      \item BS in CS and Applied CS
+        \end{itemize}
+      \item Largest dept in the College of Engineering and Computing
+  \end{itemize}
+
+ 
+\end{frame}
+
+\begin{frame}{Computer Science at GMU}
+  \begin{columns}[c]
+    \begin{column}{0.50\linewidth}
+      \href{https://www.csrankings.org}{\bluealert{CSRankings}}
+      \begin{itemize}
+      \item \alert{33 overall} (highest in Virginia)
+        \begin{itemize}
+        \item 10 in SE
+        \item 20 in graphics
+        \item 21 in mobile computing
+        \item 25 in security
+        \item 26 in robotics
+        \item 29 in AI
+        \end{itemize}
+      \item top 30 in the last 5 years
+      \end{itemize}
+      \href{https://cs.gmu.edu/about/faculty-awards/}{\bluealert{Research Awards}}
+      \begin{itemize}
+      \item 7 ACM and IEEE fellows
+      \item 27 NSF CAREER Awards  
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.50\linewidth}
+Wide-range research areas      
+      \begin{itemize}
+      \item HCI, software engineering, programming languages
+      \item security, cryptography, theory
+      \item robotics, systems and networks, databases, mobile computing 
+      \item NLP, AI, ML and data mining
+      \item computer graphics and vision
+      \item bioinformatics, formal methods
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{PH.D. Admission Info}
+  \begin{columns}[t]
+    \begin{column}{0.50\linewidth}
+      Application Process
+      \begin{itemize}
+      \item \textbf{Two} Reference Letters
+      \item \textbf{Do NOT} require GRE
+      \item International students 
+        \begin{itemize}
+        \item English tests through TOEFL/IELTS or Duolingo
+        \item NOT required for students from the US and many other countries 
+        \end{itemize}
+      \item Eligible for \textbf{Presidential Scholarship}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.50\linewidth}
+      GTAs
+      \begin{itemize}
+      \item \textbf{\$28K} 9-month stipend for GTA (\emph{guaranteed} for 4 years)
+      \item \textbf{\$9K} summer stipend for \emph{first year} GTA
+        \begin{itemize}
+        \item 37K first year when you haven't found an advisor
+        \end{itemize}
+      \item Tuition Wavier / Health Insurance / other benefits typical for R1 univs
+      \end{itemize}
+      GRAs
+      \begin{itemize}
+        \item Depend on advisor but at least as good as GTAs
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
