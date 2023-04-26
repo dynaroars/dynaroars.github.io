@@ -1,6 +1,5 @@
-\documentclass{beamer}%[handout]
+\documentclass[xcolor=dvipsnames]{beamer}%[handout]
 % \usetheme{CambridgeUS}
-
 %\usecolortheme{beaver}
 %note option
 %\setbeameroption{show only notes}
@@ -26,7 +25,17 @@
 \setbeamertemplate{itemize/enumerate body begin}{\small}
 \setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
 \setbeamertemplate{footline}{\hfill\insertframenumber\vspace*{0.05in}\hspace*{0.05in}}
+\setbeamercolor{background canvas}{bg=Dandelion}
+%\setbeamercolor{foreground canvas}{fg=yellow}
+\setbeamercolor{palette primary}{fg=darkgreen}
+\setbeamercolor{palette secondary}{fg=darkgreen}
+%% \setbeamercolor{palette tertiary}{bg=darkgreen,fg=white}
+%% \setbeamercolor{palette quaternary}{bg=darkgreen,fg=white}
+\setbeamercolor{structure}{fg=darkgreen} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=darkgreen} % TOC sections
 
+% Override palette coloring with secondary
+%\setbeamercolor{subsection in head/foot}{bg=UBCgrey,fg=white}
 \usepackage{amsmath,amssymb}
 \usepackage[T1]{fontenc}
 \usepackage{url}
@@ -35,7 +44,7 @@
 \usepackage[justification=centering,scriptsize]{caption}
 \usepackage{colortbl}%for onslide uncover
 \usepackage{cancel}
-\usepackage{color}
+
 \usepackage{multicol}
 \colorlet{darkred}{red!50!black}
 \colorlet{darkgreen}{green!50!black}
@@ -170,7 +179,7 @@
       \item Students
         \begin{itemize}
         \item > 200 Ph.D
-        \item > 1000 M.S (quite big compared to most other schools)
+        \item > 1000 M.S (quite big compared to most schools)
         \item  > 2200 undergraduate
         \end{itemize}
       \item Degrees
@@ -185,7 +194,7 @@
  
 \end{frame}
 
-\begin{frame}{Computer Science at GMU}
+\begin{frame}{CS Research}
   \begin{columns}[c]
     \begin{column}{0.50\linewidth}
       \href{https://www.csrankings.org}{\bluealert{CSRankings}}
@@ -222,7 +231,7 @@ Wide-range research areas
 \end{frame}
 
 
-\begin{frame}{PH.D. Admission Info}
+\begin{frame}{Ph.D. Admission Info}
   \begin{columns}[t]
     \begin{column}{0.50\linewidth}
       Application Process
@@ -255,6 +264,32 @@ Wide-range research areas
   \end{columns}
 \end{frame}
 
+
+
+\begin{frame}{Faculty Candidates: Why join CS@GMU?}
+      \begin{itemize}
+      \item Reputation, quality, quantity steadily increase
+        \begin{itemize}
+        \item CSRankings: 70 in '18,  60 in '21, 50 in '22, 33 in '23
+        \item Faculty: double in size in past 3 years (78 total, 38 are new '20--'22)
+        \item You will likely get your top student recruits
+        \end{itemize}
+      \item Close to funding agencies NSF, DoD, NIH; New Amazon HQ2
+        \begin{itemize}
+        \item that means internships and opportunies for your students (or even yourself, e.g., Amazon Scholar program)
+        \end{itemize}
+      \item Many generous internal and in-state grants (e.g., VA Initiatives)
+      \item 1-semester study leave before tenure
+      \item Flexible course scheduling: 2,3 days / week or 1 day / week
+      \item Beginning in 2024, university will pay GRA tuition        
+      \item On-campus living for faculty (Masonvale) and daycare for your kids
+      \item Vibrant and helpful Slack channels!
+        \begin{itemize}
+        \item questions about NSF?  We have in-house ex-NSF directors
+        \item interested in Industrial funding?  Our faculty win Amazon/Google/Meta awards every year
+        \end{itemize}
+      \end{itemize}
+\end{frame}
 
 \end{document}
 
