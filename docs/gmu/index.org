@@ -1,12 +1,12 @@
-#+TITLE: Student Recruitment
+#+TITLE: CS@GMU stuff
 #+date: <2021-06-13 08:02>
 #+HTML_HEAD: <link rel="stylesheet" href="https://dynaroars.github.io/files/org.css">
 
 
 #+begin_quote
-contains various stuff I've collected for GMU documentation
+contains various stuff I've collected for GMU
 #+end_quote
 
 - about/stats
-- templates for: letter (e.g., reference letter), presentation (latex beamer), thesis (latex)
+- templates for: [[./letter/][letter]] (e.g., reference letter), presentation (latex beamer), thesis (latex)
 - annual evaluation form (LaTeX)
