@@ -5,8 +5,8 @@
 %\usepackage{palatino}
 \usepackage[T1]{fontenc}
 \usepackage{cite}
-\usepackage{caption}
-\captionsetup{font=small}
+%\usepackage{caption}
+%\captionsetup{font=small}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{amsmath}
@@ -291,38 +291,54 @@ GMU has Virtual Open House, e.g., \url{https://cs-gmu.github.io/cs-phd-voh-s23/}
 \section{Funding}
 
 As mentioned, if you're admitted to a \emph{good} CS PhD program, you should not have to worry about funding!  
-In the US, the common types of funding for PhD (in any fields) are \emph{graduate teaching assistant} (GTA or TA), \emph{graduate research assistant} (GRA or RA), and \emph{Fellowship}. Tab.~\ref{tab:funding} summaries the differences.
+In the US, the common types of funding for PhD (in any fields) are \emph{graduate teaching assistant} (GTA or TA), \emph{graduate research assistant} (GRA or RA), and \emph{Fellowship}.
+RA is the type of funding paid by a prof. for you to do research. TA is paid by the department for you to help with teaching. Finally, fellowship is an independent type of funding that can come from a company, organization, or even the university.
+Tab.~\ref{tab:funding} summaries the differences.
 
-|                      | GTA                      | GRA                             | Fellowship                            |
-|----------------------+--------------------------+---------------------------------+---------------------------------------|
-| /                    | <                        | <                               | <                                     |
-| From                 | School                   | Profs.                          | External                              |
-| For                  | Teaching assistant       | Research                        | Research                              |
-| Tuition/Ins./Stipend | Yes                      | Yes                             | Yes                                   |
-| Summer?              | No                       | Maybe                           | Yes                                   |
-| Pros                 | Research Freedom         | Get to do research              | Research Freedom                      |
-| Cons                 | TA, Uncertain            | Research restriction, Uncertain | Very competitive, limited             |
-|----------------------+--------------------------+---------------------------------+---------------------------------------|
-|                      |                          |                                 |                                       |
+\begin{table}
+  \centering
+  \caption{Different types of fundings}\label{tab:funding}
+  \begin{tabular}{c|r|r|r}
+    \toprule
+    \textbf{From} & School & Profs. & Ext.\\
+    \textbf{For}                  & Teaching assistant       & Research                        & Research                              \\
+    \textbf{Tuition/Ins./Stipend} & Yes                      & Yes                             & Yes                                   \\
+    \textbf{Cover Summer?}              & No                       & Maybe                           & Yes                                   \\
+    \midrule
+    \textbf{Pros}                 & Research Freedom         & Get to do research              & Research Freedom                      \\
+    \textbf{Cons}                 & TA, Uncertain            & Research restriction, Uncertain & Competitive, limited             \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% |                      | GTA                      | GRA                             | Fellowship                            |
+%% |----------------------+--------------------------+---------------------------------+---------------------------------------|
+%% | /                    | <                        | <                               | <                                     |
+%% | From                 | School                   | Profs.                          | External                              |
+%% |----------------------+--------------------------+---------------------------------+---------------------------------------|
+%% |                      |                          |                                 |                                       |
 
 
-** TA/RA
+\subsection{Graduating Assistantship (TA/RA)}
 The most common type of funding is *graduate assistanship*, which is either TA or RA. Both come with
-1. Tuition waiver: you don't have to pay tutition
-2. Health insurance: you don't have to worry your health in general (in the US, having insurance is a must!)
-3. Stipend: your salary  
-  - The amount of stipend depends on the university, which in turns depend on location (e.g., a stipend in Washington DC is likely higher than in Lincoln, Nebraska due to higher living cost)
-  - Because a school year is (typically) 9-month in the US, so stipend is for 9 months (so divide by 9 for each month)
-  - You have to pay tax on your stipend (you have to pay tax for almost every source of income in the US)
-  - Private universities might pay more for stipend    
-- Some universities also pay insurance for spouse/chilren (or give very good discount)
-
+\begin{itemize}
+\item Tuition waiver
+\item Health insurance: in the US, having insurance is a must!
+\item Stipend: your salary
+  \begin{itemize}
+  \item The amount of stipend depends on the university, which in turns depend on location (e.g., a stipend in Washington DC is likely higher than in Lincoln, Nebraska due to higher living cost)
+  \item Because a school year is (typically) 9-month in the US, so stipend is for 9 months (so divide by 9 for each month)
+  \item You have to pay tax on your stipend (you have to pay tax for almost every source of income in the US)
+  \item Private universities might pay more for stipend
+  \end{itemize}
+\item Some universities also pay insurance for spouse/chilren (or give very good discount)
+\end{itemize}
 
 \begin{tcolorbox}[left=1pt,right=1pt,top=1pt,bottom=1pt]
-At GMU, TA and RA have similiar benefits in tuition waiving and insurance.  For stipend, depending on the college and department, the university recommends a 9-month graduate assistant stipend, e.g., $28K as of 2023 for CS. TA and RA will usually be that ammount (TA will definitely be that, RA might flunctuate a bit depending on the stage of the student and the prof.). 
+At GMU, TA and RA have similiar benefits in tuition waiving and insurance.  For stipend, depending on the college and department, a 9-month graduate assistant stipend is set, e.g., \$28K as of 2023 for CS. TA and RA will usually be that ammount (TA will definitely be that, RA might flunctuate a bit depending on the stage of the student and the prof.). 
 \end{tcolorbox}
 
-*** Teaching Assistant (TA)
+\subsubsection{Teaching Assistant (TA)}
 - is paid through the department
 - helps with teaching class (typically grading)
 - works with various courses and professors (not necessary their advisor)
@@ -331,7 +347,7 @@ At GMU, TA and RA have similiar benefits in tuition waiving and insurance.  For 
 - *Thought*: GTA is common in the beginning, when you haven't found your advisor.  But even if you get GRA, you should do GTA at least a semester or two, just to see how teaching is like (and very helpful if you're interested in an academc career).
 
 \begin{tcolorbox}[left=1pt,right=1pt,top=1pt,bottom=1pt]
-At GMU CS, students admitted with TA (most common) have  4 years of GTA guaranteed (and also receive a 9K stipend for the *first* summer).
+At GMU CS, students admitted with TA (most common) have  4 years of GTA guaranteed (and also receive a \$9K stipend for the *first* summer).
 \end{tcolorbox}
 
 \subsection{Research Assistant (RA)}
