@@ -1,0 +1,116 @@
+CSCE 425/825: Compilers
+
+Spring 2021
+
+---
+1. My favorite part of the class was talking about optimizations and memory management of languages (even though I probably wasn’t very good at it). My least favorite part of the class was dealing with Ocaml and Ocaml errors. I would consider using a more familiar language, after lexing and parsing phase as Ocaml was actually really useful for these, but still one that would fit it well like C. Not sure if this would exactly be better though and learning a new language should always be encouraged.
+
+2. Advice to take this class – “learn Ocaml, in and out, as much as you possibly can early before it’s too late”.
+
+
+---
+
+1. I, overall, enjoyed the use of OCaml for this course. It certainly made things easier than if I would have had to, for instance, use Python or C/C++ (though if I could have used Common Lisp. . . ). The general topic of Type Systems was, to me the most interesting, and helped as I re-thought some material from [4]. However, during the section on parsing, a bit more coverage of how LALR parsers operate would be quite helpful — the tool we used to write our parser uses LALR grammars, and understanding how they operate would have helped to debug it a bit more easily (though, I wonder if a PEG would be easier to use/teach, or if using Menhir would be slightly better).
+
+2. I’ll write both:
+Advertisement: This course is tremendously helpful in understanding better how tools you use every day (like compilers or interpreters) operate, and will give insight into some of the errors you may get. Aside from that, for those interested in low-level hardware, the coverage of optimization can be very helpful.
+
+Advice: OCaml offers a system for documented interfaces and clean modularization. Learning how to use this will be very helpful, particularly in later assignments, as, if used carefully, will enable you to re-use code that you’ve written and will simplify later assignments. For instance, when you write parse tree serialization code, write de-serialization code to go along with it and place it in a reusable module.
+
+
+---
+
+1. My favorite part of the class is that the professor takes notes at the same time he’s teaching. This helps me just follow without having to take notes myself as the professor’s note are posted online. Least favorite part of the class is working remotely especially if you decide to work in groups.
+
+2. This class will teach you a lot of different cool topics of computer science. As the name suggest it is more about building compilers but along the way you learn lexing & parsing which are used in a lot of different fields of CS (ex: input handling), automata theory, functional language (OCAML) and so on. You will also gain a lot of programming experiance from programming assignment as a lot of coding tutorials are provided for those assignments. At the end of the class you will have built a compiler for turing complete language and not a lot of CS students have accomplished that.
+
+
+--- 
+
+1. I wish you would go more in-depth on parsing algorithms, and have PAs on implementing GC, optimization, code generation.
+
+2. Programming assignments are really fun. By the end of course, you have written a fully functional compiler/interpreter from scratch.
+
+---
+
+1. I really enjoyed the programming assignments. It is one thing to hear about the theory of how compilers are made, but another entirely to put it into practice yourself. It is so cool, at the end of the course, to essentially have a compiler that you made yourself. As for what I liked the least, that would be the typing rules. it could be that I struggled to understand it a little more, and the related PA was very difficult for me, but compared to the rest of the course, that was my least favorite subject. It was still interesting to learn about what it was and how it worked to make the compiler work but it was rather difficult for me to understand.
+
+2. Start PA4 earlier than you think you should. In my opinion, it is the hardest of them and requires some serious time to sit down and get everything down and working. It is a pretty drastic change from the previous assignments and requires a lot of boiler plate to get working.
+
+
+
+Spring 2020
+
+
+1.  My favorite part of the class was learning about the formalism and implementation of typing and semantic rules.  Having the test cases for the later assignments made a huge difference, and I think it would be useful to have test cases for all of the assignments.  It doesn't really take away the challenge of implementing anything, but it helps demonstrate the functional expectations of eachcompiler stage.
+
+2.  If using ocamllex and ocamlyacc, I recommend hooking the lexer directly into the parser (as in-tended) rather than following the serialization-deserialization method specified in the assignments.
+
+---
+
+1. Favorite: programming assignments. Least:the handwriting of the online slides. Favorite topic: optimization. The professor could share more related references about the compiler.
+
+
+2. If you want to know the secrets behind the code you are writing,you should take this course.
+
+---
+
+1. The last part (after type-checking) of the course was very interesting. I wish we had gone through code generation, since that's really the main part of a compiler, though I do understand that we ran out of time...
+
+2. Functional programming should be a selling point of this course. I have never used any functional programming languages in the past, and I think it is extremely underrated. Also, it might be helpful to incorporate a bit more Ocaml material into the course. I did not do PA1 in Ocaml, and I regret. I think it is in the students favor to make doing PA1 in Ocaml mandatory.
+
+
+---
+1. My favorite part of the class was the Optimization section. I thought it was really neat and it was interesting to see the process that the compiler went through to make our code as efficient as possible. In the future I would suggest providing all of the instructor test cases to students at the start of the assignment. The reason behind this thought is that it's better for the student to keep on working and fixing problems with their compiler, rather than just turning it into thinking it's right. More learning happens by constantly improving the program and most of the less-obvious test case failures require looking at the manual anyways to understand the expected behavior, so you would still be encouraging students to read the manual.
+
+2. Advice: Make sure that you read over the Cool reference manual. While it may seem tedious, it's very useful for most of the class if you get used to it. It also informs you of a lot of Cool's edge cases that you might not normally test for when you're performing your normal testing, but will be tested by the instructor test cases. The instructor test cases will cover every inch of the Cool manual relevant to the current assignment - so make sure that you have taken into account everything there.
+
+---
+1. It might be extremely useful to summarize what we have done after each implementation of the compiler's stages. To point out important moments in PA (what this stage is about and it isn't expected to accomplish, to repeat how theory is put into practice). Also, it would be very interesting to hear comparison with compilers of other modern languages (how do they achieve the same). I understand that it is probably hard to achieve because the schedule is quite dense, but it would be nice to have live coding on OCaml to learn some tricks or at least to know about them at the start of the course.
+
+2. You should definitely play with OCaml before the start of this course. The better you understand functional languages' paradigms the easier the course would be. But it doesn't mean it would be easy even if you're having a good "functional" experience. It requires some efforts, but the course is surely worth taking.
+
+---
+
+1. One of my favorite aspects of this class was being able to learn about the fundamentals of a programming language in an interactive hands-on way.  I was able to learn the details of how a programming language works "under-the-hood" which I would otherwise take for granted in everyday use.
+One of my least favorite aspects of this class was having to learn about the fundamentals of a programming language in an interactive hands-on way.  A real programming language compiler was developed over the course of the semester as programming assignments, and I feel that the translation from theoretical computer science to real-world code was too difficult given the time and more guidance and hints outside of Wes Weimer's guides would have been of monumental assistance.  It did help that the professor was flexible with the deadlines which helped overcome this to an extent.
+
+2. I would advise future students taking this course to most certainly start your PA's as soon as possible,because the assignments are an extremely time-consuming challenge, even with a large group.  It would also help if your other courses for the semester have a lighter course load, as you will appreciate that towards the middle of the semester!
+
+---
+
+1. Favorite part of the class: THe content was by far my favorite thing about it.
+Least favorite: Working remotely with our teams, I hope you don't have to do this next year.
+
+2.You must make sure you and your group have an excellent understanding of the abstract syntax tree before PA3. It's what all other PAs are based off of and you're going to have a VERY bad time if you don't figure it out. Ask him to go over complete examples of an example COOL object.
+
+
+---
+
+1. I enjoyed the ability to work with a group for most of the assignments in this class, by myself I would not have been able to complete all of the work.  I really do enjoy the theory behind compilers and what goes into reading and writing code automatically, the caveat being that programmatically, they are very complex and difficult to write.  To do this course properly, it will probably take up more time than any other course you take.  I appreciated your ability to be flexible with deadlines, I personally feel that deadlines should matter less as long as the students try their best to hand in solid work.  In the future, I think I would try to allow for larger groups to work together, because these really are challenging assignments that require a lot of thought.
+
+
+2. If you believe you are a great computer science student, and if the subject of compilers interests you, you should take this class.  It may very well be one of the most difficult classes you take here, but if you put the time in to really do the class properly, you may find it to be one of the most rewarding classes as well.
+
+---
+
+1. My favorite part of this class is the programming assignments. Once we get the same output as cool gets, it encourages us to finish other parts/rules. However, it is a little too much to work for PAs. If force student to use OCaml for PA1 may help students study about OCaml.
+
+2. Read example code and manual for Cool. It is useful when doing PAs. Ask prof if you don't understand clearly. As earlier you ask, as your PAs getting more processes.
+
+---
+
+1. Favorite aspect: Programming Assignments
+Least favorite: None
+Favorite Topic: Type checking
+Favorite things the professor did do: Explanations with code examples
+What would you change for next time: Including programming assignment on optimization.
+
+2. you should take this class because you will start seeing the languages (programming or otherwise) from a machine's perspective, blurring the lines that differentiates them
+
+---
+1. My favorite aspect is the programming assignments.  They help me sharpen my skills in programming and debugging. The least aspect is the documents for Cool and for those assignments are poorly written.  My favorite topic is about type checking and operational semantics because I haven't known about them.  In this class, professor did not ask us to do everything from scratch, he provided tools to utilize but he also allowed us to use whatever language we liked. Next time, there should be a description of what kind of language would be most useful in this course (Ocaml).
+
+2. My advice is:  Open your mind,  learn new languages (Ocaml and of course,  Cool) and prepare for PA4 and PA5earlier because they are super long
+
+------
