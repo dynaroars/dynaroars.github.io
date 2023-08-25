@@ -1,0 +1,978 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+%% \usepackage{fontspec}
+%% \defaultfontfeatures{Ligatures=TeX
+%}
+%\usepackage[utf8]{vietnam}
+%\usepackage[vietnam]{babel}
+\usepackage{microtype}
+\usepackage[backend=bibtex,doi=false,isbn=false,maxcitenames=10,maxbibnames=10,abbreviate=false,style=alphabetic]{biblatex}
+\addbibresource{cv.bib}
+%\usepackage[small,compact]{titlesec} %very powerful
+\usepackage{fontawesome}
+%\usepackage{mathpazo}
+%\usepackage{pifont}
+%% \usepackage{setspace}
+%% \linespread{1.1}
+\usepackage{xcolor}  
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\setitemize{topsep=0pt,parsep=0pt,partopsep=0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+
+\newtoggle{usecoe}
+\settoggle{usecoe}{false}
+\newcommand{\coe}[1]{\iftoggle{usecoe}{#1}{}}
+\newcommand{\notcoe}[1]{\nottoggle{usecoe}{#1}{}}
+\newcommand{\coeite}[2]{\iftoggle{usecoe}{#1}{#2}}  
+\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\faPencil{} \scriptsize \color{darkgray}Last updated on #1}}
+
+\notcoe{
+  \usepackage{graphicx}
+  \usepackage{wrapfig}
+}
+\usepackage{complexity}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+  hidelinks %set true if you want colored links
+}
+
+\usepackage[margin=0.8in]{geometry}
+
+\newcommand{\myname}{ThanhVu (Vu) Huy Nguyen}
+\newcommand{\mynamevn}{Nguy$\tilde{\hat{\text{e}}}$n Huy ThanhV$\tilde{\text{u}}$}
+\newcommand{\myemail}{nguyenthanhvuh@gmail.com}
+\newcommand{\myemailwork}{\href{mailto:tvn@gmu.edu}{tvn@gmu.edu}}
+\newcommand{\mylab}{\href{https://go.gmu.edu/dynaroars}{go.gmu.edu/dynaroars}}
+\newcommand{\mysoftware}{\href{https://github.com/dynaroars}{github.com/dynaroars}}
+\newcommand{\mygooglescholar}{\href{https://scholar.google.com/citations?user=TLcVQ-MAAAAJ}{Google Scholar}}
+\newcommand{\mygrant}[1]{\item~\label{#1} \fullcite{\detokenize{#1}}}
+\newcommand{\mypubcc}[1]{\item~\label{#1} \fullcite{\detokenize{#1}c}}
+\newcommand{\mypubc}[2]{\item~\label{#1} \fullcite{#1c}\coe{, contribution #2}}   %label,contribution percentage (optional)
+\newcommand{\beforegmu}{\textbf{Before GMU}}
+\newcommand{\beforephd}{\textbf{Before PhD}}
+%\newcommand{\atunl}{At UNL (Fall'16--Spring'21)}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  \textbf{\LARGE \myname{}'s Curriculum Vitae}
+\end{center}
+
+\vspace{0.1in}
+\begin{minipage}{.40\textwidth}
+  \footnotesize
+  \begin{itemize}[label={}]
+  \item Department of Computer Science\\
+    George Mason University\\
+    4400 University Drive\\
+    Nguyen Engineering Building \#4430\\
+    Fairfax, VA 22030
+  \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{.40\textwidth}
+  \footnotesize
+  \begin{itemize}[label={}]
+  \item \faEnvelope{} \myemailwork{}
+%  \item \faGroup{} \myweb{}
+  \item \faHome{} \mylab{}
+  \item \faGithub{} \mysoftware{}  
+  \end{itemize}
+\end{minipage}
+
+
+%\tableofcontents
+%\updateinfo{}
+  
+%\newpage
+%\setcounter{page}{1}
+
+\vspace{0.2in}
+\begin{tcolorbox}[colback=white,colframe=gray,center,boxrule=0.2pt,width=0.98\textwidth]
+\small \textbf{Bio}: \input{../files/bio-nguyen.txt}
+\end{tcolorbox}
+\section{Education and Employment History}
+\subsection{Academic Degrees}
+
+\begin{itemize}
+%% \item \textbf{Postdoc}, Computer Science,  \href{https://www.umd.edu}{University of Maryland}, College Park, MD\hfill 2014--2016
+%%   \begin{description}
+%%   \item Mentor: Jeff Foster
+%%   \end{description}
+
+
+\item \textbf{PhD}, Computer Science,  \href{https://www.unm.edu}{University of New Mexico}, Albuquerque, NM\hfill 2007--2014
+  \begin{description}[before=\small]
+  \item Advisers: Stephanie Forrest and Deepak Kapur
+  \end{description}
+  
+\item \textbf{MS}, Computer Science,  \href{https://www.hbg.psu.edu}{Penn State University}, Harrisburg, PA\hfill 2003--2006
+  \begin{description}[before=\small]
+  \item Adviser: Thang N. Bui
+  \end{description}
+  
+\item \textbf{BS}, Computer Science, \href{https://www.psu.edu}{Penn State University}, University Park, PA \hfill 1999--2003
+  %\vspace{0.1in}
+
+%% \item \textbf{High School}
+%%   \begin{itemize}
+%%   \item \href{https://www.bishopmcdevitt.org/mcd/}{Bishop McDevitt}, Harrisburg, PA \hfill 1997--1999
+%%   \item \href{https://www.mckinley.k12.hi.us/}{McKinley High School}, Honolulu, HI \hfill 1995--1997  
+%%   \end{itemize}
+%%   \vspace{0.1in}  
+
+%% \item \textbf{Middle School}
+%%   \begin{itemize}
+%%   \item Central Intermediate (now \href{https://www.keelikolanimiddle.org}{Ke'elikolani Middle School}), Honolulu, HI\hfill 1993--1995
+%%   \item \href{http://colette.edu.vn/}{Colette}, Saigon, VN\hfill 1991--1993
+%%   \end{itemize}
+  
+\end{itemize}
+
+
+\subsection{Academic Positions}
+
+\begin{itemize}
+    
+\item Assistant Professor, Computer Science, \href{https://cs.gmu.edu}{George Mason University} (GMU)\hfill 2021--current  
+\item Assistant Professor, Computer Science, \href{https://computing.unl.edu}{University of Nebraska-Lincoln} (UNL)\hfill 2016--2021
+\item Postdoc, Computer Science,  \href{https://www.umd.edu}{University of Maryland}, College Park, MD\hfill 2014--2016
+\begin{description}[before=\small]
+\item Mentor: Jeff Foster
+\end{description}
+\item Research Assistant, Computer Science, \href{https://www.cs.unm.edu}{University of New Mexico} (UNM)\hfill 2007--2014
+\end{itemize}
+
+\subsection{Industrial and Government Positions}
+\begin{itemize}
+\item Internship, Information Technology Division, \href{https://www.nrl.navy.mil}{Naval Research Laboratory}\hfill 2012--2013
+\item Internship, Advanced Technology Laboratories, \href{https://lockheedmartin.com/en-us/capabilities/research-labs/advanced-technology-labs.html}{Lockheed Martin}\hfill 2007
+\item Internship, Tactical Electrical Warfare Division,  \href{https://www.nrl.navy.mil}{Naval Research Laboratory}\hfill 2004--2006
+\end{itemize}
+
+  
+\section{Research}
+
+  %\subsection{Research Interests}
+  \begin{description}[before=\small]
+  \item Software Engineering; Formal Methods; Programming Languages; Automated Reasoning; Software Testing, Verification, and Analysis; Neural Networks Verification; Dynamic Invariant Generation; Automatic Program Repair.  
+    \end{description}
+
+\subsection{Honors and Awards}
+
+\begin{itemize}
+  \item \textbf{Amazon Research Award}~[\ref{amz2023neuralsat}] (Automated Reasoning), Amazon Science\hfill 2023
+\item \textbf{Faculty Early Career Development (\href{https://www.nsf.gov/awardsearch/showAward?AWD_ID=2238133}{CAREER}) Award}, NSF\hfill 2023
+
+\item \textbf{CISE Research Initiation Initiative (\href{https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948536}{CRII}) Award}, NSF\hfill 2020
+  % \begin{description}[before=\small]
+  %   \item Provided by the Directorate for Computer and Information Science and Engineering (CISE) at NSF to support independent research for individuals in their early academic position.
+  % \end{description}
+
+\item \href{https://www.sigsoft.org/awards/icseMIPAward.html}{\textbf{10-year Most Influential Paper Award}}~[\ref{weimer2009automatically}], ACM/SIGSOFT and IEEE/TCSE\hfill 2019
+  % \begin{description}[before=\small]
+  % \item Most influential paper published at the 2009 Int. Conf. on Software Engineering (ICSE).
+  % \end{description}
+
+  
+\item \href{https://sig.sigevo.org/index.html/tiki-index.php?page=SIGEVO+Impact+Award}{\textbf{SIGEVO Impact Award}}~[\ref{forrest2009genetic}], ACM/SIGEVO\hfill 2019
+% \begin{description}[before=\small]
+% \item Highest impact paper published at the 2009 Conf. on Genetic and Evolutionary Computation (GECCO)
+% \end{description}
+
+\item  Sigma Xi ``Excellence in Graduate Research'', UNM\hfill 2014
+  \begin{description}[before=\small]
+  \item Voted on by the faculty of the College of Engineering at UNM. Awarded annually to \emph{one graduate student} with outstanding research record
+  \end{description}
+\item Dean's Dissertation Fellowship, \$8K, UNM\hfill 2012--2013
+  \begin{description}[before=\small]
+  \item Voted on by the faculty of UNM. Awarded annually to \emph{two graduating students} based on academic achievements
+  \end{description}
+
+\item Distinguished Paper Award~[\ref{nguyen2012using}], Int. Conf. on Software Engineering\hfill 2012
+
+\item Featured Article~[\ref{le2011genprog}], IEEE Transactions on Software Engineering\hfill 2012
+
+\item Research Highlight~[\ref{weimer2010automatic}], Communication of ACM\hfill 2010
+
+\item Distinguished Paper Award~[\ref{weimer2009automatically}], Int. Conf. on Software Engineering\hfill 2009 
+
+\item \textbf{IFIP TC2 Manfred Paul Award for Excellence in Software: Theory and Practice}, \$1024, Int. Conf. on Software Engineering\hfill 2009
+  \begin{description}[before=\small]
+  \item Given annually across multiple conferences to individuals who have made exceptional contributions to the advancement of software research and practice
+  \end{description}
+  
+
+\item Best Paper Award (Ant Colony Optimization \& Swarm Intelligence Track)~[\ref{bui2009parallel}] Genetic and Evolutionary Computation Conf.\hfill 2009
+\item Best Paper Award (Genetic Programming Track)~[\ref{forrest2009genetic}], Genetic and Evolutionary Computation Conf.\hfill 2009
+\item \textbf{ACM SIGEVO “Hummies” Gold Medal Award}, \$10K, ACM SIGEVO\hfill 2009
+  \begin{description}[before=\small]
+  \item For human-competitive results produced by genetic and evolutionary computation
+  \end{description}
+\item Best Short Paper and Presentation~[\ref{nguyen2009using}], \$270, Workshop on Search-Based Software Testing\hfill 2009
+
+
+\item Walter Karplus Research Grant, \$2.3K, IEEE Computational Intelligence Society\hfill 2009 
+  \begin{description}[before=\small]
+  \item Summer scholarship grant for graduate students with promising research projects
+  \end{description}
+\item Space Grant Graduate Fellowship, \$15K, NASA\hfill 2008--2010 
+\item Outstanding Submission~[\ref{viamontes2007efficient}], High Performance Embedded Computing Workshop\hfill 2007
+\item  Best Paper Award~[\ref{smith2006fuzzy}],  Int. Conf. on Informatics in Control Automation and Robotics\hfill 2006
+\item Incentive Award,  Naval Research Laboratory (NRL)\hfill 2005
+  \begin{description}[before=\small]
+  \item Award given for internship at NRL (2 peer-reviewed conference papers for work performed during the first 6 months~[\ref{smith2005data},~\ref{smith2005distributed}] and in total 12 conference and journal papers in 2 years)
+  \end{description}
+\end{itemize}
+
+\subsection{Publication Record}
+
+\begin{itemize}[label={},before=\small]
+\item \textbf{\mygooglescholar{}}: citations 3543, h-index 17, i10-index 24 (as of Aug 1, 2023).
+\item Refereed papers:  journal 11, conference 38, workshop 4.
+\item \(^1\), \(^2\), \(^3\) denote co-authorship with my undergraduate, MS, and PhD students, respectively.
+%\item  \textbf{Bold journal and conference names} indicate full research papers at top-tier venues, e.g., TSE, ICSE, FSE, PLDI, OOPSLA. See \href{https://csrankings.org}{csrankings.org} for top CS conferences.
+%\item In Software Engineering and Programming Languages, full research conference papers are full-length and rigorously reviewed by at least three peers. Top-tier conferences have acceptance rates comparable to or even lower than leading journals.
+\end{itemize}
+
+
+%\emergencystretch=1em
+
+\newcommand{\myunderreview}{
+  \begin{enumerate}[label=R\arabic*]
+    \mypubcc{mariano2019program}
+  \end{enumerate}
+}
+
+
+\newcommand{\myjournals}{
+  \begin{enumerate}[label=J\arabic*]
+    \mypubcc{wang2023graph}    
+    \mypubcc{nguyen2021using}
+%\end{enumerate}
+
+  %\beforegmu{}
+
+  %\begin{enumerate}[label=J\arabic*]
+    %\setcounter{enumi}{1}
+
+    \mypubcc{ishimwe2021dynaplex}
+    \mypubcc{le2020dynamite}
+    \mypubcc{mariano2019program}
+  \end{enumerate}
+
+  \beforephd{}
+  
+  \begin{enumerate}[label=J\arabic*]
+    \setcounter{enumi}{5}
+    \mypubcc{nguyen2014dig}
+    \mypubcc{kapur2013geometric}    
+    \mypubcc{le2011genprog}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Featured Article}
+    \item \textbf{1K+ citations}
+    \end{itemize}
+    
+    \mypubcc{weimer2010automatic}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Research Highlight}
+    \item \textbf{400+ citations}
+    \end{itemize}
+    \mypubcc{bui2008ant}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{100+ citations}
+    \end{itemize}
+    
+    \mypubcc{smith2007autonomous}
+    
+  \end{enumerate}
+}
+
+\newcommand{\myworkshops}{
+  
+  %\beforegmu{}
+  
+  \begin{enumerate}[label=W\arabic*]
+    \mypubc{nguyen2020using}{20\%}    
+    \mypubc{zheng2018automatic}{25\%}
+  
+\end{enumerate}
+  
+  \beforephd{}
+
+  \begin{enumerate}[label=W\arabic*]
+    \setcounter{enumi}{2}
+    \mypubc{nguyen2009using}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Best Short Paper Award}
+    \item \textbf{Best Presentation Award}
+    \end{itemize}
+
+    \mypubc{viamontes2007efficient}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Outstanding Submission}
+    \end{itemize}
+    
+  \end{enumerate}
+}
+
+\newcommand{\myconfs}{
+  \begin{enumerate}[label=C\arabic*]
+
+    \mypubc{dao2023triggering}{33\%}
+    \mypubc{phan2023challenges}{33\%}
+
+    \mypubc{brida2022icebar}{14\%}
+    \mypubc{zheng2022atr}{14\%}
+    \mypubc{nguyen2022analyzing}{33\%}
+    \mypubc{nguyen2022toward}{25\%}
+    \mypubc{ishimwe2022dynaplex}{33\%}    
+    \mypubc{nguyen2022syminfer}{70\%}
+  
+%\end{enumerate}
+  
+  %\beforegmu{}
+
+  %\begin{enumerate}[label=C\arabic*]
+%    \setcounter{enumi}{8}
+
+    %\notcoe{\mypubcc{ishimwe2021dynaplex}}    
+    \mypubc{nguyen2021gentree}{50\%}
+    \mypubc{zheng2021flack}{14\%}
+    \mypubc{brida2021bounded}{14\%}
+    \mypubc{nguyen2021tool}{50\%}
+    \mypubc{zheng2021tool}{14\%}
+    \mypubc{brida2021tool}{14\%}   
+
+    %\notcoe{\mypubcc{le2020dynamite}}
+    \mypubc{nguyen2020using2}{50\%}
+    %\mypubc{nguyen2020using}{20\%}
+    \mypubc{zheng2020debugging}{33\%}    
+
+    \mypubc{le2019sling}{33\%}
+    
+    %\notcoe{\mypubcc{mariano2019program}}
+
+
+    %\mypubc{zheng2018automatic}{25\%}
+
+    \mypubc{gazzillo2018localizing}{25\%}
+
+    \mypubc{nguyen2017syminfer}{33\%}
+    
+    \mypubc{nguyen2017counterexample}{25\%}
+
+    \mypubc{nguyen2017connecting}{33\%}
+    \mypubc{nguyen2016igen}{20\%}    
+  \end{enumerate}
+  
+  \beforephd{}
+
+  \begin{enumerate}[label=C\arabic*]
+    \setcounter{enumi}{21}
+
+
+    \mypubc{nguyen2014using}{25\%}
+
+    \mypubc{nguyen2012using}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{99 citations}
+    \item \textbf{Distinguished Paper Award}
+    \end{itemize}
+    
+    \mypubc{weimer2009automatically}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{10-year Most Influential Paper Award} (received in 2019)
+    \item \textbf{900+ citations}
+    \item \textbf{Distinguished Paper Award}
+    \item \textbf{IFIP TC2 Manfred Paul Award for Excellence in Software: Theory and Practice} 
+    \end{itemize}
+
+    \mypubc{bui2009parallel}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Best Paper Award}
+    \end{itemize}
+
+    \mypubc{forrest2009genetic}{25\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{10-year Most Impact Award} (received in 2019)
+    \item \textbf{300+ citations}
+    \item \textbf{Best Paper Award} 
+    \end{itemize}
+
+%%     \mypubc{nguyen2009using}{25\%}
+%%     \begin{itemize}[before=\small]
+%%     \item \textbf{Best Short Paper Award}
+%%     \item \textbf{Best Presentation Award}
+%%     \end{itemize}
+
+
+    \mypubc{smith2007fuzzy}{50\%}
+
+    \mypubc{smith2007genetic}{50\%}
+
+%%     \mypubc{viamontes2007efficient}{25\%}
+%%     \begin{itemize}[before=\small]
+%%     \item \textbf{Outstanding Submission}
+%%     \end{itemize}
+
+
+    \mypubc{bui2006agent}{50\%}
+    \mypubc{smith2006guiding}{50\%}
+    \mypubc{smith2006evolutionary}{50\%}
+    \mypubc{smith2006fuzzy}{50\%}
+    \begin{itemize}[label={},before=\small]
+    \item \textbf{Best Paper Award}
+    \end{itemize}
+    
+    \mypubc{smith2006fuzzy2}{50\%}
+
+    \mypubc{smith2006creating}{50\%}
+
+    \mypubc{smith2006resource}{50\%}
+
+    \mypubc{smith2006genetic}{50\%}
+
+    \mypubc{smith2005distributed}{50\%}
+
+    \mypubc{smith2005data}{50\%}
+    
+  \end{enumerate}
+}
+
+
+\subsubsection{Under Submission}
+\begin{enumerate}
+\mypubcc{duong2023dpllt}
+\mypubcc{liu2023drnla}
+\mypubcc{li2023coolio}
+\end{enumerate}  
+\subsubsection{Refereed Journal Papers (in print)}
+  \myjournals{}
+
+  \subsubsection{Refereed Conference Papers (in print)}
+  \myconfs{}
+  
+  \subsubsection{Refereed Workshop Papers (in print)}
+  \myworkshops{}
+
+\subsubsection{Dissertation}
+
+\begin{enumerate}[label=T\arabic*]
+
+  \mypubcc{nguyen2014automating}
+  \begin{itemize}[label={},before=\small]
+  \item \textbf{Pass with Distinction}
+  \item \textbf{Sigma Xi Award}
+  \item \textbf{Dean's Dissertation Fellowship}    
+  \end{itemize}
+  \mypubcc{nguyen2006graph}
+  
+\end{enumerate}
+
+\subsubsection{Patents}
+\begin{enumerate}
+\item \fullcite{bagheri2023systems}
+\end{enumerate}
+
+\subsection{Research Funding}
+\begin{itemize}[label={},before=\small]
+\item 8 grants (4 NSF, 1 Defense, 2 Industry Gifts, 1 Internal)
+%see calculation in funding.py
+%Total 2,654,587
+%My share 1,463,455
+%My share as PI 1,304,605
+%GMU_total 1,903,622
+%GMU_myshare 1,103,630
+%GMU_myshare_aspi 1,103,630
+
+\item \textbf{Total}: \$2,654,587, \textbf{my share}: \$1,463,455;  \textbf{as PI}: \$1,304,605
+\item \textbf{At GMU}: \$1,903,622; \textbf{my/GMU share}: \$1,103,630; \textbf{as PI}: \$1,103,630
+\end{itemize}
+
+
+% \renewcommand{\arraystretch}{1.2}
+% \begin{table}[htbp]
+%   \caption{\label{tab:externalfunding}Summary of Funded Grants.}
+%   \small
+%   \centering
+%   \begin{tabular}{c|lllrrr}
+%     \toprule
+%     &\textbf{Sponsor} & \textbf{Project} & \textbf{Role} & \textbf{Dates} & \textbf{Total} & \textbf{My Share}\\
+%     \midrule
+%     \multirow{3}{*}{\rotatebox[origin=c]{90}{GMU}}
+%                       &Amazon & Amazon Research Award & Sole-PI & 2023 & \$50K & \$50K \\                                                    
+%         &NSF & CAREER [\ref{nsf2023neuralsat}] & Sole-PI & 2023--2028 & \$510K & \$510K \\
+%     %\multicolumn{5}{c}{test}\\
+%         &Facebook & [\ref{fb2022cmake}] & Sole-PI & 2021 & \$30K & \$30K \\
+%         &NSF & Core Medium [\ref{nsf2022dtemporal}] &  PI & 2021--2024 & \$1.2M & \$416K\\
+%     \midrule
+%     \multirow{3}{*}{\rotatebox[origin=c]{90}{UNL}}&UNL &  Seed Award  & Sole-PI & 2021 & \$10K & \$10K\\        
+%     &NSF & CRII [\ref{nsf2020kbuild}]&Sole-PI & 2020--2022 & \$191K &  \$191K\\
+%     &US. Army & [\ref{aro2018predict}]&Co-PI & 2019--2021 & \$550K & \$160K\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\begin{enumerate}[label=G\arabic*]
+  \mygrant{nsf2023cybolic}
+  \mygrant{amz2023neuralsat}
+  \mygrant{nsf2023neuralsat}  
+  \mygrant{fb2022cmake}
+  \mygrant{nsf2022dtemporal}
+  \begin{itemize}[label={},before=\small]
+  \item Supplementary REU: \$16,000 
+  \end{itemize}
+\end{enumerate}
+
+\beforegmu{}
+
+\begin{enumerate}[label=G\arabic*]
+  \setcounter{enumi}{5}  
+  \mygrant{unl2021seed}  
+  \mygrant{nsf2020kbuild}
+  \begin{itemize}[label={},before=\small]
+  \item Supplementary REU: \$16,000 
+  \end{itemize}
+  \mygrant{aro2018predict}
+\end{enumerate}
+
+\coe{
+  \IfFileExists{./fund_miscs.tex}{
+    \input{fund_miscs}
+  }
+}
+
+
+
+%\subsubsection{Software}
+
+%DIG
+% used for   NSF MEd
+%SV-COMP NLA-DIG BENCH
+%NP-COMPLETE BENCH
+%NEURALSAT
+% used for NSF CAREER
+
+
+
+
+% \subsubsection{Publicly Available Software}
+% \label{sec:org32403c7}
+% \begin{itemize}
+% \item \textbf{DIG}: A Dynamic and Symbolic Invariant Generation Tool for C and Java programs. \url{https://github.com/unsat/dig/}
+% \item \textbf{iGen}: A Dynamic Analyzer for Highly-Configurable Software. \url{https://github.com/unsat/igen/}
+% \item \textbf{GenTree}: Analyzing Highly-Configurable Software using Decision Trees. \url{https://github.com/unsat/gentree/}
+% \item \textbf{GenProg}: A program repair tool using Genetic Algorithm. \url{https://squareslab.github.io/genprog-code/}
+% \end{itemize}
+
+\subsection{Invited Talks}
+\begin{enumerate}[label=T\arabic*]
+\item W. Weimer, C. Le Goues, T. Nguyen, S. Forrest. ``It Does What You Say, Not What You Mean: Lessons From A Decade of Program Repair''
+  \begin{itemize}[label={},before=\small]
+  \item \textbf{Plenary Sessions}:  Most Influential Paper, Int. Conf. on Software Engineering (ICSE), 2019
+\end{itemize}
+  
+\item ``Scalable DNN Verification using Constraint Solving''
+  \begin{itemize}[label={},before=\small]
+  \item Virginia Tech (Northern VA campus), Fall 2022
+  \item Michigan State University, Fall 2022
+  \end{itemize}
+  
+\item ``Improving Software Quality using Automatic Invariant Discovery and Program Repair''
+  \begin{itemize}[label={},before=\small]
+    \item Summer School on Formal Techniques, SRI, Spring 2021
+    \item CS Seminar, George Mason University, Spring 2021
+    \item University of Nebraska-Lincoln, Spring 2016
+    \item CS Seminar, Auburn, Spring 2016
+    \item Galois, Spring 2016
+    \item CS Seminar, Virginia Tech, Spring 2014
+  \end{itemize}
+\end{enumerate}
+
+
+\subsection{Media Coverage}
+\begin{enumerate}[label=M\arabic*]
+\item \fullcite{amazon202379}
+\item \fullcite{thanhnien2023tiensi}  
+\item \fullcite{gmu2023boom}
+%\item \fullcite{gmu2023nguyen}        
+%\item \fullcite{unl2020nguyen}
+\item \fullcite{unl2019nguyen}
+\end{enumerate}
+
+
+\section{Teaching and Student Advising}
+
+\notcoe{
+  \subsection{Courses}
+
+  \begin{description}[before=\small]
+  \item[Note:] $^{\dagger}$ a new course I developed
+  \end{description}
+
+  \begin{itemize}
+  \item CS695: AI Safety and Assurance$^{\dagger}$\hfill Fall'23
+  \begin{description}[before=\small]
+    \item Enrollment 35
+  \end{description}
+    %course rating Q13-Q17:  avg(4.44 + 4.73 + 4.50 + 4.27 + 4.31)  = 4.45
+    %instr rating Q18-Q20:  avg(4.19, 4.50, 4.50) = 4.4
+  \item SWE619 Online Course Development$^{\dagger}$ \hfill Fall'22
+    \begin{description}[before=\small]
+    \item Developed an online version of the SWE619 course with Wiley publishing. Course launched in Spring'23 and taught every semester.
+    \end{description}
+    
+  \item SWE419: OO Software Specification and Construction \hfill Fall'22
+    \begin{description}[before=\small]
+      \item Enrollment 16, Resp 16, Instr. Rating 4.4, Course Rating 4.5
+    \end{description}
+  \item SWE619: OO Software Specification and Construction\hfill Spring'22
+    \begin{description}[before=\small]
+    \item Enrollment 33, Resp 17, Instr. Rating 4.3, Course Rating 4.3
+    \end{description}
+  \item SWE619: OO Software Specification and Construction\hfill Fall'21
+    \begin{description}[before=\small]    
+    \item Enrollment 32, Resp 7, Instr. Rating 3.86, Course Rating 3.86
+    \end{description}      
+    
+  \end{itemize}
+
+  \vspace{0.1in}
+  \beforegmu{}
+  \vspace{0.1in}
+
+  \begin{itemize}
+  \item CSCE990: Software Verification Seminar$^{\dagger}$ (graduate, enrollment 4)\hfill Spring'21    
+  \item CSCE425: Compiler Construction$^{\dagger}$ (undergraduate, enrollment 8)\hfill Spring'21
+    \item CSCE467/861: Software Testing, Verification, and Analysis$^{\dagger}$ (undergraduate, enrollment 15)\hfill Fall'20
+  \item CSCE425: Compiler Construction$^{\dagger}$ (graduate and undergraduate, enrollment 11)\hfill Spring'20
+    \item CSCE990: Software Verification Seminar$^{\dagger}$ (graduate, enrollment 4)\hfill Spring'20
+  \item CSCE467/861: Software Testing, Verification, and Analysis$^{\dagger}$ (undergraduate)\hfill Fall'19
+  \begin{description}[before=\small]  
+    %instr q22-29:  avg(3.83+3.67+3.86+4.20+3.61+3.42+3.46+4.00)
+    \item Enrollment 82, Resp 37, Instr. Rating 3.76
+    \end{description} 
+  \item CSCE990: Software Verification Seminar$^{\dagger}$ (graduate)\hfill Spring'19
+  \begin{description}[before=\small]
+    \item Enrollment 10, Resp 4, Instr. Rating 4.34
+    \end{description} 
+  \item SOFT260: Software Engineering III (undergraduate)\hfill Fall'18
+  \begin{description}[before=\small]    
+    \item Enrollment 48, Resp 18, Instr. Rating 4.72
+    \end{description} 
+  \item CSCE428: Automata, Computation, and Formal Languages (graduate)\hfill Spring'18
+  \begin{description}[before=\small]    
+    \item Enrollment 34, Resp 3, Instr. Rating 4.13
+    \end{description}  
+  \item CSCE990: Software Verification Seminar$^{\dagger}$ (graduate)\hfill Fall'17
+  \begin{description}[before=\small]    
+    \item Enrollment 7, Resp 6, Instr. Rating 4.33
+    \end{description}
+  \item CSCE428: Automata, Computation, and Formal Languages (graduate)\hfill Spring'17
+  \begin{description}[before=\small]    
+    \item Enrollment 35, Resp 10, Instr. Rating 3.80
+    \end{description}  
+  \item CSCE990: Software Verification Seminar$^{\dagger}$ (graduate)\hfill Fall'16
+  \begin{description}[before=\small]    
+    \item Enrollment 6, Resp 5, Instr. Rating 4.97
+    \end{description}  
+  \end{itemize}
+}
+
+
+\newcommand{\linhan}{
+\item Linhan Li \notcoe{(PhD student)}\hfill Spring 2021--current
+}
+
+\newcommand{\kimhao}{
+\item \href{https://ndkimhao.github.io}{KimHao Nguyen} \notcoe{(BS, UNL)}\hfill graduated, May 2023
+  \begin{description}[before=\small]
+    \item First job: Jump Trading
+  \item \textbf{Outstanding Undergraduate Senior} Award\hfill Spring 2023
+  \item \textbf{Outstanding Undergraduate Research Assistant} Award\hfill Spring 2021
+  \item \textbf{Winner}, College of Arts and Science, Nebraska Student Research Days (for GenTree~\ref{nguyen2021gentree})\hfill Spring 2021
+  \item UCARE Award and paid hourly through NSF grants
+  \item Garmin Computer Engineering Scholarship (2020--2023)
+  \item Co-author of \emph{nine} refereed papers [\ref{phan2023challenges},~\ref{nguyen2022analyzing},~\ref{ishimwe2022dynaplex},~\ref{nguyen2022syminfer},~\ref{ishimwe2021dynaplex},~\ref{nguyen2021gentree},~\ref{nguyen2021tool},~\ref{nguyen2020using2},~\ref{nguyen2021using}]
+  \end{description}
+}
+
+\newcommand{\alex}{
+\item Alexey Malyshev (MS, UNL), Fulbright scholarship\hfill  graduated: Spring 2021
+  \begin{description}[before=\small]
+  \item First job: Oracle
+  \item MS Thesis: \emph{Discovering Program Invariants Using Static and Dynamic Analysis Techniques}
+  \item Co-author of [\ref{nguyen2020using}]
+  \end{description}
+}
+
+\newcommand{\guolong}{
+\item Guolong Zheng \notcoe{(PhD, UNL)}\hfill graduated, May 2022
+\begin{description}[before=\small]
+  \item First job: A10Networks
+  \item PhD Dissertation: \emph{Ensure Correctness for Imperative and Declarative Programs}
+  \item Co-author of nine refereed papers [\ref{brida2022icebar},~\ref{zheng2022atr},~\ref{zheng2021flack},~\ref{brida2021bounded},~\ref{zheng2021tool},~\ref{brida2021tool},~\ref{zheng2020debugging},~\ref{le2019sling},~\ref{zheng2018automatic}]
+  \end{description}
+}
+
+\newcommand{\didier}{
+\item Didier Ishimwe \notcoe{(PhD student, All but dissertation)}\hfill Fall 2019--current
+%%   \begin{itemize}[before=\small]
+%%     \item Co-author of~\ref{ishimwe2022dynaplex},~\ref{ishimwe2021dynaplex},~\ref{nguyen2020using}
+%%   \end{itemize}
+}
+
+
+\newcommand{\haiduong}{
+\item Hai Duong \notcoe{(PhD student)}\hfill Fall 2022--current
+%%   \begin{itemize}[before=\small]
+%%     \item Co-author of~\ref{nguyen2022syminfer}
+%%   \end{itemize}
+}
+
+
+\coeite{
+  \subsection{PhD Students}
+
+
+  \subsubsection{Graduated}
+  \begin{enumerate}  
+    \guolong{}
+  \end{enumerate}
+
+  \subsubsection{Current}
+  \begin{enumerate}
+    \haiduong{}
+    \didier{}
+    \linhan{}
+  \end{enumerate}
+
+  \subsection{MS Students}
+  % \subsubsection{Graduated}
+  % \begin{enumerate}  
+  % \alex{}
+  % \end{enumerate}  
+
+  % \subsubsection{Current}
+  % \begin{enumerate}
+  % \item None
+  % \end{enumerate}
+
+
+  \subsubsection{Yearly Average}
+  \begin{itemize}
+  \item 2 undergraduate students per year  %TODO
+  \end{itemize}
+
+  % \subsection{Visiting Scholars}
+  % None
+
+  \subsection{Graduate Student Committee Membership}
+  \subsubsection{PhD Committees}
+  \begin{enumerate}
+  \item Johnathan Saddler, UNL\hfill graduated, Spring 2020
+  \item Mohannad Alhanahnah, UNL\hfill graduated, Fall 2019
+  \item Supat Rattanasuksun, UNL\hfill graduated, Fall 2018
+  \item Kenneth Roe,  Johns Hopkins University\hfill graduated, Spring 2018
+  \end{enumerate}
+
+  \subsubsection{MS Committees}
+  \begin{enumerate}
+  \item Cole Peterson, UNL\hfill graduated, Spring 2020
+  \item Mitchell Gerrard, UNL\hfill graduated, Fall 2019
+  \item Niloofar Mansoor, UNL\hfill graduated, Fall 2019
+  \item Balasubramaniam Balaji, UNL\hfill graduated, Fall 2018
+  \item Wayne Motycka, UNL\hfill graduated, Summer 2018
+  \end{enumerate}
+
+
+  \subsubsection{PhD Committees (Other Institutions)}
+  \begin{enumerate}
+  \item Kenneth Roe,  Johns Hopkins University,  graduated, Spring 2018
+  \end{enumerate}
+
+  % \subsection{Teaching Awards and Recognition}
+  % None
+}
+{
+  \subsection{Student Advising}
+%  Three current PhD students (fully supported through grants) and one undergraduate student.
+%  Graduated one PhD student (in 2022). Have worked with 12 total undergraduate students.
+  
+  \subsubsection{Current}
+  \begin{itemize}
+    \haiduong{}    
+    \didier{}
+    \linhan{}
+    %\kimhao{}
+    \item Phat Nguyen (Undergraduate, GMU) \hfill Spring 2023--current
+    \item Phuong Priscilla Nguyen (Undergraduate, Boston University) \hfill Spring 2023--current
+    \item Michael Vittori (Undergraduate, GMU) \hfill Spring 2023--current
+  \end{itemize}
+
+  \subsubsection{Graduated}
+  \begin{itemize}
+    \kimhao{}
+    \guolong{}
+    \alex{}
+  \item Mitch Girrard (MS, UNL), co-advised with Matthew Dwyer\hfill graduated, Fall 2019
+    \begin{description}[before=\small]
+    \item Continued to UVA and obtained PhD in 2022
+    \item MS Thesis: \emph{Cooperation Among Program Analyzers}
+
+
+    \end{description}
+    
+    \item \textbf{Undergraduate Research}: Max Nguyen (UCARE\footnote{The Undergraduate Creative Activities and Research Experience (UCARE) program is a paid-position for undergraduate students to do research with UNL faculty.}), Linhan Li (UCARE, continued on PhD program at GMU), Quan Nguyen (UCARE), Ben Galusha (NSF REU), Ethan Butt (Honor Thesis), Conner Hallett (UCARE), Chase Pearson, Nancy Pham, Zixuan Hao.
+  \end{itemize}
+}
+
+\subsection{Other Teaching Accomplishments}
+\begin{itemize}
+\item Mentor, Google Summer of Code, Project: Java PathFinder~[\ref{zheng2018automatic}]\hfill Summer'18
+\end{itemize}
+
+\section{Service}
+\subsection{Professional Service}
+
+\subsubsection{Research Proposal Review}
+\begin{itemize}
+\item Panelist, NSF Proposal Review Panel\hfill 2019, 2020 (twice), 2021, 2022, 2023
+\end{itemize}
+
+\subsubsection{Conference Committee Members (International)}
+
+\begin{description}[before=\small]
+\item TPC: Technical Program Committee
+\end{description}
+
+\begin{itemize}
+\item Proceedings Co-Chair,  Int. Conf. of Software Engineering (ICSE)\hfill 2022  
+\item TPC,  Int. Symposium on Software Testing and Analysis (ISSTA)\hfill 2023
+\item TPC, Foundation of Software Engineering (FSE)\hfill 2018, 2019 
+\item TPC, Automated Software Engineering (ASE)\hfill 2018, 2019, 2020
+\item TPC, Java PathFinder Workshop (JPF)\hfill 2019, 2020 
+\item New Faculty Symposium Panel, Int. Conf. of Software Engineering (ICSE)\hfill 2020
+\item TPC, Int. Conf. of Software Engineering Demo Track (ICSE DEMO)\hfill 2020
+\item TPC, Int. Conf. of Software Engineering Posters Track (ICSE Posters)\hfill 2020
+\item TPC, Genetic Improvement Workshop\hfill 2017, 2020 
+\item TPC, ASE Journal First\hfill 2019
+\item TPC, Systems and Software Product Line-Challenge Track (SPLC)\hfill 2018
+\item External Review Committee, Programming Language Design and Implementation (PLDI)\hfill 2018
+\item Artifact Evaluation Committee, Principles of Programming Languages (POPL)\hfill 2017
+\item TPC, Formal Methods and Models for System Design (MEMOCODE)\hfill 2016, 2017, 2018
+\end{itemize}
+
+\subsubsection{Journal Editorships}
+\begin{itemize}
+\item Editor Board, Journal of Systems and Software\hfill 2017--2021
+\end{itemize}
+
+\subsubsection{Conference Committee Member (Regional)}
+
+\begin{itemize}
+\item Co-Organizer, Midwest Big Data Summer School (Iowa State), Software Analytic Track\hfill 2018
+\end{itemize}
+
+\coe{
+  \subsubsection{Professional Organization Memberships}
+  \begin{itemize}
+  \item Member, ACM\hfill since 2008
+  \end{itemize}
+
+  % \subsubsection{Service Awards (Int.)}
+
+  % \subsubsection{Service Awards (Local)}
+}
+
+\subsubsection{Journal Reviewing}
+\begin{description}
+\item Reviewer for  Transactions on Software Engineering (TSE), Journal of Systems and Software (JSS), Transactions on Software Engineering and Methodology (TOSEM), Journal of Symbolic Computation, Journal of Evolutionary Intelligence, Transactions on Evolutionary Computation,. Average: 5 journal papers reviewed per year 
+\end{description}
+
+
+
+%%% Services 
+\newcommand{\myunitservices}{
+  \begin{itemize}
+  \item Member, Executive Committee\hfill 2022--current
+  \item Member, Web Committee\hfill 2022--current
+  \item Member, PhD Admission Committee \hfill 2021--current
+    \begin{description}[before=\small]
+    \item Co-organize Virtual Open House (VOH) events\hfill 2021--current
+    \item Create VOH'23 website (\url{https://cs-gmu.github.io/cs-phd-voh-s23/})
+    \end{description}
+  \end{itemize}
+  \vspace{0.1in}
+  \beforegmu{}
+  \vspace{0.1in}
+  \begin{itemize}
+  \item Member, Graduate CS Program Committee\hfill 2020--2021  
+  \item Member, General Search Committee\hfill 2019--2020
+  \item Member, Awards Committee\hfill 2018--2019
+  \item Member, Software Engineering Search Committee\hfill 2018--2019
+  \item Member, Graduate Recruitment\hfill 2018
+  \item Member, Graduate Admission\hfill 2016--2020
+  \item Member, Qualifying Exam Committee-Theory Track\hfill 2016--2018
+  \end{itemize}
+}
+
+
+\coeite{
+  \subsection{University Service}
+  \begin{itemize}
+  \item Reviewer,  UNL Graduate Travel Award Program Committee
+  \end{itemize}
+
+  % \subsection{College Service}
+
+  \subsection{Unit Service}
+  \myunitservices{}
+
+  % \subsection{Other Service Accomplishments}
+  % None
+
+}
+{
+  \subsection{Departmental and University Services}
+  \subsubsection{Departmental Services}
+
+  \myunitservices{}
+  
+
+  \subsubsection{University Programs and Services}
+  \begin{itemize}
+  \item Panelist, GMU New Faculty Panel\hfill 2022
+  \item Reviewer,  UNL Graduate Travel Award Program Committee\hfill 2017        
+  \item Fellow, UNL Research Development Fellows Program\hfill 2016--2017    
+  \end{itemize}
+}
+
+\subsection{Other Services}
+\begin{itemize}
+\item Judge, Thomas Jefferson Highschool Science and Engineering Fair\hfill 2023
+\end{itemize}
+
+\notcoe{
+  \section{Miscellaneous}
+  \begin{itemize}
+  %\item Citizenship: U.S (DoD Secret Clearance---inactive)      
+  \item My Erd\H{o}s number is $\le 4$
+    \begin{description}[before=\small]
+  \item \myname{} $\leftrightarrow$  Thang Bui (MS Adviser) $\leftrightarrow$ Tom Leighton $\leftrightarrow$ Fan Chung $\leftrightarrow$ P\'al Erd\H{o}s
+  \end{description}
+\item \href{https://www.mathgenealogy.org/id.php?id=190564}{My Math/CS Genealogy}:
+  \begin{description}[before=\small]
+  \item \myname{}  $\leftrightarrow$  Deepak Kapur (PhD Advisor)   $\leftrightarrow$ Barbara  Liskov (Turing Award 2008) $\leftrightarrow$ John McCarthy (Turing Award 1971)  $\leftrightarrow$ Solomon Lefschetz $\leftrightarrow$   William Story  $\leftrightarrow$ $\dots$
+  \item \myname{} $\leftrightarrow$ Stephanie Forrest (PhD Advisor)    $\leftrightarrow$ John Holland $\leftrightarrow$  Arthur Burks $\leftrightarrow$ Cooper Langford  $\leftrightarrow$ Edwin Boring $\leftrightarrow$ Edward Titchener  $\leftrightarrow$ $\dots$
+  \end{description}
+\end{itemize}
+\updateinfo{}
+}
+\end{document}
