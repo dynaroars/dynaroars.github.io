@@ -85,11 +85,13 @@ blockquote p {
 
 #toc {
   position: fixed;
-  right: 0;
-  top: 0;
+  right: 0.5em;
+  top: 0.5em;
   color: #002b36;
   background-color: ghostwhite;
+  padding: 0.5em 5pt;        
 }
+
 #toc #full { display: none; }
 #toc:hover #full{
   display: block;
