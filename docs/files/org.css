@@ -83,3 +83,15 @@ blockquote p {
 
 
 
+#toc {
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: #002b36;
+  background-color: ghostwhite;
+}
+#toc #full { display: none; }
+#toc:hover #full{
+  display: block;
+}
+
