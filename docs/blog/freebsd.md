@@ -1,8 +1,6 @@
-# Running FreeBSD at Home
+# Running FreeBSD at Home (by ThanhVu Nguyen)
 
-![](./files/freebsd-vl.jpg "fig:vulam"){#fig:vulam width="50%"
-height="50%"}
-
+![](./files/freebsd-vl.jpg "fig:vulam")
 My home machine, which was running Debian and was built in 2007, was
 becoming old and running loudly. So, I decided to replace it with a
 small **Dell Optiplex** that I got from school. I also installed FreeBSD on it instead of my preferred Debian Linux (because ...
@@ -14,22 +12,22 @@ for a couple of weeks and went back to Linux). Below is my experience.
 
 ## Timeline
 
--   <2023-08-30 Wed> almost a year ... still use it everyday
--   <2023-01-21 Sat\> -- \<2023-02-18 Sat\> ~~`Thunderbird` was updated
+- <2023-08-30 Wed> almost a year ... still use it everyday
+- <2023-01-21 Sat\> -- \<2023-02-18 Sat\> ~~`Thunderbird` was updated
     to a version that doesn\'t supported OAuth and it was almost a month
     later that it finally got the new update to fix the issue. Really
     annoying.~~
      *UPDATE: finally it's fixed*
 
-![](./files/freebsd-capital.png){width="50%" height="50%"}
+![](./files/freebsd-capital.png "wall paper")
 
--   <2022-10-07 Fri> Things are going strong. Using the machine
-    everyday when I am at home.
--   <2022-09-14 Wed> Add a Dell Ultrasharp 43\" monitor
--   <2022-09-08 Thu> Got the [Asolute
-    FreeBSD](https://nostarch.com/absfreebsd3) book -- it has ben a
-    while since I bought a computer book
--   <2022-09-05 Mon> Setup FreeBSD on Dell Optiplex
+- <2022-10-07 Fri> Things are going strong. Using the machine
+  everyday when I am at home.
+- <2022-09-14 Wed> Add a Dell Ultrasharp 43\" monitor
+- <2022-09-08 Thu> Got the [Asolute
+  FreeBSD](https://nostarch.com/absfreebsd3) book -- it has ben a
+  while since I bought a computer book
+- <2022-09-05 Mon> Setup FreeBSD on Dell Optiplex
 
 ## Machine Specs
 
@@ -67,8 +65,8 @@ Installation was so quick that I couldn\'t see what was being installed.
 ## Using
 
 After the first boot I then logged in as root to update the system,
-install `X`, `KDE`, `emacs`, and various things. But I didn\'t really
-know to do any of these. So I openned my iPad and go to read FreeBSD
+install `X`, `KDE`, `emacs`, and various things. But I didn't really
+know to do any of these. So I opened my iPad and read the FreeBSD
 manual.
 
 ### Installing Things
@@ -91,18 +89,18 @@ computer has other than some integrated one (likely Intel).
     pkg install xorg
 
 Installing X is easy, then I tried `startx`{.verbatim} and it failed
-immediately, which is not surprising because I haven\'t configured any
+immediately, which is not surprising because I haven't configured any
 graphic driver. I then tried the Linux way which is editing `xorg.conf`
 file, and I found the FreeBSD manual also has section about doing this.
 So I spent half an hr doing this without much success (because the
 [manual](https://docs.freebsd.org/en/books/handbook/x11/) says use
-\"intel\" as Driver). It was pretty late and I was so sleepy to debug
+`intel` as Driver). It was pretty late and I was so sleepy to debug
 and so went to bed.
 
-On the next day, I quickly googled for FreeBSD, X, Intel and fond out
+On the next day, I quickly googled for `FreeBSD, X, Intel`` and found
 that the correct dirver is `i915kms` (not `intel`). Moreover, I
-shouldn\'t even have to edit `xorg.con` or any file, everything should
-be automatically detected and loaded. Anyway, don\'t remember all the
+shouldn't even have to edit `xorg.con` or any file, everything should
+be automatically detected and loaded. Anyway, don't remember all the
 details but I think I did something like below
 
     pkg install drm-kmod
