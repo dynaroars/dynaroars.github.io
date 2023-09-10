@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="../files/org.css">
+
+
 # Running FreeBSD at Home (by ThanhVu Nguyen)
 
 ![](./files/freebsd-vl.jpg "fig:vulam")
