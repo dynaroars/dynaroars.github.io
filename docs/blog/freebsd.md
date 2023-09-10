@@ -1,8 +1,8 @@
 # Running FreeBSD at Home (by ThanhVu Nguyen)
 
 ![](./files/freebsd-vl.jpg "fig:vulam")
-My home machine, which was running Debian and was built in 2007, was
-becoming old and running loudly. So, I decided to replace it with a
+My home machine, which was built in 2007 and running Linux, was
+becoming old and loud. So, I decided to replace it with a
 small **Dell Optiplex** that I got from school. I also installed FreeBSD on it instead of my preferred Debian Linux (because ...
 why not? my [lab](https://dynaroars.github.io/) already has two servers
 running Debian).
@@ -57,10 +57,10 @@ Then for installation I pretty much just accepted all default options. I
 believe I unchecked all server capabilities during installation because
 this will be used mainly as a desktop, and not a server.
 
-FreeBSD doesn\'t seem to give me an option to install software (e.g., X,
+FreeBSD doesn't seem to give me an option to install software (e.g., X,
 desktop environment, ..). That is fine, I can install them later.
 
-Installation was so quick that I couldn\'t see what was being installed.
+Installation was so quick that I couldn't see what was being installed.
 
 ## Using
 
@@ -104,13 +104,11 @@ be automatically detected and loaded. Anyway, don't remember all the
 details but I think I did something like below
 
     pkg install drm-kmod
-
-
     # /etc/rc.conf
     kld_list="i915kms"
     dbus_enable="YES"  # for KDE
 
-Now `startx` works and so I don\'t need use `root` and so added the
+Now `startx` works and so I don't need use `root` and so added the
 username I created to the `video` group and log in using that username
 (I also found out that I cannot `su` to root and then had to also add my
 username to `wheel`).
@@ -138,7 +136,7 @@ I was able to install Firefox and Thunderbird and setup my mails. Pretty
 straightforward.
 
 ### Things that don't work
--   `Brave` browser doesn't support FreeBSD.  Browser choices mainly include `firefox` and `chromium`, which are up to date and run just fine.
+-   `Brave` browser doesn't support FreeBSD.  However, both `firefox` and `chromium` are available.
 -   ~~Sometimes it won't automatically turn off my monitor. Never had
     this problem with the older, smaller monitor~~.
 -   Can't get my Canon printer to work. It sees the printer (wireless)
