@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="../files/org.css">
+
 # Dynaroars' blog posts
 
 
