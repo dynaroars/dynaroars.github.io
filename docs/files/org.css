@@ -41,6 +41,16 @@ blockquote p {
     pre,code{
         background: ghostwhite;
     }
+    a {
+        /* color: #666;*/
+        /*background: springgreen;*/
+        text-decoration: none;
+     }
+     a:hover{
+        background: lightgreen;
+
+     }
+
 }
 
 @media (prefers-color-scheme: dark) {    
@@ -88,7 +98,7 @@ blockquote p {
   right: 0.5em;
   top: 0.5em;
   color: #002b36;
-  background-color: #f9f9f9;
+  background-color: honeydew;
   padding: 0.5em 5pt;        
 }
 
