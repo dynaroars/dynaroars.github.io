@@ -33,6 +33,10 @@ blockquote p {
   but smaller than the li grid-gap */
 }
 
+details > summary {
+    font-weight: bold;
+    cursor: pointer;
+}
 
 @media (prefers-color-scheme: light) {
     body {
@@ -49,6 +53,10 @@ blockquote p {
      a:hover{
         background: lightgreen;
      }
+
+     details:hover{
+         background-color: ghostwhite;
+}     
 
 }
 
