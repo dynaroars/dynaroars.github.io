@@ -101,14 +101,13 @@ details > summary {
 
 }
 
-
-
 #toc {
   position: fixed;
   right: 0.5em;
   top: 0.5em;
-  color: #002b36;
+  /*color: #002b36;*/
   background-color: honeydew;
+  /*border:1px solid darkgreen;*/
   padding: 0.5em 5pt;        
 }
 
@@ -117,6 +116,14 @@ details > summary {
   display: block;
 }
 
+.myborder{
+    padding: 0 1px;
+    border: 1px solid transparent;
+}
+
+.myborder:hover{
+    border: 1px dotted darkgreen;
+}
 
 
 .typewriter {
@@ -142,19 +149,6 @@ details > summary {
     from, to { border-color: transparent }
     20% { border-color: darkgreen; }
   }
-
-
-
-
-
-.myborder{
-    padding: 0 1px;
-    border: 1px solid transparent;
-}
-
-.myborder:hover{
-    border: 1px solid darkgreen;
-}
 
 
 
