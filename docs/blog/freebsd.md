@@ -1,7 +1,9 @@
 <link rel="stylesheet" type="text/css" href="../files/org.css">
 
 
-# Running FreeBSD at Home (by ThanhVu Nguyen)
+# Running FreeBSD at Home 
+> by ThanhVu Nguyen
+
 
 ![](./files/freebsd-vl.jpg "fig:vulam")
 My home machine, which was built in 2007 and running Linux, was
