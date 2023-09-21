@@ -38,6 +38,11 @@ details > summary {
     cursor: pointer;
 }
 
+.mirroremoj {
+  transform:scale(-1, 1);
+  width:fit-content;
+}
+
 @media (prefers-color-scheme: light) {
     body {
         background: white;
