@@ -6,8 +6,6 @@ body {
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10pt solid #ccc;
   margin: 1.5em 10pt; 
   padding: 0.5em 10pt;
 }
@@ -37,76 +35,12 @@ details > summary {
     cursor: pointer;
 }
 
-.mirroremoj {
-  transform:scale(-1, 1);
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background: white;
-    }
-    pre,code{
-        background: ghostwhite;
-    }
-    a {
-        /* color: #666;*/
-        /*background: springgreen;*/
-        text-decoration: none;
-     }
-     a:hover{
-        background: lightgreen;
-     }
-
-     details:hover{
-         background-color: ghostwhite;
-}     
-
-}
-
-@media (prefers-color-scheme: dark) {    
-    /* Solarized dark color */
-    body {
-        color: #839496;
-        background: #002b36;
-
-    }
-    a {
-        color: #b58900;
-    }
-    a:visited {
-        color: #cb4b16;
-    }    
-    strong {
-        color: darkgray
-    }
-    h1 {
-        color: #d33682;
-    }
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: #859900;
-    }
-
-
-    pre, code{
-        background: #073642;
-        border: 1pt solid #586e75;
-        box-shadow: 1pt 1pt 1pt #586e75;
-        padding: 1pt;
-    }
-
-
-}
-
 #toc {
   position: fixed;
   right: 0.5em;
   top: 0.5em;
   /*color: #002b36;*/
-  background-color: honeydew;
+  background-color: whitesmoke;
   /*border:1px solid darkgreen;*/
   padding: 0.5em 5pt;        
 }
@@ -152,4 +86,66 @@ details > summary {
 
 
 
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: snow;
+    }
+    blockquote{
+        background: whitesmoke;
+        border-left: 5pt solid darkgreen;
+        
+    }
+    pre,code{
+        background: whitesmoke;
+    }
+    a {
+        /* color: #666;*/
+        /*background: springgreen;*/
+        text-decoration: none;
+     }
+     a:hover{
+        background: lightgreen;
+     }
+
+/*      details:hover{ */
+/*          background-color: ghostwhite; */
+/* }      */
+
+}
+
+@media (prefers-color-scheme: dark) {    
+    /* Solarized dark color */
+    body {
+        color: #839496;
+        background: #002b36;
+
+    }
+    a {
+        color: #b58900;
+    }
+    a:visited {
+        color: #cb4b16;
+    }    
+    strong {
+        color: darkgray
+    }
+    h1 {
+        color: #d33682;
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #859900;
+    }
+
+    pre, code{
+        background: #073642;
+        border: 1pt solid #586e75;
+        box-shadow: 1pt 1pt 1pt #586e75;
+        padding: 1pt;
+    }
+}
 
