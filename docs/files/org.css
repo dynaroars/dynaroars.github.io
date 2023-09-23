@@ -40,7 +40,6 @@ details > summary {
   right: 0.5em;
   top: 0.5em;
   /*color: #002b36;*/
-  background-color: whitesmoke;
   /*border:1px solid darkgreen;*/
   padding: 0.5em 5pt;        
 }
@@ -83,16 +82,15 @@ details > summary {
 
 
 
-
 @media (prefers-color-scheme: light) {
     body {
         background: snow;
     }
     blockquote{
         background: whitesmoke;
-        border-left: 5pt solid darkgreen;
-        
+        border-left: 3pt dotted darkgreen;
     }
+
     pre,code{
         background: whitesmoke;
     }
@@ -104,6 +102,11 @@ details > summary {
      a:hover{
         background: lightgreen;
      }
+
+     #toc{
+        background-color: whitesmoke;
+     }
+
      .myborder:hover{
          border: 2px solid darkgreen;
      }
@@ -148,5 +151,13 @@ details > summary {
         box-shadow: 1pt 1pt 1pt #586e75;
         padding: 1pt;
     }
+
+    blockquote{
+        border-left: 3pt dotted #859900;
+    }    
+
+    #toc{
+        background-color: #073642;
+     }    
 }
 
