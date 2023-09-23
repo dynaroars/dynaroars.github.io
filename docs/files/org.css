@@ -1,6 +1,6 @@
 body {
     margin: 40px auto;
-    max-width: 90%;
+    max-width: 80%;
     line-height: 1.6;
     padding: 0 10px
 }
@@ -51,7 +51,7 @@ details > summary {
 
 .myborder{
     padding: 0 1px;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
 }
 
 
@@ -108,7 +108,7 @@ details > summary {
      }
 
      .myborder:hover{
-         border: 2px solid darkgreen;
+         border: 1px solid darkgreen;
      }
      
 
@@ -127,10 +127,16 @@ details > summary {
     }
     a {
         color: #b58900;
+        text-decoration:  none;
     }
-    a:visited {
+    
+    a:hover {
+        text-decoration: underline;
+    } 
+
+    a:visited{
         color: #cb4b16;
-    }    
+    }
     strong {
         color: darkgray
     }
