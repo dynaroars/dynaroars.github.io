@@ -19,6 +19,10 @@ This machine is both cheaper than a machine with similar specs from Dell or Leno
 | Fan (Case) | 4 x Noctua 140mm  | $23.95 | | 
 |    |         |**$6,468.4**   |    |
 
+
+The CPU and GPU are the two main components we need for our DNN verification. The other components are flexible.  For CPU, we go with the AMD Threadripper 32 cores (64 threads).  This is the 2nd, not top, of the line because the Threadripper 64 cores costs quite a bit and would require additional paperwork to purchase.  For GPU, we go with the current top of the line for gaming, the NVIDIA RTX 4090.  
+
+
 ## Timeline
 - 9/11: order components
 - 10/31: complete the build (1 day)
