@@ -28,10 +28,21 @@ The CPU and GPU are the two main components we need for our DNN verification. Th
 - 10/31: complete the build (1 day)
 
 ## Building It
+- Open the boxes!
+- install ssd
+- install cpu
+- install ram
+- install mb
+- install psu
+- install fans/airflow configuration
+- install CPU cooler
+- install GPU
+- connecting cables/cable management
+- test build/install OS
+
 
 
 ## Pros and Cons
-
 
 ## Thoughts
 
