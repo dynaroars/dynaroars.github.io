@@ -28,15 +28,30 @@ The CPU and GPU are the two main components we need for our DNN verification. Th
 - 10/31: complete the build (1 day)
 
 ## Building It
+> *Before you start*
+> - make sure to discharge yourself before touching the parts.
+
+
+
 - Open the boxes!
-- install ssd
-- install cpu
-- install ram
+- install SSD, CPU, RAM
+    Its often a good idea to install smaller parts onto the moterboard first. Working in the chassis can can be more challenging due to limited space.
+    - CPU
+        Our CPU (59775wx) uses sWRX8 socket. The installation is a bit different from the other consumer CPUs we've seen, so it took us a while to read the manual and figure out how. 
+    - SSD
+        Very typical NVMe SSD installtion. We removed some cover from the motherboard to expose the NVMe slot, and installed the SSD on M.2_1 slot (M.2_1 is usually directly connected to the CPU, which gives better performance).
+    - install RAM
+        Nothing special about the RAM installtion, too. The CPU&MB together has 8 RAM slots, each with dedicated channel, so we used every other slot for better thermal performance. On some MB, multiple slots might share a channel; When this happen the MB's manual will tell you what to do.
 - install mb
+    Now we can put the MB into the chassis. The chassis comes with extra standoffs and panels for ATX MBs so we had to remove them before proceeding (because we're using a Extended-ATX, which is larger). Fit the I/O panel into the slot on the back of the chassis, and align the standoffs to the mounting points on the MB. Lastly, tighten the screws alternatively (So the force is evenly distributed).
 - install psu
+    Our MB was interesting, it has one MB power connector, 2 CPU power connector, and one extra PCIE power connector (which is not common). The GPU uses one of 12VHPWR connector. We attached the cables to the PSU first, because it's gonna be much harder to add power connectors once the PSU is in the chassis.
 - install fans/airflow configuration
+    We used a very conventional airflow configuration, as in the picture. Cool air comes in from the front and exits through the back and top. The 140 mm fans by Noctua are really powerful yet quiet. When shopping for fans, we aimed for airflow but not the air pressure because we're not using an AIO cooler (AIO needs higher pressure to push the air through the radiators). Once, we installed the fans, we route the wires to the back of the MB, prepare for cable management.
 - install CPU cooler
+    Our cooler comes with thermal paste pre-applied, so all we did is put it on the CPU and tighten the screws alternatively. This fancy cooler has a 4-pin fan connector and another sata power conenctor for RGB (which none of us cares about).
 - install GPU
+    To install the GPU we had to take off the PCIE slot covers. Our GPU uses two slots so we took off two of the covers; And then we just snap the GPU into the 1st PCIE slot. Because the 4090 is so heavy, we had to order additional GPU supporting bracket or the MB will be at risk.
 - connecting cables/cable management
 - test build/install OS
 
