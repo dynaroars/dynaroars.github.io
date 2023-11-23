@@ -32,34 +32,40 @@ The CPU and GPU are the two main components we need for our DNN verification. Th
 > - make sure to discharge yourself before touching the parts.
 
 
-
-- Open the boxes!
-- install SSD, CPU, RAM
-    Its often a good idea to install smaller parts onto the moterboard first. Working in the chassis can can be more challenging due to limited space.
-    - CPU
-        Our CPU (59775wx) uses sWRX8 socket. The installation is a bit different from the other consumer CPUs we've seen, so it took us a while to read the manual and figure out how. 
-    - SSD
-        Very typical NVMe SSD installtion. We removed some cover from the motherboard to expose the NVMe slot, and installed the SSD on M.2_1 slot (M.2_1 is usually directly connected to the CPU, which gives better performance).
-    - install RAM
-        Nothing special about the RAM installtion, too. The CPU&MB together has 8 RAM slots, each with dedicated channel, so we used every other slot for better thermal performance. On some MB, multiple slots might share a channel; When this happen the MB's manual will tell you what to do.
-- install mb
-    Now we can put the MB into the chassis. The chassis comes with extra standoffs and panels for ATX MBs so we had to remove them before proceeding (because we're using a Extended-ATX, which is larger). Fit the I/O panel into the slot on the back of the chassis, and align the standoffs to the mounting points on the MB. Lastly, tighten the screws alternatively (So the force is evenly distributed).
-- install psu
-    Our MB was interesting, it has one MB power connector, 2 CPU power connector, and one extra PCIE power connector (which is not common). The GPU uses one of 12VHPWR connector. We attached the cables to the PSU first, because it's gonna be much harder to add power connectors once the PSU is in the chassis.
-- install fans/airflow configuration
-    We used a very conventional airflow configuration, as in the picture. Cool air comes in from the front and exits through the back and top. The 140 mm fans by Noctua are really powerful yet quiet. When shopping for fans, we aimed for airflow but not the air pressure because we're not using an AIO cooler (AIO needs higher pressure to push the air through the radiators). Once, we installed the fans, we route the wires to the back of the MB, prepare for cable management.
-- install CPU cooler
-    Our cooler comes with thermal paste pre-applied, so all we did is put it on the CPU and tighten the screws alternatively. This fancy cooler has a 4-pin fan connector and another sata power conenctor for RGB (which none of us cares about).
-- install GPU
-    To install the GPU we had to take off the PCIE slot covers. Our GPU uses two slots so we took off two of the covers; And then we just snap the GPU into the 1st PCIE slot. Because the 4090 is so heavy, we had to order additional GPU supporting bracket or the MB will be at risk.
-- connecting cables/cable management
-    The last step is to connect the cables. Its simple but kinda tedious. The only part that might be challenging is to connect the system panel connectors(power button, restart button, etc).
-- test build/install OS
-    We gave the system a test drive. The hardware works as expected and everything was detected by the MB. So we continued to install the OS. However, this didn't work as good as we expected. The system boots into the installtion media with no issue, but as soon as we start the insallation the keyboard will stop working. After spending a couple hour looking for a solution online, we found out that disableing SR-IOV does the trick (link)[https://www.overclock.net/threads/asus-pro-ws-wrx80e-sage-se-wifi-installing-linux.1804562/].  
+- **Open the boxes!**
+- **Install SSD, CPU, RAM:**
+  - _It's often a good idea to install smaller parts onto the motherboard first._ Working in the chassis can be more challenging due to limited space.
+    - **CPU:**
+      - Our CPU (59775wx) uses an sWRX8 socket. The installation is a bit different from the other consumer CPUs we've seen, so it took us a while to read the manual and figure out how.
+    - **SSD:**
+      - Very typical NVMe SSD installation. We removed a cover from the motherboard to expose the M.2 slot, and installed the SSD in the M.2_1 slot (M.2_1 is usually directly connected to the CPU, which gives better performance).
+    - **Install RAM:**
+      - Nothing special about the RAM installation, either. The CPU & MB together have 8 RAM slots, each with a dedicated channel, so we used every other slot for better thermal performance. On some MBs, multiple slots might share a channel; when this happens, the MB's manual will tell you what to do.
+- **Install MB:**
+  - Now we can put the MB into the chassis. The chassis comes with extra standoffs and panels for ATX MBs, so we had to remove them before proceeding (because we're using an Extended-ATX, which is larger). Fit the I/O panel into the slot on the back of the chassis, and align the standoffs to the holes on the MB. Lastly, tighten the screws in an alternating pattern (so the force is evenly distributed).
+- **Install PSU:**
+  - Our MB was interesting; it has one MB power connector, two CPU power connectors, and one extra PCIe power connector (which is not common). The GPU uses one of the 12VHPWR connectors. We attached the cables to the PSU first, because it will be much harder to add power connectors once the PSU is in the chassis.
+- **Install fans/airflow configuration:**
+  - We used the conventional airflow configuration, front-to-back/top. The 140 mm fans by Noctua are really powerful yet quiet. When shopping for fans, we aimed for airflow, not air pressure, because we're not using an AIO cooler (AIO needs higher pressure to push the air through the radiators). Once we installed the fans, we routed the wires to the back of the MB, preparing for cable management.
+- **Install CPU cooler:**
+  - Our cooler comes with thermal paste pre-applied, so all we did was put it on the CPU and tighten the screws in an alternating pattern. This fancy cooler has a 4-pin fan connector and another SATA power connector for RGB (which none of us care about).
+- **Install GPU:**
+  - To install the GPU, we had to take off the PCIe slot covers. Our GPU uses two slots, so we took off two of the covers, and then we just snapped the GPU into the 1st PCIe slot. Because the 4090 is so heavy, we had to order an additional GPU supporting bracket, or the MB would be at risk.
+- **Connecting cables/cable management:**
+  - The last step is to connect the cables. It's simple but kind of tedious. The only potentially challenging part is connecting the system panel connectors (power button, restart button, etc.). Cable management is optional but recommended; it requires patience and some skill. 
+- **Test build/install OS:**
+  - After connecting everything, we pluged in the power cord and gave the system a test drive. The hardware works as expected and everything was detected by the MB. So, we continued to install the OS. However, this didn't work as well as we expected. The system boots into the installation media with no issue, but as soon as we start the installation, the keyboard stops working. After spending a couple of hours looking for a solution online, we found out that disabling SR-IOV does the trick. Strange. [link](https://www.overclock.net/threads/asus-pro-ws-wrx80e-sage-se-wifi-installing-linux.1804562/). 
 
 
 ## Pros and Cons
-
+- **Pros**
+    - Fun
+    - Easier to upgrade (comparing PCs that uses OEM parts)
+    - Full control over your machine
+- **Cons**
+    - unexpected problems
+    - time
+    - risk of braking parts
 ## Thoughts
 
 
