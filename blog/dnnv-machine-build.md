@@ -53,8 +53,9 @@ The CPU and GPU are the two main components we need for our DNN verification. Th
 - install GPU
     To install the GPU we had to take off the PCIE slot covers. Our GPU uses two slots so we took off two of the covers; And then we just snap the GPU into the 1st PCIE slot. Because the 4090 is so heavy, we had to order additional GPU supporting bracket or the MB will be at risk.
 - connecting cables/cable management
+    The last step is to connect the cables. Its simple but kinda tedious. The only part that might be challenging is to connect the system panel connectors(power button, restart button, etc).
 - test build/install OS
-
+    We gave the system a test drive. The hardware works as expected and everything was detected by the MB. So we continued to install the OS. However, this didn't work as good as we expected. The system boots into the installtion media with no issue, but as soon as we start the insallation the keyboard will stop working. After spending a couple hour looking for a solution online, we found out that disableing SR-IOV does the trick (link)[https://www.overclock.net/threads/asus-pro-ws-wrx80e-sage-se-wifi-installing-linux.1804562/].  
 
 
 ## Pros and Cons
