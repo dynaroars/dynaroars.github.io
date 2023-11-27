@@ -1,6 +1,6 @@
 # Building a machine for Neural Network Verification
 
-We have just built a new machine **"PizzaBox"** for our research group.  Linhan and Hai built it on Oct 31st (Halloween) and it is up running since Nov 1.  The machine will be mainly used for our SE/PL research and especially for **neural network verification**, which is a bit different than an ML machine that focuses on training and therefore requires different hardware components and setup.
+We have just built a new machine **"PizzaBox"** for our research group.  Linhan and Hai built it on Oct 31st (Halloween) and it is up running since Nov 1.  The machine will be mainly used for our SE/PL research. In particular, we will use it for **neural network verification**, which is a bit different than an ML machine that focuses on training and therefore requires different hardware components and setup.
 
 This machine is both cheaper than a machine with similar specs from Dell or Lenovo. It also runs a lot faster than computer servers available at GMU that we have access to.  We believe such customized computers are best for our purpose and hope that this post will be useful for others who are interested in building a similar machine.
 
@@ -66,6 +66,11 @@ The CPU and GPU are the two main components we need for our DNN verification. Th
     - unexpected problems
     - time
     - risk of braking parts
+
+
+## Benchmarks
+
+
 ## Thoughts
 
 
