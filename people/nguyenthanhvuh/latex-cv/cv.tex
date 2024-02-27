@@ -237,10 +237,81 @@
   \end{description}
 \end{itemize}
 
+
+\subsection{Research Funding}
+\begin{itemize}[label={},before=\small]
+\item 8 grants (4 NSF, 1 Defense, 2 Industry Gifts, 1 Internal)
+%see calculation in funding.py
+%Total 2,654,587
+%My share 1,463,455
+%My share as PI 1,304,605
+%GMU_total 1,903,622
+%GMU_myshare 1,103,630
+%GMU_myshare_aspi 1,103,630
+
+\item \textbf{Total}: \$2,654,587, \textbf{my share}: \$1,463,455;  \textbf{as PI}: \$1,304,605
+\item \textbf{At GMU}: \$1,936,420; \textbf{my/GMU share}: \$1,136,428; \textbf{as PI}: \$1,136,428
+\end{itemize}
+
+
+% \renewcommand{\arraystretch}{1.2}
+% \begin{table}[htbp]
+%   \caption{\label{tab:externalfunding}Summary of Funded Grants.}
+%   \small
+%   \centering
+%   \begin{tabular}{c|lllrrr}
+%     \toprule
+%     &\textbf{Sponsor} & \textbf{Project} & \textbf{Role} & \textbf{Dates} & \textbf{Total} & \textbf{My Share}\\
+%     \midrule
+%     \multirow{3}{*}{\rotatebox[origin=c]{90}{GMU}}
+%                       &Amazon & Amazon Research Award & Sole-PI & 2023 & \$50K & \$50K \\
+%         &NSF & CAREER [\ref{nsf2023neuralsat}] & Sole-PI & 2023--2028 & \$510K & \$510K \\
+%     %\multicolumn{5}{c}{test}\\
+%         &Facebook & [\ref{fb2022cmake}] & Sole-PI & 2021 & \$30K & \$30K \\
+%         &NSF & Core Medium [\ref{nsf2022dtemporal}] &  PI & 2021--2024 & \$1.2M & \$416K\\
+%     \midrule
+%     \multirow{3}{*}{\rotatebox[origin=c]{90}{UNL}}&UNL &  Seed Award  & Sole-PI & 2021 & \$10K & \$10K\\
+%     &NSF & CRII [\ref{nsf2020kbuild}]&Sole-PI & 2020--2022 & \$191K &  \$191K\\
+%     &US. Army & [\ref{aro2018predict}]&Co-PI & 2019--2021 & \$550K & \$160K\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\begin{enumerate}[label=G\arabic*]
+  \mygrant{nsf2023cybolic}
+  \mygrant{amz2023neuralsat}
+  \mygrant{nsf2023neuralsat}
+  \mygrant{fb2022cmake}
+  \mygrant{nsf2022dtemporal}
+  \begin{itemize}[label={},before=\small]
+  \item Supplementary REU: \$16,000
+  \end{itemize}
+\end{enumerate}
+
+\beforegmu{}
+
+\begin{enumerate}[label=G\arabic*]
+  \setcounter{enumi}{5}
+  \mygrant{unl2021seed}
+  \mygrant{nsf2020kbuild}
+  \begin{itemize}[label={},before=\small]
+    \item \emph{Transferred \$32,768 to GMU}
+  \item Supplementary REU: \$16,000
+  \end{itemize}
+  \mygrant{aro2018predict}
+\end{enumerate}
+
+\coe{
+  \IfFileExists{./fund_miscs.tex}{
+    \input{fund_miscs}
+  }
+}
+
+
 \subsection{Publication Record}
 
 \begin{itemize}[label={},before=\small]
-\item \textbf{\mygooglescholar{}}: citations 3724, h-index 17, i10-index 24 (as of Jan 1, 2024).
+\item \textbf{\mygooglescholar{}}: citations 3804, h-index 17, i10-index 26 (as of Feb, 2024).
 \item Refereed papers:  journal 12, conference 38, workshop 4.
 \item \(^1\), \(^2\), \(^3\) denote co-authorship with my undergraduate, MS, and PhD students, respectively.
 %\item  \textbf{Bold journal and conference names} indicate full research papers at top-tier venues, e.g., TSE, ICSE, FSE, PLDI, OOPSLA. See \href{https://csrankings.org}{csrankings.org} for top CS conferences.
@@ -487,78 +558,6 @@
 \begin{enumerate}
 \item \fullcite{bagheri2023systems}
 \end{enumerate}
-
-\subsection{Research Funding}
-\begin{itemize}[label={},before=\small]
-\item 8 grants (4 NSF, 1 Defense, 2 Industry Gifts, 1 Internal)
-%see calculation in funding.py
-%Total 2,654,587
-%My share 1,463,455
-%My share as PI 1,304,605
-%GMU_total 1,903,622
-%GMU_myshare 1,103,630
-%GMU_myshare_aspi 1,103,630
-
-\item \textbf{Total}: \$2,654,587, \textbf{my share}: \$1,463,455;  \textbf{as PI}: \$1,304,605
-\item \textbf{At GMU}: \$1,936,420; \textbf{my/GMU share}: \$1,136,428; \textbf{as PI}: \$1,136,428
-\end{itemize}
-
-
-% \renewcommand{\arraystretch}{1.2}
-% \begin{table}[htbp]
-%   \caption{\label{tab:externalfunding}Summary of Funded Grants.}
-%   \small
-%   \centering
-%   \begin{tabular}{c|lllrrr}
-%     \toprule
-%     &\textbf{Sponsor} & \textbf{Project} & \textbf{Role} & \textbf{Dates} & \textbf{Total} & \textbf{My Share}\\
-%     \midrule
-%     \multirow{3}{*}{\rotatebox[origin=c]{90}{GMU}}
-%                       &Amazon & Amazon Research Award & Sole-PI & 2023 & \$50K & \$50K \\                                                    
-%         &NSF & CAREER [\ref{nsf2023neuralsat}] & Sole-PI & 2023--2028 & \$510K & \$510K \\
-%     %\multicolumn{5}{c}{test}\\
-%         &Facebook & [\ref{fb2022cmake}] & Sole-PI & 2021 & \$30K & \$30K \\
-%         &NSF & Core Medium [\ref{nsf2022dtemporal}] &  PI & 2021--2024 & \$1.2M & \$416K\\
-%     \midrule
-%     \multirow{3}{*}{\rotatebox[origin=c]{90}{UNL}}&UNL &  Seed Award  & Sole-PI & 2021 & \$10K & \$10K\\        
-%     &NSF & CRII [\ref{nsf2020kbuild}]&Sole-PI & 2020--2022 & \$191K &  \$191K\\
-%     &US. Army & [\ref{aro2018predict}]&Co-PI & 2019--2021 & \$550K & \$160K\\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-
-\begin{enumerate}[label=G\arabic*]
-  \mygrant{nsf2023cybolic}
-  \mygrant{amz2023neuralsat}
-  \mygrant{nsf2023neuralsat}  
-  \mygrant{fb2022cmake}
-  \mygrant{nsf2022dtemporal}
-  \begin{itemize}[label={},before=\small]
-  \item Supplementary REU: \$16,000 
-  \end{itemize}
-\end{enumerate}
-
-\beforegmu{}
-
-\begin{enumerate}[label=G\arabic*]
-  \setcounter{enumi}{5}  
-  \mygrant{unl2021seed}  
-  \mygrant{nsf2020kbuild}
-  \begin{itemize}[label={},before=\small]
-    \item \emph{Transferred \$32,768 to GMU}
-  \item Supplementary REU: \$16,000 
-  \end{itemize}
-  \mygrant{aro2018predict}
-\end{enumerate}
-
-\coe{
-  \IfFileExists{./fund_miscs.tex}{
-    \input{fund_miscs}
-  }
-}
-
-
-
 
 
 
