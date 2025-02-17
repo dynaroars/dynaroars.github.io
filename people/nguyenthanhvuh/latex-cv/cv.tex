@@ -8,7 +8,7 @@
 %   \usepackage{microtype}
 \usepackage[backend=bibtex,doi=false,isbn=false,maxcitenames=10,maxbibnames=10,abbreviate=false,style=alphabetic]{biblatex}
 \addbibresource{cv.bib}
-% \usepackage[small,compact]{titlesec} %very powerful
+\usepackage[small,compact]{titlesec} %very powerful
 \usepackage{fontawesome}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
@@ -96,8 +96,6 @@ hidelinks %set true if you want colored links
 \section{Education and Employment History}
 
 
-
-
 \subsection{Academic Positions}
 
 \begin{itemize}
@@ -124,7 +122,7 @@ hidelinks %set true if you want colored links
 \begin{itemize}
     \item Internships, \href{https://www.nrl.navy.mil}{Naval Research Laboratory}\hfill 2004--2025, 2006, 2012--2013
     \begin{description}[before=\small]
-        \item Three 8-month internships in the Information Technology and Tactical Electronic Warfare divisions
+        \item \emph{Three} 8-month internships in the Information Technology and Tactical Electronic Warfare divisions
         \item Produced \emph{twelve} peer-reviewed conference and journal papers, and received an \emph{Incentive Award} from the Navy
     \end{description}        
     \item Internship, Advanced Technology Laboratories, \href{https://lockheedmartin.com/en-us/capabilities/research-labs/advanced-technology-labs.html}{Lockheed Martin}\hfill 2007
@@ -172,6 +170,11 @@ hidelinks %set true if you want colored links
 \subsection{Awards and Honors}
 
 \begin{itemize}
+    \item \textbf{Most Influential Paper Award}~[\ref{le2011genprog}], IEEE \hfill 2025
+    \begin{description}[before=\small]
+        \item One of the most influential papers published in the IEEE Transactions on Software Engineering (TSE) in the last decade
+    \end{description}
+
     \item \textbf{NeuralSAT} ranked \emph{2nd overall}, VNN-COMP\hfill 2024
     \item \textbf{NeuralSAT} ranked \emph{4th overall} and received the \textbf{New Participant Award}, VNN-COMP\hfill 2023
     \item \textbf{Amazon Research Award}~[\ref{amz2023neuralsat}] (Automated Reasoning), Amazon Science\hfill 2023
@@ -312,7 +315,7 @@ hidelinks %set true if you want colored links
 \subsection{Publication Record}
 
 \begin{itemize}[label={},before=\small]
-    \item \textbf{\mygooglescholar{}}: citations 3804, h-index 17, i10-index 26 (as of Feb, 2024).
+    \item \textbf{\mygooglescholar{}}: citations 4178, h-index 19, i10-index 31 (as of Feb, 2025).
     \item Refereed papers:  journal 12, conference 38, workshop 4.
     \item \(^1\), \(^2\), \(^3\) denote co-authorship with my undergraduate, MS, and PhD students, respectively.
     % \item  \textbf{Bold journal and conference names} indicate full research papers at top-tier venues, e.g., TSE, ICSE, FSE, PLDI, OOPSLA. See \href{https://csrankings.org}{csrankings.org} for top CS conferences.
@@ -331,6 +334,8 @@ hidelinks %set true if you want colored links
 
 \newcommand{\myjournals}{
 \begin{enumerate}[label=J\arabic*]
+    \mypubc{le2025evolution}
+
     \mypubc{duong2024harnessing}{25\%}
     \mypubcc{wang2023graph}
     \mypubcc{nguyen2021using}
@@ -353,8 +358,9 @@ hidelinks %set true if you want colored links
     \mypubcc{kapur2013geometric}
     \mypubcc{le2011genprog}
     \begin{itemize}[label={},before=\small]
+        \item \textbf{Most Influential Paper Award} (received in 2025)
         \item \textbf{Featured Article}
-        \item \textbf{1K+ citations}
+        \item \textbf{1.3K+ citations}
     \end{itemize}
     
     \mypubcc{weimer2010automatic}
@@ -401,8 +407,10 @@ hidelinks %set true if you want colored links
 
 \newcommand{\myconfs}{
 \begin{enumerate}[label=C\arabic*]
-    
+    \mypubc{doan2025ai}
+
     \mypubc{dao2023triggering}{33\%}
+
     \mypubc{phan2023challenges}{33\%}
     \mypubc{brida2022icebar}{14\%}
     \mypubc{zheng2022atr}{14\%}
@@ -449,7 +457,7 @@ hidelinks %set true if you want colored links
     \mypubc{weimer2009automatically}{25\%}
     \begin{itemize}[label={},before=\small]
         \item \textbf{10-year Most Influential Paper Award} (received in 2019)
-        \item \textbf{900+ citations}
+        \item \textbf{1K+ citations}
         \item \textbf{Distinguished Paper Award}
         \item \textbf{IFIP TC2 Manfred Paul Award for Excellence in Software: Theory and Practice}
     \end{itemize}
