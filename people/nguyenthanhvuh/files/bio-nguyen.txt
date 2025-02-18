@@ -7,6 +7,6 @@ University of Maryland-College Park.
 Nguyen's research lies at the intersection of Software Engineering
 and Formal Methods, focusing on safety of AI and
 correctness of programs. He is the recipient of the
-NSF CAREER Award, the NSF CRII Award, an Amazon Research Award, a IEEE TSE Most Influential Paper Award, an ACM
+NSF CAREER Award, the NSF CRII Award, an Amazon Research Award, an IEEE TSE Most Influential Paper Award, an ACM
 SIGSOFT ICSE 10-year Most Influential Paper Award, and an ACM SIGEVO
 10-year Impact Award.
