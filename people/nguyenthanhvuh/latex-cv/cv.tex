@@ -32,9 +32,7 @@
 \usepackage{complexity}
 \usepackage{booktabs}
 \usepackage{hyperref}
-% \hypersetup{
-% hidelinks %set true if you want colored links
-% }
+
 
 \usepackage[margin=0.8in]{geometry}
 
@@ -50,21 +48,20 @@
 \newcommand{\mypubc}[2]{\item~\label{#1} \fullcite{#1c}\coe{, contribution #2}}   %label,contribution percentage (optional)
 \newcommand{\beforegmu}{\begin{center}\rule{2in}{0.8pt}~\textbf{Before GMU}~\rule{2in}{0.8pt}\end{center}}
 \newcommand{\beforephd}{\begin{center}\rule{2in}{0.8pt}~\textbf{Before PhD}~\rule{2in}{0.8pt}\end{center}}
-% \newcommand{\atunl}{At UNL (Fall'16--Spring'21)}
 
 \begin{document}
 \thispagestyle{empty}
 
 \begin{center}
-    \textbf{\LARGE \myname{}'s Curriculum Vitae}
+    \textbf{\LARGE \myname{}'s\\\vspace{0.15in}Curriculum Vitae}
 \end{center}
 
-\vspace{0.1in}
+\vspace{0.15in}
 \begin{minipage}{.40\textwidth}
     \footnotesize
     \begin{itemize}[label={}]
-        \item Department of Computer Science\\
-        George Mason University\\
+        \item \href{https://cs.gmu.edu}{Department of Computer Science}\\
+        \href{https://www.gmu.edu}{George Mason University}\\
         4400 University Drive\\
         Nguyen Engineering Building \#4430\\
         Fairfax, VA 22030
@@ -94,8 +91,6 @@
 \end{tcolorbox}
 
 \section{Education and Employment History}
-
-
 \subsection{Academic Positions}
 
 \begin{itemize}
@@ -107,15 +102,13 @@
         
     \end{itemize}
     
-    \item Assistant Prof., Computer Science \& Engineering, \href{https://computing.unl.edu}{University of Nebraska-Lincoln} (UNL)\hfill 2016--2021
+    \item Assistant Prof., Computer Science \& Engr., \href{https://computing.unl.edu}{University of Nebraska-Lincoln} (UNL)\hfill 2016--2021
     
     \item Postdoc, Computer Science,  \href{https://www.umd.edu}{University of Maryland}, College Park, MD\hfill 2014--2016
     \begin{description}[before=\small]
         \item Mentor: Jeff Foster
     \end{description}
-    
-    %\item Research Assistant, Computer Science, \href{https://www.cs.unm.edu}{University of New Mexico} (UNM)\hfill 2007--2014
-    
+
 \end{itemize}
 
 \subsection{Industrial and Government Positions}
@@ -325,26 +318,25 @@
 
 % \emergencystretch=1em
 
-\newcommand{\myunderreview}{
-\begin{enumerate}[label=R\arabic*]
-    \mypubcc{mariano2019program}
-\end{enumerate}
+\newcommand{\mybooks}{
+    \begin{enumerate}[label=B\arabic*]
+        \item \fullcite{nguyendemystify}
+        \item \fullcite{nguyensafe}
+    \end{enumerate}
 }
-
 
 \newcommand{\myjournals}{
 \begin{enumerate}[label=J\arabic*]
     \mypubc{le2025evolution}
-
+      
     \mypubc{duong2024harnessing}{25\%}
     \mypubcc{wang2023graph}
     \mypubcc{nguyen2021using}
-    % \end{enumerate}
+    \end{enumerate}
     
-    % \beforegmu{}
+    \beforegmu{}
     
-    % \begin{enumerate}[label=J\arabic*]
-    %   \setcounter{enumi}{1}
+    \begin{enumerate}[label=J\arabic*,,resume]
     
     \mypubcc{ishimwe2021dynaplex}
     \mypubcc{le2020dynamite}
@@ -380,7 +372,6 @@
 
 \newcommand{\myworkshops}{
 
-% \beforegmu{}
 
 \begin{enumerate}[label=W\arabic*]
     \mypubc{nguyen2020using}{20\%}
@@ -419,12 +410,12 @@
     \mypubc{ishimwe2022dynaplex}{33\%}
     \mypubc{nguyen2022syminfer}{70\%}
     
-    % \end{enumerate}
+    \end{enumerate}
     
-    % \beforegmu{}
+    \beforegmu{}
     
-    % \begin{enumerate}[label=C\arabic*]
-    %   \setcounter{enumi}{8}
+    \begin{enumerate}[label=C\arabic*,resume]
+    
     
     \mypubc{nguyen2021gentree}{50\%}
     \mypubc{zheng2021flack}{14\%}
@@ -523,6 +514,8 @@
 \subsubsection{Refereed Workshop Papers (in print)}
 \myworkshops{}
 
+\subsubsection{Books}
+\mybooks{}
 \subsubsection{Dissertation}
 
 \begin{enumerate}[label=T\arabic*]
@@ -538,28 +531,22 @@
 \end{enumerate}
 
 \subsubsection{Patents}
-\begin{enumerate}
+\begin{itemize}
     \item \fullcite{bagheri2023systems}
-\end{enumerate}
-
+\end{itemize}
 
 
 
 \subsubsection{Publicly Available Software}
-\begin{itemize}
-  \item \textbf{NeuralSAT}: A high-performance verification tool for Deep Neural Networks. \url{github.com/dynaroars/neuralsat}
+\begin{enumerate}[label=S\arabic*]
+    \item \fullcite{neuralsattool}
     \begin{itemize}[before=\small]
         \item ranked \textbf{2nd overall} at VNN-COMP'24
         \item ranked \textbf{4th overall} at VNN-COMP'23 and received the \emph{``New Commer Award''}
     \end{itemize}
-
-   \item \textbf{DIG}: A Dynamic and Symbolic Invariant Generation Tool for C programs. \url{github.com/dynaroars/dig}
-\end{itemize}
-
-
-%   \item \textbf{iGen}: A Dynamic Analyzer for Highly-Configurable Software. \url{https://github.com/unsat/igen/}
-%   \item \textbf{GenTree}: Analyzing Highly-Configurable Software using Decision Trees. \url{https://github.com/unsat/gentree/}
-%   \item \textbf{GenProg}: A program repair tool using Genetic Algorithm. \url{https://squareslab.github.io/genprog-code/}
+    \item \fullcite{digtool}
+    \item \fullcite{npbench}
+\end{enumerate}
 
 
 \subsection{Invited Talks}
