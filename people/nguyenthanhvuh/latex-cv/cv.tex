@@ -32,9 +32,9 @@
 \usepackage{complexity}
 \usepackage{booktabs}
 \usepackage{hyperref}
-\hypersetup{
-hidelinks %set true if you want colored links
-}
+% \hypersetup{
+% hidelinks %set true if you want colored links
+% }
 
 \usepackage[margin=0.8in]{geometry}
 
@@ -48,8 +48,8 @@ hidelinks %set true if you want colored links
 \newcommand{\mygrant}[1]{\item~\label{#1} \fullcite{\detokenize{#1}}}
 \newcommand{\mypubcc}[1]{\item~\label{#1} \fullcite{\detokenize{#1}c}}
 \newcommand{\mypubc}[2]{\item~\label{#1} \fullcite{#1c}\coe{, contribution #2}}   %label,contribution percentage (optional)
-\newcommand{\beforegmu}{\textbf{Before GMU}}
-\newcommand{\beforephd}{\textbf{Before PhD}}
+\newcommand{\beforegmu}{\begin{center}\rule{2in}{0.8pt}~\textbf{Before GMU}~\rule{2in}{0.8pt}\end{center}}
+\newcommand{\beforephd}{\begin{center}\rule{2in}{0.8pt}~\textbf{Before PhD}~\rule{2in}{0.8pt}\end{center}}
 % \newcommand{\atunl}{At UNL (Fall'16--Spring'21)}
 
 \begin{document}
@@ -874,7 +874,7 @@ hidelinks %set true if you want colored links
     \end{description}
 \end{itemize}
 \vspace{0.1in}
-\beforegmu{} (At UNL)
+\beforegmu{}
 \vspace{0.1in}
 \begin{itemize}
     \item Member, Graduate CS Program Committee\hfill 2020--2021
@@ -902,7 +902,7 @@ hidelinks %set true if you want colored links
     \item Panelist, GMU New Faculty Panel\hfill 2022
 \end{itemize}
 \vspace{0.1in}
-\beforegmu{} (At UNL)
+\beforegmu{}
 \vspace{0.1in}
 \begin{itemize}
     \item Reviewer,  UNL Graduate Travel Award Program Committee\hfill 2017
