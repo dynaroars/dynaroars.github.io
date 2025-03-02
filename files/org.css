@@ -69,7 +69,7 @@ details > summary {
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }
-    to { width: 25% }
+    to { width: 40% }
   }
   
   /* The typewriter cursor effect */
