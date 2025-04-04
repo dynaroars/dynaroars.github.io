@@ -12,6 +12,8 @@
 \usepackage{fontawesome}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{documentation, skins}
+
 \usepackage{enumitem}
 %\setitemize{topsep=1pt,parsep=1.5pt,partopsep=2pt}
 \usepackage{amsmath}
@@ -86,7 +88,15 @@
 % \setcounter{page}{1}
 
 \vspace{0.2in}
-\begin{tcolorbox}[colback=gray!5!white,colframe=gray,center,boxrule=0.2pt,width=0.98\textwidth]
+\begin{tcolorbox}[enhanced,
+    before skip balanced=2mm,after skip balanced=3mm,
+    boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+    colback=yellow!10,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={%
+    \path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);},
+    drop fuzzy shadow]
     \small \textbf{Bio}: \emph{\input{../files/bio-nguyen.txt}}
 \end{tcolorbox}
 
@@ -815,29 +825,30 @@
 \subsubsection{Conference Committee Members (International)}
 
 \begin{description}[before=\small]
-    \item TPC: Technical Program Committee
+    \item PC: Technical Program Committee
 \end{description}
 
 \begin{itemize}
-    \item TPC, Programming Language Design and Implementation (PLDI)\hfill 2024
-    \item TPC, Object-Oriented Programming, Systems, Languages \& Applications (OOPSLA) \hfill 2024
-    \item TPC,  Int. Symposium on Software Testing and Analysis (ISSTA)\hfill 2023
-    \item TPC, Foundation of Software Engineering (FSE)\hfill 2018, 2019
-    \item TPC, Automated Software Engineering (ASE)\hfill 2018, 2019, 2020
-    \item TPC, Java PathFinder Workshop (JPF)\hfill 2019, 2020
+    \item PC, Programming Language Design and Implementation (PLDI)\hfill 2024
+    \item PC, Object-Oriented Programming, Systems, Languages \& Applications (OOPSLA) \hfill 2024
+    \item PC,  Int. Symposium on Software Testing and Analysis (ISSTA)\hfill 2023
+    \item PC, Foundation of Software Engineering (FSE)\hfill 2018, 2019
+    \item PC, Automated Software Engineering (ASE)\hfill 2018, 2019, 2020
+    \item PC, Java PathFinder Workshop (JPF)\hfill 2019, 2020
     \item New Faculty Symposium Panel, Int. Conf. of Software Engineering (ICSE)\hfill 2020
-    \item TPC, Int. Conf. of Software Engineering Demo Track (ICSE DEMO)\hfill 2020
-    \item TPC, Int. Conf. of Software Engineering Posters Track (ICSE Posters)\hfill 2020
-    \item TPC, Genetic Improvement Workshop\hfill 2017, 2020
-    \item TPC, ASE Journal First\hfill 2019
-    \item TPC, Systems and Software Product Line-Challenge Track (SPLC)\hfill 2018
+    \item PC, Int. Conf. of Software Engineering Demo Track (ICSE DEMO)\hfill 2020
+    \item PC, Int. Conf. of Software Engineering Posters Track (ICSE Posters)\hfill 2020
+    \item PC, Genetic Improvement Workshop\hfill 2017, 2020
+    \item PC, ASE Journal First\hfill 2019
+    \item PC, Systems and Software Product Line-Challenge Track (SPLC)\hfill 2018
     \item External Review Committee, Programming Language Design and Implementation (PLDI)\hfill 2018
     \item Artifact Evaluation Committee, Principles of Programming Languages (POPL)\hfill 2017
-    \item TPC, Formal Methods and Models for System Design (MEMOCODE)\hfill 2016, 2017, 2018
+    \item PC, Formal Methods and Models for System Design (MEMOCODE)\hfill 2016, 2017, 2018
 \end{itemize}
 
 \subsubsection{Conference Organization and Journal Editorships}
 \begin{itemize}
+    \item PC Chair, Competition Papers, Int. Verification of Neural Networks Competition (\href{https://sites.google.com/view/vnn2025}{VNN-COMP'25})\hfill 2025
     \item Proceedings Co-Chair,  Int. Conf. of Software Engineering (ICSE)\hfill 2022
     \item Editor Board, Journal of Systems and Software\hfill 2017--2021
 \end{itemize}
@@ -919,7 +930,11 @@
     \item Judge, Thomas Jefferson Highschool (Fairfax, VA) Science and Engineering Fair\hfill 2023
 \end{itemize}
 
-
+\section{Professional Affiliations}
+\begin{itemize}
+    \item Senior Member, IEEE \hfill 2025–-present
+    \item Member, ACM \hfill 2012--present
+\end{itemize}
 \section{Miscellaneous}
 \begin{itemize}
     \item Citizenship: U.S (DoD Secret Clearance---inactive)
