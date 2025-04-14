@@ -26,7 +26,7 @@
         <a href="#contact">Contact</a>
       </div>
     </div>
-    
+
     <header>
       <div class="typewriter">
         <h1><abbr title="RigOrous and Automated Reasoning Systems">ROARS 🦖 Lab @ GMU</abbr></h1>
@@ -56,7 +56,7 @@
     </header>
     
     <p>Welcome to <b>ROARS</b> (RigOrous and Automated Reasoning Systems) Lab at <a href="https://www.gmu.edu">George Mason University</a>. 
-        We design and build software analysis tools with automated reasoning at their core. We combine software engineering, formal methods, and programming languages to tackle practical software problems. See <a href="#research">Research</a> for more information.</p>
+        We design and build software analysis tools with automated reasoning at their core. See <a href="#research">Research</a> for more information.</p>
 
     <h2 id="news">News</h2>
 
@@ -757,7 +757,7 @@
               Nguyen Engineering Building #4430<br>
               4400 University Drive<br>
               Fairfax, VA 22030<br>
-              📬 &nbsp;Email: <b>tvn at gmu dot edu</b>
+              📬 &nbsp;Email: <b>admin at roars dot dev</b>
             </address>
           </figure>
         </td>
@@ -769,6 +769,30 @@
     <!-- <footer> -->
       <!--   <p style="text-align:right">Last updated: <b>April 2023</b></p> -->
       <!-- </footer> -->
+
+    <script>
+        console.log("ROARS Lab Secret Message: If you're reading this, you should apply for a PhD!");
+    </script>
+
+    <div id="typewriter"></div>
+    <script>
+    const text = "Access Granted to the GIBSON. Retrieving `garbage` file ................";
+    let i = 0;
+
+    function typingEffect() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typingEffect, 150); // speed in ms
+        }
+    }
+    typingEffect();
+
+    setTimeout(function(){
+    document.getElementById("typewriter").innerText = "Just kidding. Welcome to ROARs lab!";
+    }, 10000);
+    </script>
   </body>
 
 </html>
+
