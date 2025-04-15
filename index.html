@@ -58,7 +58,7 @@
       </table>
     </header>
     
-    <p>Welcome to <b>ROARS</b>---ROars has No Acronyms (Just ideas, code, and bugs)---Lab at <a href="https://www.gmu.edu">George Mason University</a>. 
+    <p>Welcome to <b>ROARS</b> Lab at <a href="https://www.gmu.edu">George Mason University</a>. 
         We design and build software analysis tools with automated reasoning at their core. See <a href="#research">Research</a> for more information.</p>
 
     <h2 id="news">News</h2>
@@ -764,25 +764,49 @@
         console.log("ROARS Lab Secret Message: If you're reading this, you should apply for a PhD!");
     </script>
 
-    <div id="typewriter"></div>
-    <script>
-    const text = "Accessing the GIBSON. Retrieving `garbage` file ................";
-    let i = 0;
 
-    function typingEffect() {
-        if (i < text.length) {
-            document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typingEffect, 150); // speed in ms
-        }
+<style>
+    #typewriter {
+        font-family: monospace;
+        color: lightgreen;
+        background: black;
+        padding: 1em;
+        white-space: pre-wrap;
     }
-    typingEffect();
+</style>
 
-    setTimeout(function(){
-    document.getElementById("typewriter").innerText = "Just kidding. Welcome to ROARs lab!";
-    }, 10000);
-    </script>
-  </body>
+<div id="typewriter"></div>
+
+<script>
+const text1 = "Accessing the GIBSON. Retrieving `garbage` file ................";
+const text2 = "Just kidding. Welcome to ROARS Lab!";
+
+let i = 0;
+let j = 0;
+
+function typingEffect1() {
+    if (i < text1.length) {
+        document.getElementById("typewriter").innerHTML += text1.charAt(i);
+        i++;
+        setTimeout(typingEffect1, 100);
+    } else {
+        setTimeout(() => {
+            document.getElementById("typewriter").innerHTML = "";
+            typingEffect2();
+        }, 1000);
+    }
+}
+
+function typingEffect2() {
+    if (j < text2.length) {
+        document.getElementById("typewriter").innerHTML += text2.charAt(j);
+        j++;
+        setTimeout(typingEffect2, 20);
+    }
+}
+
+typingEffect1();
+</script>
 
 </html>
 
