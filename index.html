@@ -761,81 +761,8 @@
       <!-- </footer> -->
 
     <script>
-        console.log("ROARS Lab Secret Message: If you're reading this, you should apply for a PhD!");
+        console.log("ROARS msg: If you're reading this, you should apply for a PhD!");
     </script>
-
-
-<style>
-    #typewriter {
-        font-family: monospace;
-        color: lightgreen;
-        background: black;
-        padding: 1em;
-        white-space: pre-wrap;
-    }
-</style>
-
-
-<div id="typewriter" style="font-family:monospace; white-space:pre;"></div>
-
-<style>
-code {
-    background: none;
-    color: inherit;
-}
-</style>
-
-<script>
-const text1 = "Accessing the GIBSON. Retrieving ";
-const garbageWord = "garbage ....";
-const text2 = "Just kidding. Welcome to ROARS Lab!";
-
-let i = 0;
-let j = 0;
-
-function randomChar() {
-    const chars = "abcdefghijklmnopqrstuvwxyz0123456789#$%@&*";
-    return chars.charAt(Math.floor(Math.random() * chars.length));
-}
-
-function typingEffect1() {
-    if (i < text1.length) {
-        document.getElementById("typewriter").innerHTML += text1.charAt(i);
-        i++;
-        setTimeout(typingEffect1, 100);
-    } else {
-        scrambleGarbage(0);
-    }
-}
-
-function scrambleGarbage(count) {
-    if (count < 30) {
-        let scrambled = "";
-        for (let k = 0; k < garbageWord.length; k++) {
-            scrambled += randomChar();
-        }
-        document.getElementById("typewriter").innerHTML = text1 + scrambled;
-        setTimeout(() => scrambleGarbage(count + 1), 80);
-    } else {
-        document.getElementById("typewriter").innerHTML = text1 + garbageWord;
-        setTimeout(() => {
-            document.getElementById("typewriter").innerHTML = "";
-            typingEffect2();
-        }, 1000);
-    }
-}
-
-function typingEffect2() {
-    if (j < text2.length) {
-        document.getElementById("typewriter").innerHTML += text2.charAt(j);
-        j++;
-        setTimeout(typingEffect2, 30);
-    }
-}
-
-typingEffect1();
-</script>
-
 
 </body>
 </html>
