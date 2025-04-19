@@ -29,7 +29,7 @@
 
     <header>
       <div class="typewriter">
-        <h1><abbr title="ROars has No Acronyms (Just ideas, code, and bugs)">ROARS 🦖 Lab @ GMU</abbr></h1>
+        <h1><abbr title="ROARS: Research on Automated Reasoning Systems">ROARS 🦖 Lab @ GMU</abbr></h1>
       </div>
       <table>
         <tr>
@@ -58,7 +58,7 @@
       </table>
     </header>
     
-    <p>Welcome to <b>ROARS</b> Lab at <a href="https://www.gmu.edu">George Mason University</a>. 
+    <p>Welcome to <b>ROARS</b> (Research on Automated Reasoning Systems) Lab at <a href="https://www.gmu.edu">George Mason University</a>. 
         We design and build software analysis tools with automated reasoning at their core. See <a href="#research">Research</a> for more information.</p>
 
     <h2 id="news">News</h2>
@@ -392,7 +392,7 @@
     <li>Claire Le Goues, ThanhVu Nguyen, Stephanie Forrest, and Westley Weimer. The Evolution of Automated Software Repair.
          <b>Transactions on Software Engineering (TSE)</b>, 2025</li>
     <li><em>Long Doan</em> and ThanhVu Nguyen.
-        AI-Assisted Autoformalization of Combinatorics Problems in Proof Assistants.
+	    <a href="pubs/doan2025ai.pdf">AI-Assisted Autoformalization of Combinatorics Problems in Proof Assistants</a>.
         International Conference on Software Engineering- New Idea and Emergining Results (ICSE-NIER), 2025</li>
   
     <li><em>Hai Duong</em>, Dong Xu, ThanhVu Nguyen, Matthew Dwyer.
@@ -752,7 +752,7 @@
       Nguyen Engineering Building #4430<br>
       4400 University Drive<br>
       Fairfax, VA 22030<br>
-      📬 &nbsp;Email: <b>web at roars dot dev</b>
+      📬 &nbsp;Email: <b>info at roars dot dev</b>
     </address>
     <hr>
 
@@ -761,81 +761,8 @@
       <!-- </footer> -->
 
     <script>
-        console.log("ROARS Lab Secret Message: If you're reading this, you should apply for a PhD!");
+        console.log("ROARS msg: Hello from ROARS!");
     </script>
-
-
-<style>
-    #typewriter {
-        font-family: monospace;
-        color: lightgreen;
-        background: black;
-        padding: 1em;
-        white-space: pre-wrap;
-    }
-</style>
-
-
-<div id="typewriter" style="font-family:monospace; white-space:pre;"></div>
-
-<style>
-code {
-    background: none;
-    color: inherit;
-}
-</style>
-
-<script>
-const text1 = "Accessing the GIBSON. Retrieving ";
-const garbageWord = "garbage ....";
-const text2 = "Just kidding. Welcome to ROARS Lab!";
-
-let i = 0;
-let j = 0;
-
-function randomChar() {
-    const chars = "abcdefghijklmnopqrstuvwxyz0123456789#$%@&*";
-    return chars.charAt(Math.floor(Math.random() * chars.length));
-}
-
-function typingEffect1() {
-    if (i < text1.length) {
-        document.getElementById("typewriter").innerHTML += text1.charAt(i);
-        i++;
-        setTimeout(typingEffect1, 100);
-    } else {
-        scrambleGarbage(0);
-    }
-}
-
-function scrambleGarbage(count) {
-    if (count < 30) {
-        let scrambled = "";
-        for (let k = 0; k < garbageWord.length; k++) {
-            scrambled += randomChar();
-        }
-        document.getElementById("typewriter").innerHTML = text1 + scrambled;
-        setTimeout(() => scrambleGarbage(count + 1), 80);
-    } else {
-        document.getElementById("typewriter").innerHTML = text1 + garbageWord;
-        setTimeout(() => {
-            document.getElementById("typewriter").innerHTML = "";
-            typingEffect2();
-        }, 1000);
-    }
-}
-
-function typingEffect2() {
-    if (j < text2.length) {
-        document.getElementById("typewriter").innerHTML += text2.charAt(j);
-        j++;
-        setTimeout(typingEffect2, 30);
-    }
-}
-
-typingEffect1();
-</script>
-
 
 </body>
 </html>
