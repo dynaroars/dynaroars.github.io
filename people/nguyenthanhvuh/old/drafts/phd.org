@@ -1,0 +1,393 @@
+#+TITLE: Guide for International Students to apply to a Ph.D. program in CS in the US
+#+date: <2021-06-13 08:02>
+#+description: recruit
+#+filetags: blog students recruit
+#+HTML_HEAD: <link rel="stylesheet" href="https://dynaroars.github.io/files/org.css">
+
+A guide for international students to applying to a Ph.D program in Computer Science in the U.S.
+
+#+begin_quote
+This guide is intended for international students applying to Ph.D. programs in computer science or related areas.
+The document is informal and is meant to express only the opinions of the author. The author is a faculty in the Computer Science department at George Mason University.
+
+This guide is inspired by the "Applying to Ph.D. Programs in Computer Science" writing by Mo Harchol-Balter (https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf).  It contains and extends the main information from this document based on the author's experience.
+#+end_quote
+
+
+#+CAPTION: Ph.D. in CS in the US
+#+NAME:   fig:phd-cs-us
+#+ATTR_HTML: :width 300px
+[[../files/phd-cs-us.jpg]]
+
+* What is a Ph.D.? Do I really want it?
+
+** What is a Ph.D.?
+
+- A Ph.D. is a *long-term* *research* exploration of a *single* topic.
+- Typically around *six years*
+- The focus of a Ph.D. is on *depth* rather than breadth.
+- The goal of a Ph.D. is to produce a world *expert* in a specific research area.
+- This [[https://matt.might.net/articles/phd-school-in-pictures/][series of pictures]] from [[https://matt.might.net][Matt Might]] illustrates what a Ph.D. means
+  
+  #+begin_quote
+  TVN: I spent /seven/ years (2007 - 2014, with an 8-month internship) on my Ph.D. In the first couple of years I explored various topics including security and genetic algorithms. From my 3rd year on I work on software engineering and programming analysis, focusing on automatic programming and invariant generation.
+  
+  So far I have graduated 1 student, Guolong, who finished in 5 years.
+  #+end_quote
+
+  
+** Difference between a Master and a Ph.D.
+
+|         | *MS*                                   | *PhD*                                 |
+|---------+----------------------------------------+---------------------------------------|
+| Time    | 1-2 years                              | 6 years                               |
+| Focus   | coursework                             | research                              |
+| Goal    | Broader understanding of CS concepts   | Expert in a specific area of research |
+| Project | May be needed to do a project (thesis) | Need to do a dissertation             |
+| Work    | Can work in a wide range of fields     | Typically pursue a career in research |
+
+
+# ** Lack of emphasis on courses
+# The M.S. and B.A. degrees are about breadth not depth. The main requirement in the M.S. and B.A. degrees is often a large numbers of courses. A B.A. or M.S. in
+# 2
+
+# CS often entails taking 3 or 4 classes each semester.
+# In contrast, a Ph.D. program typically requires typically less than 10 courses during the entire 6 years (at CMU there are 5 required “core” courses, and 3 re- quired “electives”). The emphasis in the Ph.D. is not on classes, but rather on research. A Ph.D. student will typically take classes only when she feels that they will be useful in her research. The classes she takes may not even be in CS at all. They may be in Statistics, Operations Research, Math, Psychology, Linguistics, or anything else useful for her particular research topic.
+
+# ** The research process and advisor/advisee relationships
+# - The main focus of a Ph.D. is research, and you typically begin your research when you select an advisor.
+# - The best way to learn about research and whether you like it is to start doing it as early as possible.
+# - Research is very different from taking classes, and many students struggle to make the transition between the two.
+
+Another way to compare an MS to a Ph.D. is think about taking classes (MS) and doing research (Ph.D.):
+
+|            | *Class*                      | *Research*                           |
+|------------+------------------------------+--------------------------------------|
+| *Problem*  | Given in class               | You pick!                            |
+| *Solution* | Has solutions                | Typically no known solutions         |
+| *Help*     | from TA/Classmates/Profs.    | Mostly you figure it out yourself    |
+| *Grades*   | Constant Grades and Feedback | No grades, self-motivation is key    |
+| *Schedule* | Class time/Homework time     | 1-2 hrs / week meeting with advisor. |
+|            |                              | The rest on your own.                |
+
+#   - Homework problems in classes have known answers and techniques, but in research, you may work on a problem for years without knowing if it's solvable, and you'll need to invent or find the techniques yourself.
+#   - In classes, you're assigned problems to work on, but in research, you get to pick the problems, and it's your job to find "good" problems that are fundamental and have not already been solved.
+#   - In classes, you can ask classmates or the professor for help, but in research, you're often working alone or with a small group, and it's up to you to be self-motivated and proactive.
+#   - In classes, there are constant grades and feedback, but in research, there are no grades, and you'll need to be self-directed.
+#   - In research, you'll work closely with your advisor and learn from them, but you'll also be working as equals and making discoveries together.
+#   - You'll typically have 1-2 hours per week to meet with your advisor, and it's your job to plan ahead to make the most of your time together.
+
+- You *do not* need a Master to do a Ph.D.
+  - It helps though if your undergraduate profile is not strong.
+  - It also can help if your MS is from a much stronger place than where you get your undergraduate from
+  - Another good reason to do MS is to get /research experience/, which is *crucial* to get to the Ph.D. program at a top CS university.
+    
+- You also *do not* need to have a undergrad in CS to do a Ph.D in CS
+  - It helps if you have CS-related background (e.g., major in EE/Math/CE) or have done well in Engr/Math/CS courses
+    
+** Joys and Frustrations of research
+*** Joy of research:
+- Discovering something new that nobody knew about
+- Truly understanding a problem without any limitations
+- Making an impact and changing the way systems are built
+- Doing things right and being proud of every design decision
+- Being an authority in a particular area and having work read and cited by others.
+
+  
+  #+begin_quote
+TVN: I enjoy coding and building things.  It also feels good to see my software can do something that existing work cannot do (or cannot do as well).  I also like the "victory" feeling of getting papers accepted.
+  #+end_quote
+
+*** Frustrations in research:
+- Inability to solve a problem or being "scooped" (someone publishes the same technique/solution before your did)
+- Realizing that you're not as great as you thought you were
+- Loneliness
+- Papers getting rejected
+
+# *** My own story:
+# As a student in the early 1990’s, I was interested in CPU load balancing in networks of workstations. The common wisdom at the time was that it never paid to migrate a process that was already active (already running). I dis- agreed with this logic, since I believed that processes that were already running might be exactly those which were likely to run even longer. Unable to get anyone to listen to me, I went off on my own to measure millions of UNIX processes. This took a whole year, during which time I was often terrified that I was wrong and wasting my time. In the end, I discovered that the CPU lifetimes of UNIX processes obeyed a heavy-tailed distribution, which vindicated my original intu- ition that active process migration could make sense. My research won the ACM Sigmetrics best paper award for integrating systems and theory, and I graduated.
+
+** Funding during the Ph.D.
+
+- Typically you *do not* need to worry about funding for the Ph.D. degree in CS.
+- Most popular types of funding include graduate assistentships, which including teaching assistant or research assistant, and fellowship or scholarship.
+  - Your *graduate assistantship* will fully pay your *tuition*, *health insurance*, and also give you a *living stipend*
+
+    
+
+  
+- You will typically receive a living stipend of around $2000 per month, which you will use to pay for your living expenses.
+- The Ph.D. is a tremendous opportunity, where you get to do research in any area you like, receive mentoring, think deeply on problems, publish papers, and become well-known, all while paying zero tuition for 6 years and receiving a salary.
+- Your advisor is paying for this opportunity by writing grant proposals to companies and the government to ask for funding.
+- At most schools, you can only do a Research Assistantship (RAship) if you have an advisor who has funding for you. Alternatively, you may have to work as a Teaching Assistant (TA) every semester to get your stipend.
+- There are many companies and government organizations which offer Graduate Fellowships for Ph.D. students. If you are lucky enough to get one of these, they will cover most of your way through graduate school, and you will never have to worry about whether your advisor has funding or not. Details about graduate fellowships will be discussed in Section 4.
+
+#+begin_quote
+TVN: During my Ph.D., I was funded mostly through RA from my advisor. I also got a NASA Spacegrant Graduate Research Fellowship for 2 years.
+
+Currently, I was able to provide RA supports for all of my students. In the past when I don't have sufficient funding, my students get GTA supports from the dept.  I highly encourage my students to apply for external fellowships and awards (e.g., KimHao got a Garmin scholarship for 2 years).
+#+end_quote
+
+** Life after the Ph.D.
+
+- Upon completing a Ph.D., most students either go into academia or research labs, while some never do research again.
+- If you become a professor at a research university, your job consists of (1) doing research (publications); (2) obtain funding to support your students; (3) mentoring students to do research (mostly Ph.D. students but you can also include MS and undergraduate, and even highschool); (4) teaching classes;  (5) doing service (at both your university and in your professional community).
+- If you become a professor at a teaching college, your job mainly focuses on teaching classes, doing service, and advising undergraduates on undergraduate research.
+- If you go to a research lab, your job will consist of doing research on both company and personal projects, working with other people in the company, and occasionally traveling to give talks and work with others.
+  
+** Should I get a Ph.D.?
+- A Ph.D. is not for everyone and requires a significant time commitment.
+- Before applying for a Ph.D., it's important to have tried research and/or teaching and found that you like at least one of those.
+- A Ph.D. requires a particular type of personality, including being obsessed with problem-solving, having tremendous perseverance, and being willing to do whatever it takes to solve a problem.
+- It's important to know why you want a Ph.D. and have vision and ideas that you can express.
+- If unsure, working in a research or industrial lab for a few years can help with decision-making. Don't apply to graduate school until sure about what you want.
+
+*My own story*: After I finished my B.A. in CS and Math, I went to work at the Advanced Machine Intelligence Lab at GTE in Massachusetts. At first I was very excited by my paycheck and the great feeling of being independent. I also really enjoyed my area of research at the time: pattern recognition and classification. I was working with frame-of-reference transformations in- volving eigenvectors of autocorrelation matrices. It was exciting! However I quickly realized that I wanted to know more. I wanted to know why some algorithms produced good results and others didn’t. I wanted to come up with my own algorithms. I worried that I didn’t have enough of a mathe- matics background to answer my own questions. In summary, I wanted to delve deeper. Everyone around me thought I was very odd for wanting these things. I left after 2 years and went to graduate school. That first month of graduate school I looked around and realized that everyone there was just as weird and obsessed as I was, and I knew I had made the right decision.
+
+* The Application Process
+Here are the key points to keep in mind about the Ph.D. application process:
+- Transcript, which includes grades and classes taken
+- TOEFL/IELTS/DuoLingo scores
+- Personal statement
+- Previous research experience, including industry experience
+- Recommendation letters
+- Awards and extracurricular activities
+For top-ranked CS programs, the most important component is usually prior research experience and what your recommendation letters and personal statement say about it. Lower-ranked schools may rely more on formulas based on GPA, undergraduate school, and test scores to classify applications. The application process is highly competitive, and success depends on factors beyond just being smart, including determination and perseverance.
+
+
+
+** Transcript – grades and classes
+- A rough guideline for grades in CS, Math, and Engineering classes is around 3.5 out of 4.0, but it's better to focus on research than on optimizing GPA.
+- Research experience is what matters the most when applying to top CS programs. A 4.0 GPA alone with no research experience won't get you into any top CS program.
+- GPAs are evaluated in the context of the undergraduate program, so a 3.4 GPA from a top-ranked CS undergraduate program counts the same as a 3.8 or 3.9 GPA from a less well-known CS undergraduate program.
+- Taking arbitrary extra classes usually doesn't lead to doing more research. One or two carefully selected graduate classes may help find interesting research problems to work on.
+- It's possible to do an MS to boost grades and reapply for a Ph.D. program.
+
+** GRE scores and TOEFL
+- The GRE exam has two parts: the general GRE exam and the subject exam (which no longer exists for CS).
+- The general GRE exam consists of Quantitative, Verbal, and Analytic Writing portions, and is 3 hours long.
+- The subject exam still exists for other areas like Math, and Math departments check this score.
+- Study guides for the GRE exam are available in bookstores and online.
+- The Verbal and Quantitative portions are similar to the SAT, but may be more challenging due to being out of practice or competing with people who majored in English.
+- The Analytic Writing portion consists of two essays, one where you analyze an argument and the other where you give your perspective on a topic.
+- The GRE exam is offered every 2 months and can be taken on the same day or different days.
+- Your score on the GRE exam may not matter much to top schools but can be important for lesser-ranked schools.
+- The TOEFL exam is required for non-native English speakers and is taken seriously by schools.
+- CMU pays the most attention to the Speaking TOEFL score, and a score of less than 22-23 can hurt your chances of admission.
+
+** Personal or Research statement
+- Very important as admission commitees do look at this carefully
+- This statement is all show you have research potential (research that you have done, its results, your research goal, etc).  Afterall, PhD is all about research and this statement is to convince the readers that you have what it takes to do research.
+- Template for Research statement (borrowed from TODO)
+  - First paragraph: describe the general areas of research that interest you and why.
+  - Second, third, and fourth paragraphs: describe some research projects you have worked on, including the problem you were trying to solve, why it was important, the approaches you tried, and what you learned.
+  - Fifth paragraph: explain why you feel you need a Ph.D. and refer back to the previous section.
+  - Sixth paragraph: explain why you want to come to the specific school and which professors you would like to work with.
+  
+- Common mistake to avoid
+  - Talk about your grades and strong course works. Having good grades does not necessary mean you can do research!
+  - Talk about your childhood and dream.  Again, these do not give evidence that you can do research.
+  - Not customized your letter to the school you're applying for. Avoid writing a generic letter that can be sent to multiple schools.  You should customize last paragraph in the statement for the school you're applying to.
+  - The last paragraph about the school states the wrong school or wrong professor. It is embarrasing that you're applying to a school X but your statement talks about school Y or professors that are not faculty at X.  Also, do not talk about George Washington when applying to George Mason !!!
+      
+** Previous Research Experience
+
+- Prior research experience is necessary to get into top graduate schools, but it may not be necessary for schools below the top 10.
+- Research experience does not necessarily mean having published a paper or yielding results, but rather demonstrating knowledge of research.
+- There are five places to gain research experience:
+  - Work with a professor as an undergraduate and receive course credit or payment during the summer.
+  - Apply for summer internships at research labs or other schools, such as REUs.
+  - Get a job after graduating that allows for research opportunities.
+  - Work on an M.S. project during graduate school.
+  - Work alone or with a friend by seeking out interesting open problems and new research.
+
+- As an undergraduate, convincing a professor to take on a research project can be challenging, but the author provides a guide for doing so.
+
+** How to ask a professor to do research with him/her:
+
+- Make a list of professors you want to work with and read about their research.
+- Create a one-page summary sheet with your name, contact info, research interests, availability, classes taken, previous experience, and skills.
+- Talk to your undergraduate advisor to see if there are any open positions for undergraduate research.
+- Contact professors from your list and schedule an appointment to discuss your interest in research. Be prepared to answer questions about your math and programming background.
+- If a professor declines, try the next person on your list.
+- If a professor accepts, ask questions about the project's goals, your responsibilities, who you will work with, and background materials to read.
+- If rejected, try other ways to get involved, such as taking a grad class, helping a grad student, or attending seminars/group meetings.
+- For international applicants, publish in internationally recognized conferences and create a web site with links to your papers in English to help the admissions committee evaluate your research.
+
+
+** Recommendations
+
+To apply for a Ph.D. program, you need three letters of recommendation, and for a fellowship, you typically need four letters of recommendation. The letters of recommendation are crucial for the application.
+
+
+*** Whom to ask for a letter
+
+- Letters of recommendation are an important part of your application for a Ph.D. program or fellowship.
+- You need 3 letters of recommendation for a Ph.D. program and typically 4 letters for a fellowship.
+- You want all your letters of recommendation to be strong.
+  - Letters that say you did well in class (i.e., type 1) will not count.
+  - You want letters that highlight your research potential and initiative (i.e., type 2).
+- Ask for letters from people who have seen you do research, such as professors or employers.
+- It's better to ask for letters from people who are known to the admissions committee.
+- Professors' letters count the most, followed by research scientists, lecturers, systems scientists, employers, or postdocs.
+- Do not ask for a letter from a graduate student; ask the professor who supervises them instead.
+- If you've been working for a while, you'll need a letter from your employer and two letters from professors.
+- Keep in touch with professors during your time at work to have them write strong letters.
+
+*** How to ask for a letter
+
+Steps to maximize the contents of your recommendation letter:
+
+- Prepare a packet for each recommender containing:
+  a. Your statement of purpose
+  b. A summary of every research project you worked on
+  c. A list of all math/cs/engineering/science classes you have taken with the names of professors and grades
+  d. A list of extracurricular activities and awards/competitions
+- Include a recent photo of yourself at the top of the packet, along with directions on where to send the letter and confirmation information.
+- Ask your potential recommender if they feel comfortable writing a strong letter of recommendation for you to graduate school.
+- Check with the school to confirm they received a letter from each of your recommenders.
+- Remember to send your recommender a thank-you card or gift.
+
+
+** Awards and Extracurriculars
+- Applications may have limited space for listing awards and extracurricular activities.
+- Consider including relevant information on a separate sheet of paper attached to the application.
+- Relevant extracurricular activities, such as tutoring or previous TA experience, should be noted.
+- A long history of tutoring suggests good teaching skills, which are highly correlated with being a good researcher.
+  
+** How many schools should you apply to?
+
+- There is no set rule for how many applications to send out.
+- Typically, people apply to 3 schools at their level, 2 schools above their level, and 1 or 2 schools below their level.
+- If unsure of your level, look for a student with a similar application and see where they were accepted/rejected.
+- Recommenders can also evaluate your application and provide insight into your approximate level.
+- Consider schools that are strong in your particular area of interest, even if they may not be as strong overall.
+
+
+* Fellowship Information
+
+
+** Why you need to apply
+- Pick out which outside fellowships you are eligible for even before you choose schools to apply to.
+- Apply to all eligible fellowships since they are an honor that will permanently appear on your CV, and they typically pay for several years of graduate school.
+- Applying for fellowships demonstrates to schools that you are proactive and dedicated.
+- Not applying for at least a couple fellowships is a foolish decision.
+- Beware that fellowship deadlines are usually earlier than graduate school application deadlines.
+
+** List of fellowships and scholarships for Ph.D. in CS
+
+* Choosing the right Ph.D. program for you
+
+- By March, you will have heard back from all Ph.D. programs to which you applied. If you haven't, send an email to the person in charge of admissions.
+- You have until April 15 to make a decision.
+- Most schools will have an Open House, which is a valuable source of information, and you should attend.
+- When visiting schools, consider the following:
+  - Count the faculty in your chosen area of research. Subtract all those who are not actually present. Repeat this count for at least two other areas of research   you might be interested in.
+  - Count the number of faculty whose research you feel excited about. Subtract those not taking on students. The result is the number of faculty you might be able  to choose from when looking for an advisor.
+  - Assess the atmosphere within the department. Is it competitive or collaborative? Do people mix areas or stick to one?
+  - Ask current students about their experiences with professors and advisors, their research, and the department overall.
+  - Check the funding situation and requirements for completing the Ph.D. degree.
+  - Consider the overall ranking of the department and the cost of living in the area.
+
+
+** 
+    
+<<<<<<< HEAD
+* FAQs
+=======
+
+I've been in the Ph.D. admission committee for the past 7 years and have read and discuss many applications. So I thought it might be useful to share my thoughts about how to write an good application. My aim is to help *international students*, in particular *Vietnamese students*, who might not be too familiar with the CS grad school admission process in the US. Of course, this goes without saying that these are just my personal opinion and experience and so they might or might not apply in your case.
+
+
+
+
+** Do I really have a chance to apply to a Ph.D. program in the US?
+- short answer: *yes, you do*!
+- If you plan to apply Ph.D. programs at other countries (e.g., Singapore, Australia) then there is no reason to not try your chance at a U.S. universities.
+
+** Why I get rejected? (why do Vietnamese applications often get rejected from US universities?)
+- Reason 1: US profs. do not know well about schools in Vietnam.
+  - They treat Bach Khoa or other top Vietnamese university as just unknown/unfamiliar foreign universities.  This is not just Vietnamese schools, but schools in other countries too. There are just simply too many schools and we simply can't know all of them except may be the top 100 ones (and unfortunately Bach Khoa is not the top 100).
+  - *Solution*: It helps if you explicitly state your university is the top in your statement.  It also helps a lot if there is a Vietnamese in the faculty who can tell them the top universities in VN.  
+
+- Reason 2: your writing is poor
+  - Understandably, Vietnamese students do not write good English.  You are also not used to the English writing style, e.g., too short, too verbose, too formal, too informal.  So if we can't understand your writing, don't feel exciting or convinced, then your application won't get far.
+  - *Solution*: get someone who has experiences with writing statement to help. 
+
+    
+
+** Should I contact a professor before?
+- short answer: *If you seriously want to work with that professor, then yes, you should*.
+- To be effective, you need to do your homework about the work of that professor, shows them that you know about their work (e.g., read a couple of their papers, talk about it)
+- Also say why your experience and background make you a good candidate for those research.
+- If you cannot customize your email as such, then don't waste your time.  We will likely just skim over your message and probably won't reply. 
+
+** What do we look for in a Personal Statement?
+
+
+- *Motivation*
+- *Research Potential*:  don't tell, show !
+- *Fit*
+
+
+** Format/Style
+- Keep it under 2 pages
+-   
+
+
+** Other things
+*** Letter of Recommendation
+*** CV
+*** Choosing a school/professor
+- Use CSRankings
+*** Contact the professor (or not)
+- Talking to the Prof (zoom, in person)
+
+
+* Additional resources
+-  http://www.pl-enthusiast.net/2022/10/03/how-to-write-a-grad-school-personal-statement/
+-   http://www.pl-enthusiast.net/2022/10/03/how-to-write-a-grad-school-personal-statement/
+
+
+
+
+
+# Guide for International Students to apply to a CS Ph.D. program in the US
+
+
+## Statement
+> Your statement determines your research potential. It is perhaps the most important part of the application. Ph.D. admission committee reads it carefully. Make it as good as you can. 
+
+- Pay attention to some of these details
+  - Double check for wrong university or professors' names.  It will not look good if you're applying to university `X`, and then at the end talk about how good university `Y` is or how you would like to work a professor at university `Y`.
+  - Do not talk about your childhood dream, unless it is true and unique. And even if it is, we don't really care much unless it is very very unique somehow.  Focus on experience and accomplishment that show you can do research.
+   
+## Recommendation or Reference Letters
+> This letter is very important.  It can signficantly hurt or help your application.  So pay very careful attention to these letters
+
+It is likely that we do not know your school or your professor. 
+
+
+
+## Grades and Test Scores
+> For a Ph.D. in CS , these are somewhat important because you have to meet certain minimum to be considered. Having a good GPA from a *well-known* school helps!  But other than that, other documents including ref letters and your statement are much more important. 
+
+
+
+
+
+  
+* Miscs
+** Asking for letter
+- You *need* to waive your right to see the letter. What this means is that this letter will be kept confidential and you will not see it.  Letter writters will feel more comfortable knowing you will not see the letters they write for you.  In short, wave this right ! Many professors, including myself, will simply refuse to write letters for you unless you waive this right.
+  
+** Interviewing
+
+
+
+
+### What is the best way to get accepted to a Ph.D. in CS in the US?
+Simply state:  if a professor accepts you as an RA,  you are pretty much set.
+
+
+## About me

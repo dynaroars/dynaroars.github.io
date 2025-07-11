@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>Useful Linux/Mac Setups</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">01 Jan 2021</div><h1 class="post-title"><a href="./useful_cmds.html">Useful Linux/Mac Setups</a></h1>
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#apt">1. APT</a></li>
+<li><a href="#development">2. Development</a>
+<ul>
+<li><a href="#java">2.1. JAVA</a></li>
+</ul>
+</li>
+<li><a href="#administration">3. Administration</a>
+<ul>
+<li><a href="#email">3.1. Email</a></li>
+<li><a href="#raid">3.2. RAID</a></li>
+<li><a href="#gpg">3.3. GPG</a></li>
+</ul>
+</li>
+<li><a href="#remote-login">4. Remote Login</a>
+<ul>
+<li><a href="#ssh">4.1. SSH</a></li>
+</ul>
+</li>
+<li><a href="#files">5. Files</a></li>
+<li><a href="#misc">6. Misc</a>
+<ul>
+<li><a href="#benchmarks">6.1. Benchmarks</a></li>
+<li><a href="#keyboard">6.2. Keyboard</a></li>
+<li><a href="#multimedia">6.3. Multimedia</a></li>
+<li><a href="#update-date-on-debian">6.4. Update <code>date</code> on Debian</a></li>
+<li><a href="#users">6.5. Users</a></li>
+</ul>
+</li>
+<li><a href="#web">7. Web</a>
+<ul>
+<li><a href="#website">7.1. Website</a></li>
+<li><a href="#webserver">7.2. Webserver</a></li>
+<li><a href="#table-of-contents-in-markdown">7.3. Table of Contents in Markdown</a></li>
+</ul>
+</li>
+<li><a href="#mac-os">8. MAC OS</a></li>
+<li><a href="#virtual-box">9. Virtual Box</a></li>
+<li><a href="#emacs">10. Emacs</a>
+<ul>
+<li><a href="#useful-keys">10.1. Useful keys</a></li>
+<li><a href="#tex">10.2. TeX</a></li>
+<li><a href="#install-flyspell-on-mac">10.3. Install Flyspell on Mac</a></li>
+<li><a href="#texlive">10.4. TexLive</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+Linux/Mac command lines and setup stuff that I find useful 
+</p>
+
+<div id="outline-container-apt" class="outline-2">
+<h2 id="apt"><span class="section-number-2">1.</span> APT</h2>
+<div class="outline-text-2" id="text-apt">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">shows which package owns /path/to/file</span>
+apt-file search /path/to/file
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">allows reinstalling a package without having to remove it first (and risk removing its dependencies)</span>
+apt-get install --reinstall packagename
+apt-file list packagename
+apt-show-versions | grep unstable
+apt-get build-dep packagename
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-development" class="outline-2">
+<h2 id="development"><span class="section-number-2">2.</span> Development</h2>
+<div class="outline-text-2" id="text-development">
+</div>
+<div id="outline-container-java" class="outline-3">
+<h3 id="java"><span class="section-number-3">2.1.</span> JAVA</h3>
+<div class="outline-text-3" id="text-java">
+<ul class="org-ul">
+<li>Install Sun/Oracle's JDK</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">First add "contrib" to /etc/apt-sources.list</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">Then</span>
+apt-get update &amp; apt-get install java-package
+make-jpkg /path/to/jdk-*-linux-x64.tar.gz
+dpkg -i oracle-java-*_amd64.deb
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-administration" class="outline-2">
+<h2 id="administration"><span class="section-number-2">3.</span> Administration</h2>
+<div class="outline-text-2" id="text-administration">
+</div>
+<div id="outline-container-email" class="outline-3">
+<h3 id="email"><span class="section-number-3">3.1.</span> Email</h3>
+<div class="outline-text-3" id="text-email">
+<p>
+We use <code>ssmtp</code> to send emails. The following uses <b>Gmail</b>'s server.
+</p>
+
+<ol class="org-ol">
+<li><p>
+After installing, edit the <code>/etc/ssmtp/ssmtp.conf</code> file
+</p>
+
+<pre class="example" id="orgb37d727">
+root=username@gmail.com
+mailhub=smtp.gmail.com:587
+rewriteDomain=
+hostname=fileserver.local
+UseSTARTTLS=YES
+AuthUser=username
+AuthPass=password
+FromLineOverride=YES
+</pre></li>
+
+<li><p>
+Now edit <code>/etc/ssmtp/revaliases</code> to add accounts that we want to be
+able to send mails. For example,
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">root:nguyenthanhvuh@gmail.com:smtp.gmail.com:587
+auser:nguyenthanhvuh@gmail.com:smtp.gmail.com:587
+</pre>
+</div></li>
+
+<li><p>
+Finally, we can test sending mails
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ echo <span style="color: #98be65;">"test"</span> | mail -v -s <span style="color: #98be65;">"testing ssmtp setup"</span> tnguyen@cs.umd.edu
+$ echo <span style="color: #98be65;">"Do this"</span> | mail -s <span style="color: #98be65;">"Todo"</span> nguyenthanhvuh@gmail.com
+$ echo <span style="color: #98be65;">"A TEST"</span> &gt; afile
+$ mail -s <span style="color: #98be65;">"Todo"</span> nguyenthanhvuh@gmail.com &lt; afile
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-raid" class="outline-3">
+<h3 id="raid"><span class="section-number-3">3.2.</span> RAID</h3>
+<div class="outline-text-3" id="text-raid">
+<p>
+This is for RAID-5 setup, which requires a minimum of 3 drives. The
+<b>usable space</b> is <code>(number of drives - 1) * size of smallest drive</code>.
+Here we will use <code>mdm</code> to manage our RAID setup
+(<code>apt-get install mdadm</code>).
+</p>
+
+<p>
+To create new drive partitions in the RAID array, we can use <code>fdisk</code> or
+<code>parted</code> (if the disk size &gt; 2 terabytes). If use <code>fdisk</code> then choose
+the partition type to be raid (type <code>fd</code>). Now assume we want to use the
+4 partitions <code>sdc1, sdc1, sde1</code>, and <code>sdf1</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">build the RAID array</span>
+mdadm --create --verbose /dev/md0 --level=5 --raid-devices=4 /dev/sd[cdef]1
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">it will take some time to build the array, we can watch its status with</span>
+watch cat /proc/mdstat
+
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">once the array is built, we can check with</span>
+mdadm --detail /dev/md0
+
+/dev/md0:
+Version : 1.2
+Creation Time : Fri Jun 24 15:04:32 2016
+Raid Level : raid5
+Array Size : 734954496 (700.91 GiB 752.59 GB)
+Used Dev Size : 244984832 (233.64 GiB 250.86 GB)
+Raid Devices : 4
+Total Devices : 4
+Persistence : Superblock is persistent
+
+Intent Bitmap : Internal
+
+Update Time : Sat Jun 25 00:34:10 2016
+State : clean
+Active Devices : 4
+Working Devices : 4
+Failed Devices : 0
+Spare Devices : 0
+
+Layout : left-symmetric
+Chunk Size : 512K
+
+Name : GiaoChi:0
+UUID : 1d431c63:a9fe7dca:ffb4dca5:58391d2e
+Events : 1097
+
+Number   Major   Minor   RaidDevice State
+0     8     33    0    active sync   /dev/sdc1
+1     8     49    1    active sync   /dev/sdd1
+2     8     65    2    active sync   /dev/sde1
+4     8     81    3    active sync   /dev/sdf1
+
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">create file extension and mount</span>
+mkfs.ext4 /dev/md0
+mkdir /MYNEWSTORAGE
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">in /etc/fstab</span>
+/dev/md0    /MYNEWSTORAGE      ext4    defaults    0    0
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">finally mount the array so that we can being to access /MYNEWSTORAGE</span>
+mount -av
+
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">edit configuration files so that mdm knows how to assemble the array when the system boots</span>
+<span style="color: #c678dd;">echo</span> <span style="color: #98be65;">"DEVICE partitions"</span> &gt; /etc/mdadm/mdadm.conf
+<span style="color: #c678dd;">echo</span> <span style="color: #98be65;">"HOMEHOST fileserver"</span> &gt;&gt; /etc/mdadm/mdadm.conf
+<span style="color: #c678dd;">echo</span> <span style="color: #98be65;">"MAILADDR username@gmail.com"</span> &gt;&gt; /etc/mdadm/mdadm.conf
+mdadm --detail --scan --verbose &gt;&gt; /etc/mdadm/mdadm.conf
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-gpg" class="outline-3">
+<h3 id="gpg"><span class="section-number-3">3.3.</span> GPG</h3>
+<div class="outline-text-3" id="text-gpg">
+<div class="org-src-container">
+<pre class="src src-shell">gpg --gen-key
+gpg --export  -a <span style="color: #98be65;">"Name"</span> &gt; pub.key
+gpg --export-secret-key -a <span style="color: #98be65;">"Name"</span> &gt; priv.key
+gpg --import priv.key
+gpg --list-keys
+gpg --list-secret-keys
+gpg --delete-key <span style="color: #98be65;">"Name"</span>
+gpg --delete-secret-key <span style="color: #98be65;">"Name"</span>
+gpg --edit-key <span style="color: #98be65;">"Name"</span>  <span style="color: #5B6268;">#</span><span style="color: #5B6268;">here you can change passphrase of priv key with passwd</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-remote-login" class="outline-2">
+<h2 id="remote-login"><span class="section-number-2">4.</span> Remote Login</h2>
+<div class="outline-text-2" id="text-remote-login">
+</div>
+<div id="outline-container-ssh" class="outline-3">
+<h3 id="ssh"><span class="section-number-3">4.1.</span> SSH</h3>
+<div class="outline-text-3" id="text-ssh">
+<ol class="org-ol">
+<li>Generate password-less SSH public key
+
+<ol class="org-ol">
+<li>From a terminal, type <code>ssh-keygen -t rsa</code> and hit <code>Enter</code> on most
+questions, <b>even when it asks for password</b>, i.e., leave the
+password blank. This allows to log in account from your machine
+without requiring password.</li>
+<li>The public key is stored at <code>~/.ssh/id_rsa.pub</code></li>
+<li><b>Tips</b>:
+
+<ul class="org-ul">
+<li>Add you SSH public key to code repo (e.g., Github, Bitbucket).
+This allows you to modify projects (e.g., push) without having
+to enter username and password.</li>
+<li>You can also use this key to ssh into other machine without
+having to enter password (see <b>password-less login</b> below)</li>
+</ul></li>
+</ol></li>
+
+<li><p>
+Password-less login
+</p>
+
+<p>
+To ssh login the server <code>host</code> without having to enter a password:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ cat ~/.ssh/id_rsa.pub | ssh username@host <span style="color: #98be65;">'cat &gt;&gt; ~/.ssh/authorized_keys'</span>
+</pre>
+</div></li>
+
+<li>Miscs:
+
+<ul class="org-ul">
+<li>SSH session disconnected and got stuck: type <code>Enter ~ .</code></li>
+</ul></li>
+
+<li><p>
+Mmulti-hop ssh e.g., ssh to <code>user1@host1:port1</code> and then ssh to
+<code>user2@host2:port2</code> (as <code>user1@host1</code>:).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">This method uses ProxyJump</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">add the following entry to file ~/.ssh/config</span>
+Host AName
+Hostname host1
+Port port1
+User user1
+ProxyJump user2@host2:port2
+
+$ ssh user2@AName
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">first password asked is for user1@host1, second password asked is for user2@host2.</span>
+
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">This second method uses netcat (the nc command) and ProxyCommand</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">add the following entry to file ~/.ssh/config</span>
+Host AName
+Hostname host1
+ProxyCommand ssh -q user1@host1 -p port1 nc host2 port2
+StrictHostKeyChecking no
+<span style="color: #dcaeea;">UserKnownHostsFile</span>=/dev/null
+
+$ ssh user2@AName
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">first password asked is for user1@host1, second password asked is for user2@host2</span>
+</pre>
+</div></li>
+
+<li>using <code>scp</code></li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-shell">scp -P port_number username@host:/path/to/file /destination/dir
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><p>
+using <code>rsync</code> resume file transfer
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">rsync --partial --progress --rsh=ssh user@host:/path/to/file .
+</pre>
+</div></li>
+
+<li>using <code>sshfs</code> to mount remote directories &gt; source:
+<a href="https://linuxize.com/post/how-to-use-sshfs-to-mount-remote-directories-over-ssh/">https://linuxize.com/post/how-to-use-sshfs-to-mount-remote-directories-over-ssh/</a>
+
+<ol class="org-ol">
+<li>Install <code>SSHFS</code>
+
+<ul class="org-ul">
+<li><p>
+For Debian
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ sudo apt install sshf
+</pre>
+</div></li>
+
+<li><p>
+For Mac
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ brew cask install osxfuse
+$ brew install sshfs
+</pre>
+</div></li>
+</ul></li>
+
+<li>Mount remote directories (<b>tip</b>: use password-less SSH to avoid
+entering password)
+<code>shell       # sshfs [user@]host:[remote_directory] mountpoint [options]       # E.g.,       $ sshfs username@hostname:/home/dir1 /home/dir1/dir2       $ sshfs localhost:/home/tnguyen/Dropbox local2222/ -C -p 2222</code></li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-files" class="outline-2">
+<h2 id="files"><span class="section-number-2">5.</span> Files</h2>
+<div class="outline-text-2" id="text-files">
+<ul class="org-ul">
+<li><p>
+move
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;">#</span><span style="color: #5B6268;">move with overwrite (and will not ask for confirmation)</span>
+mv -f
+
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">do *not* overwrite (and will not ask for confirmation)</span>
+mv -n
+</pre>
+</div></li>
+
+<li><p>
+sync
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;">#</span><span style="color: #5B6268;">sync dirs</span>
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">todir will become exactly like fromdir</span>
+rsync -val --delete --exclude <span style="color: #98be65;">"*.ext"</span>  --exclude <span style="color: #98be65;">"dir"</span> fromdir todir
+
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">syn website</span>
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">I use the this command to synchronize my webpages to the university server</span>
+rsync -azv --delete --exclude=.hg --exclude=.hgcheck -e ssh ~/www tnguyen@cse.unl.edu:/home/fac/tnguyen/public_html/
+</pre>
+</div></li>
+
+<li><p>
+recursively change directory whose permision is 777 to 755
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">find . -type d -perm 777 -print -exec chmod 755 {} <span style="color: #98be65;">\;</span>
+</pre>
+</div></li>
+
+<li><p>
+recursively delete files with extensions *.ext
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">find -name <span style="color: #98be65;">\*</span>.ext -delete
+</pre>
+</div></li>
+
+<li><p>
+change permission
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">change dir to 0755</span>
+$ find /path -type d -print0 | xargs -0 chmod 0755
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">change file to 0644</span>
+$ find /path -type f -print0 | xargs -0 chmod 0644
+</pre>
+</div></li>
+
+<li><p>
+Dropbox find conflicts
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">find ~/Dropbox/ -path <span style="color: #98be65;">"*(*'s conflicted copy [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]*"</span> -print
+</pre>
+</div></li>
+
+<li><p>
+grep
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">grep <span style="color: #98be65;">"error"</span> file.txt | grep -v <span style="color: #98be65;">"multiple output"</span> | grep -v <span style="color: #98be65;">"notexist"</span>
+grep -A 10 -B 10 <span style="color: #98be65;">"hello world"</span> file.txt:  output surrounding lines
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-misc" class="outline-2">
+<h2 id="misc"><span class="section-number-2">6.</span> Misc</h2>
+<div class="outline-text-2" id="text-misc">
+<ul class="org-ul">
+<li><p>
+Convert JPG's to pdf: use the <code>convert</code> command from <code>imagemagick</code>,
+works with various types of files and not just <code>jpg's</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ convert -auto-orient *.jpg notes.pdf
+</pre>
+</div></li>
+</ul>
+</div>
+
+<div id="outline-container-benchmarks" class="outline-3">
+<h3 id="benchmarks"><span class="section-number-3">6.1.</span> Benchmarks</h3>
+<div class="outline-text-3" id="text-benchmarks">
+<ul class="org-ul">
+<li><p>
+CPU
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #c678dd;">echo</span> <span style="color: #98be65;">'2^2^25'</span> | time -p bc &gt; /dev/null
+time -p echo <span style="color: #98be65;">"scale=5000; a(1)*4"</span> | bc -l
+sysbench --test=cpu --cpu-max-prime=20000 run <span style="color: #5B6268;">#</span><span style="color: #5B6268;">apt-get install sysbench</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-keyboard" class="outline-3">
+<h3 id="keyboard"><span class="section-number-3">6.2.</span> Keyboard</h3>
+<div class="outline-text-3" id="text-keyboard">
+<ul class="org-ul">
+<li><p>
+permanent switching <code>capslock</code> and <code>control</code> keys
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;">#</span><span style="color: #5B6268;">add/replace to /etc/default/keyboard</span>
+<span style="color: #dcaeea;">XKBOPTIONS</span>=<span style="color: #98be65;">"ctrl:nocaps"</span> <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Some people prefer "ctrl:swapcaps"</span>
+sudo dpkg-reconfigure -phigh console-setup
+</pre>
+</div></li>
+
+<li><p>
+Emacs key in XFCE
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ xfconf-query -c xsettings -p /Gtk/KeyThemeName -s Emacs
+OR
+Menu -&gt; Settings -&gt; Settings Editor -&gt; xsettings -&gt; Gtk -&gt; KeyThemeName,  enter Emacs<span style="color: #51afef;"> in</span> the field
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-multimedia" class="outline-3">
+<h3 id="multimedia"><span class="section-number-3">6.3.</span> Multimedia</h3>
+<div class="outline-text-3" id="text-multimedia">
+<ul class="org-ul">
+<li>Burn videos, e.g., mpg, to DVD
+(<a href="http://www.lamolabs.org/blog/author/slmingol/">http://www.lamolabs.org/blog/author/slmingol/</a>)
+
+<ul class="org-ul">
+<li><p>
+convert video with ffmpeg
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">ffmpeg -i input.m4v -target ntsc-dvd output.mpg
+</pre>
+</div></li>
+
+<li><p>
+do authoring
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">dvdauthor --title -o dvd -f output.mpg
+dvdauthor -o dvd -T
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">NOTE: --title sets the title of the DVD, -T sets the table of contents. In both</span>
+<span style="color: #5B6268;">#     </span><span style="color: #5B6268;">above commands the -o switch is referencing a directory, NOT the actual dvd.</span>
+</pre>
+</div></li>
+
+<li><p>
+roll the .mpg file into an ISO file
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">mkisofs -dvd-video -o dvdimage.iso dvd
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">NOTE: mkisofs is making an actual DVD video ISO file using the directory, dvd.</span>
+</pre>
+</div></li>
+
+<li><p>
+burn ISO to DVD
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">growisofs -speed=1 -dvd-compat -Z /dev/dvd=dvdimage.iso
+NOTE: -speed=1 is for use with lower quality discs, increase as necessary
+NOTE: This approach can be used to convert basically any format (m4v, mp4, etc.) to a DVD. Simply change the input file accordingly.
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-update-date-on-debian" class="outline-3">
+<h3 id="update-date-on-debian"><span class="section-number-3">6.4.</span> Update <code>date</code> on Debian</h3>
+<div class="outline-text-3" id="text-update-date-on-debian">
+<ul class="org-ul">
+<li>Note: <code>ntpdate</code> is deprecated, use <code>ntp</code> instead
+<code>shell     sudo service ntp stop     sudo ntpd -gq     sudo service ntp start</code></li>
+
+<li>The <code>-gq</code> tells the ntp daemon to correct the time regardless of the
+offset (<code>g</code>) and exit immediately (<code>q</code>) after setting the time.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-users" class="outline-3">
+<h3 id="users"><span class="section-number-3">6.5.</span> Users</h3>
+<div class="outline-text-3" id="text-users">
+<ul class="org-ul">
+<li>Add user to sudo <code>shell sudo adduser username sudo</code></li>
+
+<li>Change username from <i>olduser</i> to <i>newuser</i>.
+<code>shell     # make sure olduser is not logged in or using any process, e.g., restart and log in as another user.     $ sudo usermod -l newuser olduser     $ sudo groupmod -n newuser olduser     $ sudo usermod -d /home/newuser -m newuser</code></li>
+
+<li>Disable users
+<code>shell     passwd -l username  to lock , passwd -u username to unlock</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-web" class="outline-2">
+<h2 id="web"><span class="section-number-2">7.</span> Web</h2>
+<div class="outline-text-2" id="text-web">
+</div>
+<div id="outline-container-website" class="outline-3">
+<h3 id="website"><span class="section-number-3">7.1.</span> Website</h3>
+<div class="outline-text-3" id="text-website">
+<ul class="org-ul">
+<li><p>
+Password Protected Website
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">To protect a directory called 'SecDir' on your website,</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">go to SecDir and create/edit .htaccess file as follows:</span>
+AuthName <span style="color: #98be65;">"MySecDir"</span>
+AuthType Basic
+AuthUserFile /path/to/.htpasswd
+require valid-user
+
+$ htpasswd -c /path/to/.htpasswd guestname <span style="color: #5B6268;">#</span><span style="color: #5B6268;">create a passwod</span>
+$ chmod 644 /path/to/.htpasswd   <span style="color: #5B6268;">#</span><span style="color: #5B6268;">change permission</span>
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">to log in SecDir online, enter username: guestname and passwod: yourpass</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-webserver" class="outline-3">
+<h3 id="webserver"><span class="section-number-3">7.2.</span> Webserver</h3>
+<div class="outline-text-3" id="text-webserver">
+<ul class="org-ul">
+<li><p>
+Run a local server
+</p>
+<pre class="example">
+$ cd /path/to/dir     
+$ python -m SimpleHTTPServer #optional, can also enter the port e.g., 8080
+</pre></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-table-of-contents-in-markdown" class="outline-3">
+<h3 id="table-of-contents-in-markdown"><span class="section-number-3">7.3.</span> Table of Contents in Markdown</h3>
+<div class="outline-text-3" id="text-table-of-contents-in-markdown">
+<ul class="org-ul">
+<li>Use <code>gh-md-toc</code>, e.g.,  <code>$ gh-md-toc --insert cmds.md</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-mac-os" class="outline-2">
+<h2 id="mac-os"><span class="section-number-2">8.</span> MAC OS</h2>
+<div class="outline-text-2" id="text-mac-os">
+<ul class="org-ul">
+<li><p>
+Creating an ISO from a CD/DVD e.g., to back up CD
+</p>
+<pre class="example">
+- Insert CD
+- open Disk Utils
+- Select the CD (not the drive)
+- Create File / New / Disk Image from ... / 
+- Image Format:  CD/DVD Master  ...
+- rename cdr to iso
+</pre></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Burn ISO image to USB (e.g., to install Linux distribution from USB)
+
+<ul class="org-ul">
+<li><p>
+First convert ISO to dmg file
+</p>
+<pre class="example">
+$ hdiutil convert -format UDRW -o ~/file.img ~/file.iso     
+...
+Speed: 427.5Mbytes/sec     Savings: 0.0%     created: ~/file.img.dmg
+</pre></li>
+
+<li><p>
+Then find the USB device
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ diskutil list
+/dev/disk0
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">:             TYPE NAME          SIZE     IDENTIFIER</span>
+0:    GUID_partition_scheme            *320.1 GB   disk0
+1:            EFI             209.7 MB   disk0s1
+2:          Apple_HFS Mac           319.7 GB   disk0s2
+/dev/disk1
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">:             TYPE NAME          SIZE     IDENTIFIER</span>
+0:   FDisk_partition_scheme            *2.0 GB   disk1
+1:       Windows_FAT_32             2.0 GB   disk1s1
+
+$ diskutil unmountDisk /dev/disk1
+Unmount of all volumes on disk1 was successful
+</pre>
+</div></li>
+
+<li><p>
+Finally, copy data to USB disk
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ sudo dd <span style="color: #dcaeea;">if</span>=/Users/tnguyen/file.img.dmg <span style="color: #dcaeea;">of</span>=/dev/disk1 <span style="color: #dcaeea;">bs</span>=1m
+687+1 records<span style="color: #51afef;"> in</span>
+687+1 records out
+721127424 bytes transferred<span style="color: #51afef;"> in</span> 77.176835 secs (9343833 bytes/sec)
+
+$ diskutil eject /dev/disk1
+Disk /dev/disk1 ejected
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-virtual-box" class="outline-2">
+<h2 id="virtual-box"><span class="section-number-2">9.</span> Virtual Box</h2>
+<div class="outline-text-2" id="text-virtual-box">
+<ul class="org-ul">
+<li>SSH from Host OS to Virtualbox (VB) Guest OS using port forwarding.
+For example, I run Linux (Debian) on my Mac and often ssh (from my
+Mac) to that Linux run.
+
+<ol class="org-ol">
+<li>The following assumes the VB Guest is called <code>myserver</code>. Also make
+sure the ssh server is installed on <code>myserver</code>.</li>
+
+<li><p>
+The Guest OS, by default, should have one interface already which
+is using NAT. First go to the <code>Network</code> settings
+<code>Advanced/Port Forwarding</code>, and then add a new rule:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">Host port 2222, guest port 22, name ssh, other left blank
+</pre>
+</div>
+
+<p>
+or from command line
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">HostOS$ VBoxManage modifyvm myserver --natpf1 <span style="color: #98be65;">"ssh,tcp,,2222,,22"</span>
+</pre>
+</div></li>
+
+<li><p>
+To check the added rules:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">HostOS$ VBoxManage showvminfo myserver | grep <span style="color: #98be65;">'Rule'</span>
+NIC 1 Rule(0):   name = ssh, protocol = tcp, host ip = , host port = 2222, guest ip = ..., guest port = 22
+</pre>
+</div></li>
+
+<li>Log in the Guest OS <code>HostOS$ ssh -p 2222 username@localhost</code> where
+<code>username</code> is your user name in <code>myserver</code>.</li>
+</ol></li>
+
+<li>Others:
+
+<ul class="org-ul">
+<li><p>
+Setup <i>password-less</i> login so that we don't have to enter the
+password everytime.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">HostOS$ cat ~/.ssh/id_rsa.pub | ssh username@localhost -p 2222 <span style="color: #98be65;">'cat &gt;&gt; ~/.ssh/authorized_keys'</span>
+</pre>
+</div></li>
+
+<li><p>
+Copy files from host to guest using scp, or vice versa
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;">#</span><span style="color: #5B6268;">copy from host to guest</span>
+HostOS$ scp -P 2223 /path/to/file   fse16ae@localhost:/destination/dir
+
+<span style="color: #5B6268;">#</span><span style="color: #5B6268;">copy from guest to host</span>
+HostOS$ scp -P 2222 user@localhost:/path/to/file /destination/dir
+</pre>
+</div>
+
+<p>
+Note that to add another Guest OS, use the same technique but choose
+different port number on the host OS, e.g., 2223.
+</p></li>
+
+<li><p>
+Start Headless
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">List virtual machines</span>
+HostOS$ VBoxManage list vms
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">Start VM in headless mode</span>
+HostOS$ VBoxManage startvm Debian7 --type headless
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">Power off VM</span>
+HostOS$ VBoxManage controlvm Debian7 poweroff
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-emacs" class="outline-2">
+<h2 id="emacs"><span class="section-number-2">10.</span> Emacs</h2>
+<div class="outline-text-2" id="text-emacs">
+</div>
+
+<div id="outline-container-useful-keys" class="outline-3">
+<h3 id="useful-keys"><span class="section-number-3">10.1.</span> Useful keys</h3>
+<div class="outline-text-3" id="text-useful-keys">
+<pre class="example" id="org38738e3">
+M-x load-file
+C-x k : kill buffer
+C-x C-x:  start a a location l,  search for something to go to new location,  then press C-x C-x to return back to l
+M-x occur:  search all line with matched regexp
+C-x C-r : read only
+C-x C-v:  reload file (not technically but it works well)
+C-c {  in latex mode to create {}
+C-j  insert paragraph break
+C-c C-s:  insert section subsection paragraph and label
+C-c C-e: insert environment (e.g. figure, equation, list etc)
+C-c C-f C-e:  emphasize
+C-c %   or  ;  :  comment out the paragraph or line
+C-c C-r:  on a highlighted region to latex only that region
+C-c C-c:  to run latex.
+C-c `:  keep on pressing this to review  errors after running latex
+C-/:  undo
+C-x k: kill buffer
+M-/: autocomplete
+M-h : mark entire paragraph
+C-x h: mark entire buffer
+C-t: transpose 2 letters  , e.g.  letet C-t  =&gt; lette
+M-t: transpose 2 words,  e.g.,  world hello  M-t  -&gt;  hello word  ;   vu, nguyen M-t  =&gt; nguyen, vu  (note: cursor btw the 2 words,  Alt-b to move back a word)
+C-x C-t: transpose 2 lines
+M-u : uppercase letters
+M-c : capitalize letters
+C-s C-w:  to the end of the word (handy)
+Search and replace
+C-s twice to redo the last  search
+C-s C-w  search the word under the cursor
+
+;; Windows resize
+C-x + : make windows same height/width
+C-x - : shrink window to fit content
+
+M-x package-refresh-contents:  to refresh melpa content
+
+;; Tramp: open remote files via ssh
+open /ssh:user@host#port:/path
+
+;; Tab
+untabify / tabify to convert from tab to space and space to tab.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-tex" class="outline-3">
+<h3 id="tex"><span class="section-number-3">10.2.</span> TeX</h3>
+<div class="outline-text-3" id="text-tex">
+<pre class="example" id="org0ae0427">
+M-x align-current: To align columns in LaTeX table, highlight the table region, then M-x align-current
+</pre>
+</div>
+</div>
+
+<div id="outline-container-install-flyspell-on-mac" class="outline-3">
+<h3 id="install-flyspell-on-mac"><span class="section-number-3">10.3.</span> Install Flyspell on Mac</h3>
+<div class="outline-text-3" id="text-install-flyspell-on-mac">
+<ul class="org-ul">
+<li>Install <code>cocoAspell</code> (which provides aspell)</li>
+<li>Install the appropriate <i>dictionary</i>
+(<code>./configure; make; make install</code>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-texlive" class="outline-3">
+<h3 id="texlive"><span class="section-number-3">10.4.</span> TexLive</h3>
+<div class="outline-text-3" id="text-texlive">
+<div class="org-src-container">
+<pre class="src src-shell">$ tlmgr update --self
+$ tlmgr update --all <span style="color: #5B6268;"># </span><span style="color: #5B6268;">update TexLive packages installation (Mac)</span>
+$ tlmgr update --list  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">see what will be upgraded</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-computer.html">computer</a> <a href="./tag-setup.html">setup</a> <a href="./tag-blog.html">blog</a> <a href="./tag-linux.html">linux</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>
