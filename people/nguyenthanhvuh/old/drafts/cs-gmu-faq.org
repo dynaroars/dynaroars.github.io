@@ -1,0 +1,64 @@
+#+TITLE: GMU CS FAQ
+#+date: <2022-09-05 Mon>
+#+description: Things about GMU CS
+#+filetags: gmu cs bsd guide 
+
+#+HTML_HEAD: <link rel="stylesheet" href="https://dynaroars.github.io/files/org.css">
+
+
+
+* Funding
+** GRA Offerring
+*** For grant fund GRAs (e.g., from NSF)
+   - Contact Terri and her team to make such offers and to generate contracts
+*** For CEC fund GRAs (e.g., from your startup GRAs)
+   - Contact Jennifer Lee and her team to make such offer and to generate contracts
+
+** Unrestricted Gift / Industrial Awards
+This will go through *[[https://gmuf.org/][GMU Foundation (GMUF)]]*.  GMU will create an account for you for your unrestricted gift. You can use the same account for multiple awards (e.g., convenient because you don't have to remember too many account/org #'s)
+** Contact
+   - *Beth Cantrell* ecantrel@gmuf.org (Vice President and Chief Financial Officer of GMUF)
+   - *Kira Woitek* kwoitek@gmu.edu (Director of Development, CEC)
+
+  Beth is the financial point of contact at GMUF.  Kira's office helps with creating an account for the gift.
+
+  
+*** GMU Charge
+GMUF assesses a 6% fee on any current-use (spendable) gifts at the time of the gift.  So if you have a 30K gift, then GMU takes $1800. The fee supports future Advancement initiatives as well as the Foundation's infrastructure necessary to administer funds.
+
+* Purchase
+* Teaching
+* Travel
+** What can and cannot be reimbursed for travelling
+*** Can be purchased through P-card
+    - Airline tickets
+    - Conference registration.
+*** Can be reimbursed (purchase individually and get reimbursed)
+  - Everything else involved in travel must be purchased by the individual and reimbursed.  This includes things like the hotel, Uber, taxi's, food, car rentals, subways,  parking, tolls and more.
+*** Cannot be reimbursed
+- *Insurance associated with rental cars in the United States* (see car rental information below)
+- Damage to personal vehicles
+- Expenses related to personal negligence of the traveler, such as fines
+- Services to gain entry to locked vehicles
+- Towing charges
+- Luxury vehicle rentals
+- Excessive parking and gasoline charges
+- University parking fees
+- Local commuting expenses
+- Travel between lodging and places where meals may be taken
+
+** Per diem
+- https://fiscal.gmu.edu/travel/learn-about-meals-per-diem-rates/
+
+** Reimbursement
+** Max meal
+** Car Rental
+- GMU/Commonwealth of VA has its own insurance  for rental cars in the US (i.e., you DO NOT need to get them — if you do, you are not getting reimbursed).  https://risk.gmu.edu/insurance/vehicle/
+  - For International, you can get reimbursed. 
+  - However, to use this insurance, you need to submit this MVR form  and schedule to take a training course (Zoom,  https://risk.gmu.edu/training/driver-training/). You only do this once.
+  - GMU prefers Enterprise for car rentals — but I don’t think they would deny you the insurance if you use a different company.
+* Miscs
+** Creasing a website
+
+
+
