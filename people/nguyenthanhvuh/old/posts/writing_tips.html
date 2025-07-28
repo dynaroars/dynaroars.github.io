@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="how I write LaTeX stuff">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="./rss.xml"
+      title="RSS feed for ./">
+<title>Writing</title>
+<meta name="author" content="ThanhVu Nguyen">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" type="text/css" href="https://dynaroars.github.io/files/org.css" />
+<link href= "../files/org-orig.css" rel="stylesheet" type="text/css" /> 
+<link rel="icon" href="../files/favicon.ico">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="../index.html">ThanhVu Nguyen</a>,  
+  <a href="index.html">Archive</a>
+</div>
+</div>
+<div id="content">
+<div class="post-date">01 Feb 2021</div><h1 class="post-title"><a href="./writing_tips.html">Writing</a></h1>
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#writing-papers">1. Writing Technical Papers</a>
+<ul>
+<li><a href="#orga167872">1.1. Order</a></li>
+<li><a href="#paper-naming-convention">1.2. Paper naming convention</a></li>
+<li><a href="#citation">1.3. Citation</a></li>
+<li><a href="#org42e0667">1.4. Do and Don't</a></li>
+<li><a href="#org805cd5d">1.5. Trimming / Space saving</a></li>
+<li><a href="#orgffde324">1.6. Miscs</a></li>
+</ul>
+</li>
+<li><a href="#git-repo">2. Managing Git repo and File structures</a>
+<ul>
+<li><a href="#paper-structure">2.1. Paper structure</a></li>
+<li><a href="#after-submission">2.2. After submission</a></li>
+<li><a href="#orgd85a822">2.3. After rebuttal</a></li>
+</ul>
+</li>
+<li><a href="#orgcce473b">3. Quick Fixes</a></li>
+<li><a href="#presentation">4. Presentation/Talk</a></li>
+<li><a href="#org10fa6fa">5. Useful Links</a></li>
+</ul>
+</div>
+</nav>
+<p>
+Managing my \(\LaTeX\) writings. 
+</p>
+
+<div id="outline-container-writing-papers" class="outline-2">
+<h2 id="writing-papers"><span class="section-number-2">1.</span> Writing Technical Papers</h2>
+<div class="outline-text-2" id="text-writing-papers">
+</div>
+
+
+<div id="outline-container-orga167872" class="outline-3">
+<h3 id="orga167872"><span class="section-number-3">1.1.</span> Order</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+I often write papers in the following order. For a concrete example, see the <a href="https://dynaroars.github.io/pubs/ishimwe2021dynaplex.pdf">Dynaplex paper</a> published at OOPSLA'21.
+</p>
+
+<ol class="org-ol">
+<li><code>Overview</code> section (Section 2).
+<ul class="org-ul">
+<li>start with this section, which should contain an <code>illustrative example</code>.
+<ul class="org-ul">
+<li>after reading this illustrative example (and perhaps the <code>Introduction</code>, the readers should have a good understanding of the approach.</li>
+<li><i>The goal is to have the readers (or reviewers) make up their mind whether they like or do not like the proposed work after reading this part</i>.</li>
+</ul></li>
+<li>A good place to add some overview <code>figure</code> highlighting the main components of the technique or tool.</li>
+<li>Can also summarize background or important concepts in this section</li>
+<li>Typically contains:
+<ul class="org-ul">
+<li>An architecture or overview figure of the approach (e.g., Fig 1 in the Dynaplex paper)</li>
+<li>A motivation or illustration example
+<ul class="org-ul">
+<li>Sec 2.1: Show how Dynaplex works at high level on an input program, what results does it produce.</li>
+</ul></li>
+<li>Main definitions and background (optional)
+<ul class="org-ul">
+<li>Sec 2.2: general background on dynamic inference and specific features/properties of Dynaplex</li>
+</ul></li>
+</ul></li>
+</ul></li>
+
+<li><code>Experimental</code> section (Section 4).
+<ol class="org-ol">
+<li>Some implementation details</li>
+<li>Benchmark programs: descript benchmarks used</li>
+<li>Experiment Setup
+<ul class="org-ul">
+<li>Machine specs</li>
+<li>How experiments were run (multiple times and report the mean, etc)</li>
+</ul></li>
+<li>Research Questions
+<ul class="org-ul">
+<li>E.g., How accurate is the technique? How efficient ?  Comparing to existing approaches</li>
+<li>Experimental results are designed to answer these questions</li>
+</ul></li>
+</ol></li>
+
+<li><code>Algorithm/Techniques</code> (Section 3)</li>
+
+<li><code>Related Work</code> (Section 5)
+<ul class="org-ul">
+<li>Break into multiple subsections if necessary</li>
+<li>After each subsection that talks about related work, have a new paragraph and talk about why my work is different/related to other work.</li>
+</ul></li>
+
+<li><code>Conclusion</code> (Section 6).
+<ul class="org-ul">
+<li>This should be the <i>conclusion</i> not the <i>summary</i>.</li>
+<li>Future work can also go here</li>
+</ul></li>
+
+<li><code>Introduction</code> (Section 1).
+<ul class="org-ul">
+<li>write this last, because by the time I write the Intro, I would already have all needed info (e.g., so I can summarize the diff with state of the art, technical contributions, and results.</li>
+<li>Typically contains several main things:
+<ul class="org-ul">
+<li>What is the problem?  Why is it important (i.e., if we can solve it, then what do we accomplishes)?</li>
+<li>Existing work:  basically answering why it is challenging (i.e., why existing work is not sufficient)?</li>
+<li>The proposed approach of this paper: how does it address the limitations of existing work listed above?  What other benefits does it have?</li>
+<li>Results: briefly summarize the results.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-paper-naming-convention" class="outline-3">
+<h3 id="paper-naming-convention"><span class="section-number-3">1.2.</span> Paper naming convention</h3>
+<div class="outline-text-3" id="text-paper-naming-convention">
+<ul class="org-ul">
+<li>I use Google Scholar's convention  <code>lastnameoffirstauthor~publishedyear~firsttitleword</code>, e.g., <code>nguyen2021gentree.pdf</code> for the paper  <code>KimHao Nguyen and ThanhVu Nguyen. GenTree: Using Decision Trees to Learn Interactions for Configurable Software</code></li>
+<li>I also use this convention for <code>bibtex</code> entry and reference, e.g.,
+<code>GenTree paper~\cite{nguyen2021gentree}</code></li>
+<li>If there's a conflict, then append the name with a number, e.g.,
+<code>nguyen2021gentree1</code>, <code>nguyen2021gentree2</code></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-citation" class="outline-3">
+<h3 id="citation"><span class="section-number-3">1.3.</span> Citation</h3>
+<div class="outline-text-3" id="text-citation">
+<ul class="org-ul">
+<li><p>
+As with <a href="#paper-naming-convention">paper naming</a>, for citation I follow Google Scholar's convention and thus often use Google Scholar to search for  <code>bibtex</code> entry of a paper I want to cite.  For example, to cite the GenTree example paper, I search for it on Google Scholar and get the <code>bibtex</code> content.
+</p>
+<div class="org-src-container">
+<pre class="src src-bibtex"><span style="color: #c678dd;">@inproceedings</span>{<span style="color: #a9a1e1;">nguyen2021gentree</span>,
+  <span style="color: #dcaeea;">title</span>={GenTree: Using decision trees to learn interactions for configurable software},
+  <span style="color: #dcaeea;">author</span>={Nguyen, KimHao and Nguyen, ThanhVu},
+  <span style="color: #dcaeea;">booktitle</span>={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)},
+  <span style="color: #dcaeea;">pages</span>={1598--1609},
+  <span style="color: #dcaeea;">year</span>={2021},
+  <span style="color: #dcaeea;">organization</span>={IEEE}
+}
+</pre>
+</div></li>
+</ul>
+<p>
+Then I copy/paste this <code>bibtex</code> content to my the bib file of my project, and cite the paper with <code>\cite{nguyen2021gentree}</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42e0667" class="outline-3">
+<h3 id="org42e0667"><span class="section-number-3">1.4.</span> Do and Don't</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Do
+<ul class="org-ul">
+<li>Split into multiple paragraphs.  Long paragraphs are simply hard to read!</li>
+</ul></li>
+
+<li>Do not
+
+<ul class="org-ul">
+<li>Delay talking about the main work until the 2nd page of the introduction.  It's not good if people read a whole page and still don't know what you're proposing!</li>
+
+<li><p>
+Use unnecessary roadmaps.  Eg.., at the end of an intro, many papers have something like this
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">This paper is organized as follows. In Section 2, we describe the background. In Section 3, we establish theorem X. In Section 4, we describe algorithm Y and implementation Z. In Section 5, we present experimental results from our implementation and compare to the state of the art.  In Section 6, we review related work and conclude in Section 7.
+</pre>
+</div>
+<ul class="org-ul">
+<li>This might make sense for a long Ph.D. thesis or book (in fact, I wouldn't use this roadmap even for these), but doesn't make much sense for a 10 page paper where one easily guess all these from the section names?</li>
+</ul></li>
+
+<li><p>
+Similarly, we can elimiate roadmap at the beginning of a section
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">In this section, we first describe X, then present Y.  We also do Z.
+</pre>
+</div>
+<ul class="org-ul">
+<li>This might be OK, especially for a long section.  But in general I prefer just start talking about the main stuff in the section.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org805cd5d" class="outline-3">
+<h3 id="org805cd5d"><span class="section-number-3">1.5.</span> Trimming / Space saving</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Rewrite and shorten sentences!!</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgffde324" class="outline-3">
+<h3 id="orgffde324"><span class="section-number-3">1.6.</span> Miscs</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><p>
+One setence per line
+</p>
+
+<pre class="example" id="orgf532f8d">
+This is a line.
+This is another, longer line.
+</pre></li>
+
+<li>If possible, put figures, tables, code, etc on top, e.g., using
+<code>\begin{figure}[t]</code></li>
+<li><p>
+Rewrite to avoid lines with single or lone words
+</p>
+
+<pre class="example" id="orgef4f699">
+It just looks
+bad.
+</pre></li>
+
+<li><p>
+Comment:  so that my coauthors and I can add comments to paper, e.g., <code>\tvn{This is my comment}</code> 
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #51afef;">\newcommand</span>{<span style="color: #c678dd;">\mycomment</span>}[3][<span style="color: #51afef;">\color</span>{red}]{{#1{[{#2}: {#3}]}}}
+<span style="color: #51afef;">\newcommand</span>{<span style="color: #c678dd;">\tvn</span>}[1]{<span style="color: #51afef;">\mycomment</span>[<span style="color: #51afef;">\color</span>{red}]{TVN}{#1}}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-git-repo" class="outline-2">
+<h2 id="git-repo"><span class="section-number-2">2.</span> Managing Git repo and File structures</h2>
+<div class="outline-text-2" id="text-git-repo">
+<ul class="org-ul">
+<li>1 Git repo for each paper
+<ul class="org-ul">
+<li>Name the repo <code>paper_name</code>, e.g., <code>paper_gentree</code> where <code>gentree</code> is the name of the work.</li>
+<li>I do not put conference name as part of the repo name because it might end up not being in that conference. Instead I use git <code>tag</code> (<a href="#after-submission">shown below</a>) to identify submission to conference.</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-paper-structure" class="outline-3">
+<h3 id="paper-structure"><span class="section-number-3">2.1.</span> Paper structure</h3>
+<div class="outline-text-3" id="text-paper-structure">
+<ul class="org-ul">
+<li>1 directory per paper (which is a clone of a Github repo as described <a href="#git-repo">above</a>), e.g., <code>paper_gentree/</code></li>
+<li>Within the directory, I use very few files:
+<ul class="org-ul">
+<li><code>paper.tex</code>: I use a single \(\TeX\) file for the entire paper.
+<ul class="org-ul">
+<li>Others like to split into multiple files (e.g., <code>intro.tex</code>, <code>eval.txt</code>, <code>related.txt</code>, etc). But I find it easier for me to just use 1 file. Even when sharing or collaborating with others, in which conflict edits can arise, a single file still works well as git is pretty good at resolving conflict issues.</li>
+</ul></li>
+<li><code>paper.bib</code>: I use a single <code>bib</code> file for bibs. My collaborators sometimes put in their own <code>bib</code> files.</li>
+<li><code>arch.(pdf|png)</code> (optional): a diagram describing the architecture of the framework or tool</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-after-submission" class="outline-3">
+<h3 id="after-submission"><span class="section-number-3">2.2.</span> After submission</h3>
+<div class="outline-text-3" id="text-after-submission">
+<p>
+After submitting a paper, I save a copy of the submitted pdf file and create a tag for the latest commit to keep a history of that submission.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Save the submitted pdf file as <code>VenueYearX.pdf</code>, where <code>X</code> is <code>submit</code> for the original submission version, <code>final</code> for final (camera-ready) version, and <code>rI</code> for the \(i^{th}\) revision for additional revision submissions between the original submission and final (e.g., for jounal).
+</p>
+<pre class="example" id="org5450456">
+git add icse2021submit.pdf  
+</pre></li>
+<li><p>
+Create an annotated <code>tag</code> for the commit
+</p>
+<pre class="example" id="orga116e20">
+git tag -a icse2021submit -m "ICSE 2021 original submission" commit_hashid (optional)
+git push origin icse2021submit
+git show icse2020submit
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd85a822" class="outline-3">
+<h3 id="orgd85a822"><span class="section-number-3">2.3.</span> After rebuttal</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+After submitting a rebuttal, save a copy of the reviews and rebuttal as a plain <code>text</code> file
+</p>
+<pre class="example" id="org21a60cb">
+git add pldi2023-reviews.txt
+git commit -am "reviews and rebuttal"
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcce473b" class="outline-2">
+<h2 id="orgcce473b"><span class="section-number-2">3.</span> Quick Fixes</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Avoid passive tense</li>
+<li>Know the difference between <i>Such as</i>  and <i>like</i></li>
+<li>Avoid long paragraphs</li>
+<li>Spell out numbers less than 10 (<i>three</i> steps instead of <i>3</i> steps).</li>
+<li>Use Eq. X instead of Equation X</li>
+<li>Don't put <i>etc</i> in e.g., or such as</li>
+<li>In order to do this -&gt; To do this</li>
+<li>New paragraph for new thought/idea. Sentences in the same paragraph should be connected.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-presentation" class="outline-2">
+<h2 id="presentation"><span class="section-number-2">4.</span> Presentation/Talk</h2>
+<div class="outline-text-2" id="text-presentation">
+<ul class="org-ul">
+<li>Slides
+
+<ul class="org-ul">
+<li>Put numbers on every slide: so that people can refer to slide X</li>
+<li>For an N-minute presentation: create about N slides</li>
+<li>Don't put too much words, also no need to put full sentences</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-org10fa6fa" class="outline-2">
+<h2 id="org10fa6fa"><span class="section-number-2">5.</span> Useful Links</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><a href="http://www.cs.cmu.edu/%7Ejrs/sins.html">http://www.cs.cmu.edu/%7Ejrs/sins.html</a></li>
+</ul>
+</div>
+</div>
+<div class="taglist"><a href="./tags.html">Tags</a>: <a href="./tag-computer.html">computer</a> <a href="./tag-setup.html">setup</a> <a href="./tag-blog.html">blog</a> <a href="./tag-writing.html">writing</a> </div></div>
+<div id="postamble" class="status"><!-- <div id="archive"><a href="archive.html">Other posts</a></div>  -->
+</div>
+</body>
+</html>
