@@ -1,0 +1,101 @@
+#+TITLE: Delta Debugging Complexity
+#+date: <2020-10-31 03:39>
+#+description: delta debugging stuff
+#+filetags: blog teaching delta-debugging
+
+Many students get confused when asked about the complexity of the Delta Debugging (DD) algorithm discussed in my Software Testing class. Hopefully this note, which focuses on illustrating the complexity of DD using examples, can help.
+
+* Best-case Complexity
+  :PROPERTIES:
+  :CUSTOM_ID: best-case-complexity
+  :END:
+DD has a $O(\lg N)$ (where =N= is the input size) /best case/ complexity when its binary search-like
+approach is effective, i.e., can reduce the input by half each time.
+
+*Example*: Consider the oracle or test that returns *F* on either (i) inputs containing the string =5= or (ii) the input =1,2,3,4,5=, which for simplicity we will just write as =12345= below.
+
+| test | input | result | comment                                                                                                         |
+|------+-------+--------+-----------------------------------------------------------------------------------------------------------------|
+| 1    | 12345 | *F*    | starting DD with original input 12345, which is a fail (*F*)                                                    |
+|      |       |        | =n=2= 12/345                                                                                                    |
+| 2    | 345   | *F*    | we can remove 12 from 12345, restart DD on input 345                                                            |
+|      |       |        | =n=2= 34/5                                                                                                      |
+| 3    | 5     | *F*    | we can remove 34 from 345, since 5 can nolonger be splitted, DD stops and return 5 as the minimal failure input |
+
+* Worst-case Complexity
+  :PROPERTIES:
+  :CUSTOM_ID: worst-case-complexity
+  :END:
+  
+DD has a *quadratic* /worst case/ complexity, i.e., $O(N^2)$.
+That is, for some oracle (and sequence of splits), we can make DD perform $O(N^2)$ tests.
+The idea is that for an input of size =N= we would have to run $O(N)$ tests to
+reduce to a smaller input of size =N1= that is =N-1=. Then from the new
+input of size =N1=, we would have to run =O(N1)= tests to reduce to a
+smaller input of size =N2= that is =N1-1=. This keeps going until we
+reach an input of size 1. In total, we perform
+=N + N-1 + N-2 + .... + 1= = =1/2*(N+1)*N= tests, causing the quadratic
+$O(N^2)$ complexity.
+
+*Example*: We use an example to illustrate this worst-case complexity.
+In fact, we will construct the oracle causing this complexity directly
+from this process. Consider the input =1,2,3,4,5=, which for simplicity
+we will just write as =12345= below.
+
+| test | input | result | comment                                                                                  |
+|------+-------+--------+------------------------------------------------------------------------------------------|
+| 1    | 12345 | *F*    | starting DD with original input 12345, which is a fail (*F*)                             |
+|      |       |        | =n=2= 12/345                                                                             |
+| 2    | 345   | P      | cannot remove 12                                                                         |
+| 3    | 12    | P      | cannot remove 345                                                                        |
+|      |       |        | =n=4= 1/2/3/45                                                                           |
+| 4    | 2345  | P      | cannot remove 1                                                                          |
+| 5    | 1345  | P      | cannot remove 2                                                                          |
+| 6    | 1245  | P      | cannot remove 3                                                                          |
+| 7    | 123   | P      | cannot remove 45                                                                         |
+|      |       |        | =n=5= 1/2/3/4/5                                                                          |
+| 8    | 2345  | P      | cannot remove 1 (same as test 4)                                                         |
+| 9    | 1345  | P      | cannot remove 2 (same as test 5)                                                         |
+| 10   | 1245  | P      | cannot remove 3 (same as test 6)                                                         |
+| 11   | 1235  | P      | cannot remove 4                                                                          |
+| 12   | 1234  | *F*    | we can remove 5 from 12345, restart DD with input =1234=                                 |
+|      |       |        | =n=2= 12 / 34                                                                            |
+| 13   | 34    | P      | cannot remove 12                                                                         |
+| 14   | 12    | P      | cannot remove 34 (same as test 3)                                                        |
+|      |       |        | =n=4= 1234                                                                               |
+| 15   | 234   | P      | cannot remove 1                                                                          |
+| 16   | 134   | P      | cannot remove 2                                                                          |
+| 17   | 124   | *F*    | we can remove 3 from 1234, restart DD with input =124=                                   |
+|      |       |        | =n=2= 1/24                                                                               |
+| 18   | 24    | P      | cannot remove 1                                                                          |
+| 19   | 1     | P      | cannot remove 24                                                                         |
+|      |       |        | =n=3= 1/2/4                                                                              |
+| 20   | 24    | P      | cannot remove 1 (same as test 18)                                                        |
+| 21   | 14    | *F*    | we can remove 2 from 124, restart DD with input =14=                                     |
+|      |       |        | =n=2= 1/4                                                                                |
+| 22   | 4     | P      | cannot remove 1                                                                          |
+| 23   | 1     | P      | cannot remove 4. (same as test 19). DD stops and returns 14 as the minimal failure input |
+
+Thus in this example where we have an input of size =N=5=, we perform DD on =23= tests, i.e., $O(N^2)$.
+Note that we redo many tests (e.g., test 8 is the same as test 4), but
+in general we do =O(N^2)= unique tests.
+
+*Constructing the oracle*: From the above worst case execution, we can
+reconstruct the oracle or test that results in this execution.
+This is done by simply making the oracle return *F* on input having values
+=12345=, =1234=, =124=, or =14= and returns *P* on every other inputs:
+
+#+begin_src python
+  def test(s):
+      return s in {'12345','1234','124','14'}
+#+end_src
+
+_Note_: pay attention to test 17 where we have 124 as F instead of P.
+The reason is because if we have 124 as P, then we would now test 123,
+which must be a P because 123 was a P in test 7 (i.e., we cannot have
+123 as a P in one test and as an F in another). And if that's the case
+then we stop DD at 17 tests and return 1234. But if we make 124 as F,
+then we can continue DD as shown above (i.e., we make DD work a bit
+harder to achieve higher complexity). This is similar for test 19, we
+make input 14 F so that we can continue DD with 14 instead of stoping
+(because 12 is P).
