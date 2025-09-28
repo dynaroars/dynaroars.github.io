@@ -7,6 +7,16 @@ body {
   color: black;
 }
 
+
+ol li.year-gap {
+  margin-bottom: 1.5em; /* extra spacing */
+  padding-bottom: 0.5em; /* space before the line */
+  border-bottom: 1px solid lightgray; /* subtle divider */
+}
+
+
+
+
 blockquote {
   margin: 1.5em  0pt;
   padding: 0.5em 10pt;
@@ -179,9 +189,3 @@ details > summary {
 }
 
 
-
-ol li.year-gap {
-  margin-bottom: 1.5em; /* extra spacing */
-  padding-bottom: 0.5em; /* space before the line */
-  border-bottom: 1px solid lightgray; /* subtle divider */
-}
