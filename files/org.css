@@ -8,13 +8,21 @@ body {
 }
 
 
+.header-flex {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+.header-flex figure {
+    margin: 0;
+}
+
+
 ol li.year-gap {
   margin-bottom: 1.5em; /* extra spacing */
   padding-bottom: 0.5em; /* space before the line */
   border-bottom: 1px solid lightgray; /* subtle divider */
 }
-
-
 
 
 blockquote {
@@ -66,29 +74,29 @@ details > summary {
     border: 2px dotted transparent;
 }
 
-.typewriter {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .2em solid black; /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 1em auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .12em; /* Adjust as needed */
-    animation: 
-      typing 6s steps(40, end),
-      blink-caret 1.2s step-end infinite;
-    display: inline-flex;
-  }
-  
-  /* The typing effect */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 40% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    30% { border-color: ghostwhite; }
-  }
+/* .typewriter { */
+/*     overflow: hidden; /\* Ensures the content is not revealed until the animation *\/ */
+/*     border-right: .2em solid black; /\* The typwriter cursor *\/ */
+/*     white-space: nowrap; /\* Keeps the content on a single line *\/ */
+/*     margin: 1em auto; /\* Gives that scrolling effect as the typing happens *\/ */
+/*     letter-spacing: .12em; /\* Adjust as needed *\/ */
+/*     animation:  */
+/*       typing 6s steps(40, end), */
+/*       blink-caret 1.2s step-end infinite; */
+/*     display: inline-flex; */
+/*   } */
+
+/*   /\* The typing effect *\/ */
+/*   @keyframes typing { */
+/*     from { width: 0 } */
+/*     to { width: 40% } */
+/*   } */
+
+/*   /\* The typewriter cursor effect *\/ */
+/*   @keyframes blink-caret { */
+/*     from, to { border-color: transparent } */
+/*     30% { border-color: ghostwhite; } */
+/*   } */
 
 
 
@@ -175,17 +183,6 @@ details > summary {
     #toc{
         background-color: #073642;
      }    
-}
-
-
-
-.header-flex {
-    display: flex;
-    align-items: center;
-    gap: 2em;
-}
-.header-flex figure {
-    margin: 0;
 }
 
 
