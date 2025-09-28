@@ -178,3 +178,10 @@ details > summary {
     margin: 0;
 }
 
+
+
+ol li.year-gap {
+  margin-bottom: 1.5em; /* extra spacing */
+  padding-bottom: 0.5em; /* space before the line */
+  border-bottom: 1px solid lightgray; /* subtle divider */
+}
