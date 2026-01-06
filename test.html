@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <title>Theme Switch Example</title>
+  <link rel="stylesheet" href="files/org.css">
+  <style>
+    #theme-toggle {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      z-index: 1000;
+      background: lightgray;
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello World</h1>
+  <p>This page uses <code>org.css</code>.  
+     It follows your system preference by default,  
+     but you can override it with the button:</p>
+
+  <button id="theme-toggle">Switch Theme</button>
+
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+
+    // Load saved theme, or default to "auto"
+    const saved = localStorage.getItem('theme') || 'auto';
+    root.setAttribute('data-theme', saved);
+
+    function cycleTheme() {
+      let theme = root.getAttribute('data-theme');
+      let next = theme === 'auto'
+        ? 'dark'
+        : theme === 'dark'
+        ? 'light'
+        : 'auto';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateLabel(next);
+    }
+
+    function updateLabel(theme) {
+      btn.textContent = `Switch Theme (now: ${theme})`;
+    }
+
+    btn.addEventListener('click', cycleTheme);
+
+    // Initial button label
+    updateLabel(saved);
+  </script>
+</body>
+</html>
+
+
