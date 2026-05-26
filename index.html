@@ -8,8 +8,13 @@
     <meta name="description" content="Roars Lab at George Mason University">
     <meta name="keywords" content="Roars, ThanhVu Nguyen, AI Safety, DNN verification">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roars.dev">
+    <meta property="og:title" content="ROARS Lab @ GMU">
+    <meta property="og:description" content="Research on Automated Reasoning Systems at George Mason University">
+    <meta property="og:image" content="https://roars.dev/files/dino.png">
     <link rel="stylesheet" type="text/css" href="files/org.css">
-    <link rel="icon" href="files/dino.png" type="image/jpeg">
+    <link rel="icon" href="files/dino.png" type="image/png">
 
   </head>
 
@@ -20,10 +25,10 @@
         <li><a href="#news">News</a></li>
         <li><a href="#people">People</a></li>
         <li><a href="#awards">Awards</a></li>
-        <li><a href="#research">Research</a></li>        
+        <li><a href="#research">Research</a></li>
         <li><a href="#pubs">Pubs</a></li>
         <li><a href="#miscs">Misc</a></li>
-        <li><a href="#software">Software</a></li>        
+        <li><a href="#software">Software</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -33,10 +38,10 @@
         <abbr title="ROARS: Research on Automated Reasoning Systems">
           ROARS 🦖 Lab @ GMU
         </abbr>
-      </h1>                
+      </h1>
       <div class="header-flex">
         <figure>
-          <img src="files/dino.png" alt="DinoROARS Mascot" title="DynoRoars Mascot" width="100">
+          <img src="files/dino.png" alt="DinoROARS Mascot" title="DynoRoars Mascot" width="100" loading="lazy">
         </figure>
         <div class="myborder">
           <ul class="styled">
@@ -53,26 +58,28 @@
       </div>
     </header>
 
+    <main>
+
     <p>Welcome to <strong>ROARS</strong> (Research on Automated Reasoning Systems) Lab at <a href="https://www.gmu.edu">George Mason University</a>.
       <a href="#people">We</a> develop automated reasoning techniques to formalize, verify, and analyze software and AI systems. See <a href="#research">Research</a> for more information.</p>
 
-    <h2 id="news">News</h2>
+    <section id="news">
+    <h2>News</h2>
     <div class="myborder">
       <ul>
-        <li>5/2026: <a href="./bibtex"><strong>ICML'26</strong></a> research paper on (invariant) generation of randomized self-reductions for mathematical functions received <strong>ICML Spotlight</strong></li>
-        <li>5/2026: <a href="#people"><strong>Hai</strong></a> received the <strong>Oustanding PhD Student Award</strong> from GMU CS and is interning at <strong>Amazon AWS</strong> in the summer</li>
-        <li>4/2026: <a href="./bibtex"><strong>CVPR'26</strong></a> research paper on verifying AI-based computer vision systems received <strong>CVPR Highlight</strong> (👏 Hai)</li>
-        <li>4/2026: Serving as an organizer and program (papers) chair of <a href="https://vnn-comp.github.io/">VNN-COMP'26</a>, the annual competition on verifying neural networks. Consider submitting your NNV tools and related papers</li>
-        <li>4/2026: 🎓 <a href="#people"><strong>Didier</strong></a> defended his dissertation on complexity analysis (second PhD alumni of the group!). Plenty of pictures from the defense from the <a href="https://photos.roars.dev">lab photos</a>.</li>
-        <li>4/2026: <strong>Amazon Research Award</strong> (2nd ARA Award) for Verifiable AI and ML-assisted Mathematical Reasoning</li>
-        <li>3/2026: 📚 Ongoing work on an introductory <a href="https://github.com/dynaroars/nnv">textbook</a> for neural network verification</li>
-        <li>3/2026: <a href="./bibtex"><strong>TSE'26</strong></a> research paper on specification repair and test generation</li>
-        
-        <li>2/2026: <a href="https://realgmucs.github.io/people">CS GMU People</a>: a webapp listing faculty and staff at CS GMU.</li>
-        <li>2/2026: <a href="#people"><strong>Jahnvi</strong></a> joined as an MS researcher</li>
-        <li>1/2026: <strong>BibTeX Parser</strong>: <a href="https://roars.dev/bibtex">https://roars.dev/bibtex/</a> is now live. This webapp displays publications from a BibTeX file.</li>
-        <li>1/2026: <a href="./bibtex"><strong>FSE'26</strong></a> research paper on formalizing and verifying structural robustness properties of AI systems (👏 Hai)</li>
-
+        <li><time datetime="2026-05">5/2026</time>: Received the <strong>Outstanding Service Award</strong> from the CS department for service and contributions to the department</li>
+        <li><time datetime="2026-05">5/2026</time>: <a href="./bibtex"><strong>ICML'26</strong></a> research paper on (invariant) generation of randomized self-reductions for mathematical functions received <strong>ICML Spotlight</strong></li>
+        <li><time datetime="2026-05">5/2026</time>: <a href="#people"><strong>Hai</strong></a> received the <strong>Outstanding PhD Student Award</strong> from GMU CS and is interning at <strong>Amazon AWS</strong> in the summer</li>
+        <li><time datetime="2026-04">4/2026</time>: <a href="./bibtex"><strong>CVPR'26</strong></a> research paper on verifying AI-based computer vision systems received <strong>CVPR Highlight</strong> (👏 Hai)</li>
+        <li><time datetime="2026-04">4/2026</time>: Serving as an organizer and program (papers) chair of <a href="https://vnn-comp.github.io/">VNN-COMP'26</a>, the annual competition on verifying neural networks. Consider submitting your NNV tools and related papers</li>
+        <li><time datetime="2026-04">4/2026</time>: 🎓 <a href="#people"><strong>Didier</strong></a> defended his dissertation on complexity analysis (second PhD alumni of the group!). Plenty of pictures from the defense from the <a href="https://photos.roars.dev">lab photos</a>.</li>
+        <li><time datetime="2026-04">4/2026</time>: <strong>Amazon Research Award</strong> (2nd ARA Award) for Verifiable AI and ML-assisted Mathematical Reasoning</li>
+        <li><time datetime="2026-03">3/2026</time>: 📚 Ongoing work on an introductory <a href="https://github.com/dynaroars/nnv">textbook</a> for neural network verification</li>
+        <li><time datetime="2026-03">3/2026</time>: <a href="./bibtex"><strong>TSE'26</strong></a> research paper on specification repair and test generation</li>
+        <li><time datetime="2026-02">2/2026</time>: <a href="https://realgmucs.github.io/people">CS GMU People</a>: a webapp listing faculty and staff at CS GMU.</li>
+        <li><time datetime="2026-02">2/2026</time>: <a href="#people"><strong>Jahnvi</strong></a> joined as an MS researcher</li>
+        <li><time datetime="2026-01">1/2026</time>: <strong>BibTeX Parser</strong>: <a href="https://roars.dev/bibtex">https://roars.dev/bibtex/</a> is now live. This webapp displays publications from a BibTeX file.</li>
+        <li><time datetime="2026-01">1/2026</time>: <a href="./bibtex"><strong>FSE'26</strong></a> research paper on formalizing and verifying structural robustness properties of AI systems (👏 Hai)</li>
       </ul>
     </div>
 
@@ -91,7 +98,7 @@
           <li>8/2025: <a href="./bibtex"><strong>ASE'25</strong></a> research paper on generating challenging benchmarks for DNN verification (👏 Linhan, first research paper as first author)</li>
           <li>8/2025: <a href="https://code.roars.dev/neuralsat">NeuralSAT</a> <a href="https://docs.google.com/presentation/d/1ep-hGGotgWQF6SA0JIpQ6nFqs2lXoyuLMM-bORzNvrQ"><strong>ranked 2nd</strong></a> overall in VNN-COMP'25 (👏 Hai). </li>
           <li>7/2025: Elevated to <strong>ACM Senior Member</strong></li>
-          <li>4/2025: Serving as an organizer and program (papers) chair of VNN-COMP'25, the annual competition on verifying neural networks. Consider submitting your NNV tools and related papers.</li>        
+          <li>4/2025: Serving as an organizer and program (papers) chair of VNN-COMP'25, the annual competition on verifying neural networks. Consider submitting your NNV tools and related papers.</li>
           <li>4/2025: <strong>CSConfs</strong>: <a href="https://roars.dev/csconfs">https://roars.dev/csconfs/</a> is now live. This webapp tracks of upcoming CS conferences</li>
           <li>4/2025: (Book) Demystifying PhD Admissions in Computer Science is now published and available through <a href="https://www.amazon.com/dp/B0F41HP6Y2">Amazon Kindle</a> (the book pdf will always be free through <a href="https://code.roars.dev/phd-cs-us">GitHub</a>)</li>
           <li>4/2025: <strong>Two</strong> <a href="./bibtex"><strong>ISSTA'25</strong></a> tool papers on LSP support for the COOL language (👏 Linhan, first paper) and VS Code support for invariant generation and symbolic execution (👏 Stefania, first paper)</li>
@@ -121,19 +128,20 @@
           <li>7/2023: 🎁 Received an <strong>NSF Formal Methods in the Field (FMitF) Grant</strong></li>
           <li>7/2023: 📓 A handbook for <a href="https://roars.dev/phd-cs-us/demystify.pdf">demystifying the PhD admission process in Computer Science in the US</a></li>
           <li>6/2023: SIGBED <a href="https://sigbed.org/2023/06/06/neural-sat/">blog</a> on NeuralSAT</li>
+          <li>6/2023: 🎓 Kimhao graduated and joined Jump Trading</li>
           <li>5/2023: 🏅 <strong>Outstanding Undergraduate Senior Award</strong> from UNL CSE (👏  KimHao)</li>
           <li>3/2023: 🎁 Received an <strong>Amazon Research Award</strong>. Press: <a href="https://www.amazon.science/research-awards/program-updates/79-amazon-research-awards-recipients-announced">Amazon Science</a>, <a href="https://cec.gmu.edu/news/2023-07/amazon-research-award-win-ai-safety-verification">GMU</a></li>
           <li>1/2023: 🎁 Received the <strong>NSF CAREER Award</strong> to work on DNN verification. Press: <a href="https://www.gmu.edu/news/2023-02/boom-crash-mason-researcher-receives-half-million-nsf-grant-could-steer-ai-safely">GMU</a>, <a href="https://thanhnien.vn/tien-si-goc-viet-duoc-tai-tro-nghien-cuu-ai-185230304234603638.htm">Báo Thanh Niên (Vietnamese)</a></li>
-          <li>12/2022: <a href="./bibtex"><strong>ICSE SEIP</strong></a> paper on shift left static analysis (👏 KimHao)</li>        <li><a href="https://realgmucs.github.io/people">CS GMU People</a>: a webapp for CS GMU directory (faculty and staff).</li>
-
+          <li>12/2022: <a href="./bibtex"><strong>ICSE SEIP</strong></a> paper on shift left static analysis (👏 KimHao)</li>
           <li>11/2022: 🎉 Thanksgiving party!!!</li>
           <li>11/2022: <a href="./bibtex"><strong>SIGMOD'23</strong></a> research paper on using graph neural networks to analyze IoT interactive bugs</li>
           <li>8/2022: 🎉 Start of the semester party!!!</li>
           <li>8/2022: <a href="#people"><strong>Hai</strong></a> joined as a PhD student</li>
           <li>7/2022: <a href="./bibtex"><strong>ASE'22</strong></a> research paper on feed-back driven iterative Alloy repair (👏 Guolong)</li>
+          <li>6/2022: 🎓 Kimhao interned at Jump Trading</li>
           <li>4/2022: 🎓 <a href="#people"><strong>Guolong</strong></a> defended his dissertation on Alloy analysis (first PhD alumni of the group!)</li>
           <li>4/2022: <a href="./bibtex"><strong>ISSTA'22</strong></a> research paper on template-based Alloy repair (👏 Guolong)</li>
-          <li>/12022: <strong>Two</strong> <a href="./bibtex"><strong>ICSE Tool</strong></a> papers on complex analysis (👏 Didier) and invariant generation (👏 KimHao and Hai)</li>
+          <li>1/2022: <strong>Two</strong> <a href="./bibtex"><strong>ICSE Tool</strong></a> papers on complex analysis (👏 Didier) and invariant generation (👏 KimHao and Hai)</li>
           <li>1/2022: <a href="./bibtex"><strong>ICSE SEIP</strong></a> paper on analyzing CMake build scripts (👏 KimHao)</li>
           <li>1/2022: <a href="#people"><strong>Linhan</strong></a> joined as a PhD student</li>
           <li>12/2021: <a href="./bibtex"><strong>ICSE NIER</strong></a> paper on Graph Neural Networks analysis</li>
@@ -145,6 +153,7 @@
           <li>7/2021: <strong>Three</strong> <a href="./bibtex"><strong>ASE Tool papers</strong></a> (👏 KimHao and Guolong)</li>
           <li>6/2021: 🚀 Moving to <a href="https://www.gmu.edu"><strong>George Mason University</strong></a> (Fall'21)</li>
           <li>5/2021: 🏅 <strong>Outstanding Undergraduate Research Assistant Award</strong> from UNL CSE (👏 KimHao)</li>
+          <li>5/2021: KimHao interned at Meta/Facebook (2nd time)</li>
           <li>5/2021: 🎓 <a href="#people"><strong>Alexey</strong></a> defended his Master's thesis</li>
           <li>4/2021: 🏅 KimHao received the <strong>Top Presentation Award</strong> on analyzing configurable systems at the Nebraska Student Research Days</li>
           <li>12/2020: <strong>Three</strong> research papers accepted at <a href="./bibtex"><strong>ICSE'21</strong></a> on inferring interactions in
@@ -157,6 +166,7 @@
           <li>7/2020: <strong>ICSME</strong> NIER paper on using symbolic execution to analyze the Linux build system (👏 KimHao)</li>
           <li>7/2020: <strong>ICSME</strong> Doctoral Symposium paper on Alloy fault
             localization and repair (👏 Guolong)</li>
+          <li>6/2020: KimHao interned at Meta/Facebook</li>
           <li>3/2020: 🎁 Received the <strong>NSF CISE Research Initiation Initiative (CRII) Award</strong> on analyzing the Linux build system.
             Press: <a href="https://computing.unl.edu/nguyen-earns-nsf-crii-award/">UNL</a></li>
           <li>3/2020: <a href="#people"><strong>KimHao</strong></a> (freshman) joined as an undergraduate researcher</li>
@@ -172,10 +182,10 @@
         </ul>
       </div>
     </details>
+    </section>
 
-    <hr>
-
-    <h2 id="people">People</h2>
+    <section id="people">
+    <h2>People</h2>
 
     <p><a href="https://photos.roars.dev">Lab activities/photos</a></p>
     <div class="myborder">
@@ -183,10 +193,10 @@
         <li><a href="https://tvn.roars.dev">ThanhVu (Vu) Nguyen</a> (PI, faculty)</li>
         <li><a href="https://longdct.github.io">Long Doan</a> (PhD student)</li>
         <li><a href="https://hocdot.github.io/">Hai Duong</a> (PhD student)</li>
-        <li><a href="https://ishimwed.github.io">Didier Ishimwe</a> (PhD student)</li>
+
         <li>Nguyen Ho (PhD student)</li>
         <li><a href="https://lli-debu.github.io/">Linhan Li</a> (PhD student)</li>
-        <li>Jahnvi (MS student)</li>        
+        <li>Jahnvi (MS student)</li>
         <li>Phu Le (NSF REU undergraduate)</li>
         <li>Azan Rasul (NSF REU undergraduate)</li>
       </ul>
@@ -196,7 +206,8 @@
       <summary>Alumni</summary>
       <div class="myborder">
         <ul>
-          <li>Stefania Piciorea (B.S., <strong>graduated 2025</strong>)</li>          
+          <li><a href="https://ishimwed.github.io">Didier Ishimwe</a> (PhD, <strong>graduated 2026</strong>)</li>
+          <li><a href="https://www.linkedin.com/in/stefania-piciorea/">Stefania Piciorea</a> (B.S., <strong>graduated 2025</strong>)</li>
           <li><a href="https://ndkimhao.github.io/">KimHao Nguyen</a> (B.S., <strong>graduated 2023</strong>, Jump Trading)</li>
           <li><a href="https://scholar.google.com/citations?user=FqXt_DQAAAAJ">Guolong Zheng</a> (PhD, <strong>graduated 2022</strong>, Minjiang University)</li>
           <li>Alexey Malyshev (M.S., <strong>graduated 2021</strong>, Oracle)</li>
@@ -204,40 +215,40 @@
       </div>
     </details>
 
-
-
     <details>
       <summary>Joining us</summary>
       <div class="myborder">
         <ul>
-          <li>Read about <a href="https://roars.dev/phd-cs-us/advising.pdf">our lab culture</a> and <a href="https://realgmucs.github.io/stats">GMU CS dept</a>. Also read <strong>"Should you contact a US professor? How to do so correctly?"</strong> from the <a href="https://code.roars.dev/phd-cs-us/">CS PhD Admission Demystify Handbook</a>.</li>      
-          <li><strong>Contribute</strong> to our <a href="https://code.roars.dev/">open-source projects</a>, e.g., an easy one to work on is <a href="https://code.roars.dev/csconfs">csconfs</a>---a webapp to track CS conferences. You can creating Github issues and pull requests for the project.  This shows you're serious about working with us and allows us to evaluate your skills.</li>
+          <li>Read about <a href="https://roars.dev/phd-cs-us/advising.pdf">our lab culture</a> and <a href="https://realgmucs.github.io/stats">GMU CS dept</a>. Also read <strong>"Should you contact a US professor? How to do so correctly?"</strong> from the <a href="https://code.roars.dev/phd-cs-us/">CS PhD Admission Demystify Handbook</a>.</li>
+          <li><strong>Contribute</strong> to our <a href="https://code.roars.dev/">open-source projects</a>, e.g., an easy one to work on is <a href="https://code.roars.dev/csconfs">csconfs</a>---a webapp to track CS conferences. You can create Github issues and pull requests for the project.  This shows you're serious about working with us and allows us to evaluate your skills.</li>
           <li><strong>Note</strong>: Unless there is a strong match and interest, we <strong>will not</strong> be able to respond to your emails, especially if they are generic.</li>
         </ul>
       </div>
     </details>
+    </section>
 
-    <hr>
-    <h2 id="awards">Awards</h2>
+    <section id="awards">
+    <h2>Awards</h2>
 
     <div class="myborder">
       <ul>
+        <li><strong>Outstanding Service Award</strong> 2026 (GMU CS)</li>
         <li><strong>Research Spotlight</strong> at <strong>ICML'26</strong></li>
         <li><strong>Outstanding CS PhD Student Award</strong> 2026 (Hai@GMU)</li>
-<li><a href="https://www.amazon.science/research-awards/build-on-trainium-responsible-ai-call-for-proposals-fall-2025"><strong>Amazon Research Award</strong> (Trainium Reliable AI)</a> 2026</li>                        
+        <li><a href="https://www.amazon.science/research-awards/build-on-trainium-responsible-ai-call-for-proposals-fall-2025"><strong>Amazon Research Award</strong> (Trainium Reliable AI)</a> 2026</li>
         <li><strong>Research Highlight</strong> at <strong>CVPR'26</strong></li>
         <li><strong>Best Paper Award</strong> at <strong>SSBSE'25</strong></li>
         <li><strong>Research Spotlight</strong> at <strong>NeurIPS'25</strong></li>
         <li>NeuralSAT ranked <strong>2nd</strong> overall in <strong>VNN-COMP'25</strong></li>
         <li><strong>Outstanding Teaching Assistants Award</strong> 2025 (Linhan@GMU)</li>
-        <li><strong>IEEE TSE Most Influential Paper Award</strong> (50th Anniversary Retrospective) 2025</li>        
+        <li><strong>IEEE TSE Most Influential Paper Award</strong> (50th Anniversary Retrospective) 2025</li>
         <li>NeuralSAT ranked <strong>2nd</strong> overall in <strong>VNN-COMP'24</strong></li>
         <li><strong>Outstanding Undergraduate Research Award</strong> 2024 (Stefania@GMU)</li>
         <li>NeuralSAT received the <strong>New Participant Award</strong> at VNN-COMP'23</li>
         <li><strong>Outstanding Undergraduate Senior Award</strong> 2023 (KimHao@UNL)</li>
         <li><a href="https://www.amazon.science/research-awards/program-updates/79-amazon-research-awards-recipients-announced"><strong>Amazon Research Award</strong> (Automated Reasoning)</a> 2023</li>
         <li><strong>NSF CAREER Award</strong> 2023</li>
-        <li><strong>Outstanding Undergraduate Researcher Award</strong> 2021 (KimHao@UNL)</li>             
+        <li><strong>Outstanding Undergraduate Researcher Award</strong> 2021 (KimHao@UNL)</li>
         <li>NSF CISE Research Initiation Initiative (<strong>CRII</strong>) Award 2020</li>
         <li><a href="https://sig.sigevo.org/index.html/tiki-index.php?page=SIGEVO+Impact+Award">ACM SIGEVO <strong>10-year Impact Paper Award</strong></a> 2019</li>
         <li><a href="https://www.sigsoft.org/awards/icseMIPAward.html">ACM SIGSOFT / IEEE TCSE ICSE <strong>10-year Most Influential Paper Award</strong></a> 2019</li>
@@ -257,14 +268,12 @@
         </ol>
       </div>
     </details>
+    </section>
 
-
-    <hr>
-
-    <h2 id="research">Research</h2>
+    <section id="research">
+    <h2>Research</h2>
 
     <p>Software Engineering; Formal Methods; Automated Reasoning; Program Analysis; Program Verification; AI Safety and Robustness, Dynamic and Static Analysis; SMT/SAT Solving</p>
-
 
     <div class="myborder">
       <ul>
@@ -288,31 +297,27 @@
         </li>
       </ul>
     </div>
+    </section>
 
-    <hr>
-
-
-    <h2 id="pubs">Publications</h2>
+    <section id="pubs">
+    <h2>Publications</h2>
 
     <h3><a href="https://scholars.roars.dev">Google Scholars for Roars</a></h3>
 
     <h3><a href="https://roars.dev/bibtex/?bib=https://tvn.roars.dev/cv/cv.bib">Full List of Papers</a></h3>
-    
     <h3 id="miscs">Book and Misc. Writing</h3>
 
     <div class="myborder">
       <ol>
-        <li>📚 <a href="https://github.com/dynaroars/nnv">Neural Network Verification Textbook</a>: an ongoing work on an introductory textbook for neural network verification</li>
+        <li>📚 <a href="https://github.com/dynaroars/nnv">Neural Network Verification Textbook</a>: ongoing work on an introductory textbook for neural network verification</li>
         <li>📚 <a href="https://code.roars.dev/phd-cs-us/">PhD Demystify</a>: a book to help students understand and navigate the PhD admission process in Computer Science in the US</li>
-        <li>📍 <a href="https://roars.dev/phd-cs-us/advising.pdf">Roars Lab Culture and Advising Guide</a>
+        <li>📍 <a href="https://roars.dev/phd-cs-us/advising.pdf">Roars Lab Culture and Advising Guide</a></li>
 
         <li>📍 <a href="https://realgmucs.github.io/stats">realgmucs.github.io/stats</a>: Useful Stats about GMU CS dept</li>
 
         <li>📍 <a href="https://roars.dev/phd-cs-us/viet-cs-profs-us">https://roars.dev/phd-cs-us/viet-cs-profs-us</a>: Vietnamese professors in CS</li>
       </ol>
     </div>
-
-
 
     <!-- <h3>Unpublished/Under Submission</h3> -->
     <!-- <div class="myborder"> -->
@@ -321,9 +326,10 @@
         <!--     <li>Yuandong Cyrus Liu, Ton-Chanh Le, Timos Antonopoulos, Eric Koskinen, ThanhVu Nguyen, <a href="https://arxiv.org/abs/2306.15584v1">DrNLA: Extending Verification to Non-linear Programs through Dual Re-writing</a>, Arxiv</li> -->
         <!--   </ul> -->
       <!-- </div> -->
-    <hr>
+    </section>
 
-    <h2 id="software"><a href="https://code.roars.dev">Software</a></h2>
+    <section id="software">
+    <h2><a href="https://code.roars.dev">Software</a></h2>
 
     <div class="myborder">
       <ul>
@@ -352,11 +358,11 @@
         </ul>
       </div>
     </details>
+    </section>
 
+    </main>
 
-    <hr>
     <footer>
-      
       <h2 id="contact">Contact</h2>
       <div class="myborder">
         <address>
@@ -364,7 +370,8 @@
           Nguyen Engineering Building #4430<br>
           4400 University Drive<br>
           Fairfax, VA 22030<br>
-          <strong>Email</strong>: <strong>root @ roars . dev</strong>
+          <strong>Email</strong>: <a href="mailto:root@roars.dev">root@roars.dev</a><br>
+          <strong>Video Conference</strong>: <a href="https://tvn-zoom.roars.dev">https://tvn-zoom.roars.dev</a>
         </address>
       </div>
     </footer>
@@ -375,4 +382,3 @@
 
   </body>
 </html>
-
