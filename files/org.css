@@ -3,65 +3,49 @@ body {
   max-width: 80%;
   line-height: 1.6;
   padding: 0 10px;
-  background: snow; /* safe default */
+  background: snow;
   color: black;
 }
 
-
 .header-flex {
-    display: flex;
-    align-items: center;
-    gap: 2em;
+  display: flex;
+  align-items: center;
+  gap: 2em;
 }
 .header-flex figure {
-    margin: 0;
+  margin: 0;
 }
-
 
 ol li.year-gap {
-  margin-bottom: 1.5em; /* extra spacing */
-  padding-bottom: 0.5em; /* space before the line */
-  border-bottom: 1px solid lightgray; /* subtle divider */
+  margin-bottom: 1.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid lightgray;
 }
-
 
 blockquote {
-  margin: 1.5em  0pt;
-  padding: 0.5em 10pt;
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
 }
-
-
-/* blockquote p {
-  display: inline;
-} */
 
 .styled {
   list-style: none;
   padding: 0;
 }
 
-/* .styled li {
-  padding-left: 1rem;
-} */
-
 .styled li::before {
   content: attr(data-icon);
-  /* Make slightly larger than the li font-size
-  but smaller than the li grid-gap */
 }
 
 details > summary {
-    font-weight: bold;
-    cursor: pointer;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #toc {
   position: fixed;
   right: 0.5em;
   top: 0.5em;
-  /*color: #002b36;*/
-  /*border:1px solid darkgreen;*/
-  padding: 0.5em 5pt;        
+  padding: 0.5em 5px;
 }
 
 #toc #full { display: none; }
@@ -70,125 +54,90 @@ details > summary {
   display: block;
 }
 
-.myborder{
-    padding: 0 10px;
-    border: 2px dotted transparent;
+.myborder {
+  padding: 0 10px;
+  border: 2px dotted transparent;
 }
-
-/* .typewriter { */
-/*     overflow: hidden; /\* Ensures the content is not revealed until the animation *\/ */
-/*     border-right: .2em solid black; /\* The typwriter cursor *\/ */
-/*     white-space: nowrap; /\* Keeps the content on a single line *\/ */
-/*     margin: 1em auto; /\* Gives that scrolling effect as the typing happens *\/ */
-/*     letter-spacing: .12em; /\* Adjust as needed *\/ */
-/*     animation:  */
-/*       typing 6s steps(40, end), */
-/*       blink-caret 1.2s step-end infinite; */
-/*     display: inline-flex; */
-/*   } */
-
-/*   /\* The typing effect *\/ */
-/*   @keyframes typing { */
-/*     from { width: 0 } */
-/*     to { width: 40% } */
-/*   } */
-
-/*   /\* The typewriter cursor effect *\/ */
-/*   @keyframes blink-caret { */
-/*     from, to { border-color: transparent } */
-/*     30% { border-color: ghostwhite; } */
-/*   } */
-
-
 
 @media (prefers-color-scheme: light) {
-/*     body {
-        background: snow;
-    } */
-    blockquote{
-        background: ghostwhite;
-        border-left: 3pt dotted darkgreen;
-    }
+  blockquote {
+    background: ghostwhite;
+    border-left: 3px dotted darkgreen;
+  }
 
-    pre,code{
-        background: ghostwhite;
-    }
-    a {
-        /* color: #666;*/
-        /*background: springgreen;*/
-        text-decoration: none;
-     }
-     a:hover{
-        background: ghostwhite;
-     }
+  pre, code {
+    background: ghostwhite;
+  }
 
-     #toc{
-        background-color: ghostwhite;
-     }
+  a {
+    text-decoration: none;
+  }
 
-     .myborder:hover{
-         border: 2px solid darkgreen;
-     }
-     
+  a:hover {
+    background: ghostwhite;
+  }
 
-/*      details:hover{ */
-/*          background-color: ghostwhite; */
-/* }      */
+  #toc {
+    background-color: ghostwhite;
+  }
 
+  .myborder:hover {
+    border: 2px solid darkgreen;
+  }
 }
 
-@media (prefers-color-scheme: dark) {    
-    /* Solarized dark color */
-    body {
-        color: #839496;
-        background: #002b36;
+@media (prefers-color-scheme: dark) {
+  /* Solarized dark */
+  body {
+    color: #839496;
+    background: #002b36;
+  }
 
-    }
-    a {
-        color: #b58900;
-        text-decoration:  none;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    } 
+  a {
+    color: #b58900;
+    text-decoration: none;
+  }
 
-    a:visited{
-        color: #cb4b16;
-    }
-    strong {
-        color: darkgray
-    }
-    h1 {
-        color: #d33682;
-    }
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: #859900;
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    pre, code{
-        background: #073642;
-        border: 1pt solid #586e75;
-        box-shadow: 1pt 1pt 1pt #586e75;
-        padding: 1pt;
-    }
+  a:visited {
+    color: #cb4b16;
+  }
 
-    blockquote{
-        border-left: 3pt dotted #859900;
-    }    
+  strong {
+    color: darkgray;
+  }
 
-    #toc{
-        background-color: #073642;
-    }
-    .myborder:hover{
-         border: 2px solid darkgreen;
-     }
-    
-    
+  h1 {
+    color: #d33682;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #859900;
+  }
+
+  pre, code {
+    background: #073642;
+    border: 1px solid #586e75;
+    box-shadow: 1px 1px 1px #586e75;
+    padding: 1px;
+  }
+
+  blockquote {
+    border-left: 3px dotted #859900;
+  }
+
+  #toc {
+    background-color: #073642;
+  }
+
+  .myborder:hover {
+    border: 2px solid darkgreen;
+  }
 }
-
-
