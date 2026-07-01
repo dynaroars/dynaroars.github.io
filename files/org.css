@@ -65,7 +65,8 @@ details > summary {
 }
 
 #toc #full { display: none; }
-#toc:hover #full{
+#toc:hover #full,
+#toc details[open] #full {
   display: block;
 }
 
