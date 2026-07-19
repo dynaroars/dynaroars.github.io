@@ -221,9 +221,7 @@
     <section id="share">
     <h2>Share Your Memory</h2>
     <div class="myborder">
-      <p>This site is hosted on <a href="https://github.com/dynaroars/dynaroars.github.io">GitHub</a>. If you'd like to add your own memory of Deepak, write it below and click the button &mdash; it will copy your entry to your clipboard and open GitHub's editor on our <a href="community-tributes.html">community tributes file</a>. Paste your entry where marked, then submit &mdash; GitHub will automatically open a pull request for us to review and publish. (Requires a free <a href="https://github.com/join">GitHub account</a>.)</p>
-
-      <p><em>No GitHub account, or would rather not deal with any of that? Just email your memory to <a href="mailto:root@roars.dev?subject=Memory%20of%20Deepak%20Kapur">root@roars.dev</a> and we'll add it for you.</em></p>
+      <p>If you'd like to add your own memory of Deepak, write it below and click the button &mdash; it will open an email to <a href="mailto:tvn@roars.dev?subject=Memory%20of%20Deepak%20Kapur">tvn@roars.dev</a> with your entry, and we'll review and publish it on this page. You can also simply email us directly at that address.</p>
 
       <p>
         <label for="tribute-name"><strong>Name</strong></label><br>
@@ -238,7 +236,7 @@
         <textarea id="tribute-text" rows="6" style="width: 100%; max-width: 600px; padding: 0.5em;" placeholder="Share a memory, story, or note about Deepak..."></textarea>
       </p>
       <p>
-        <button type="button" id="tribute-submit">Copy My Memory &amp; Open GitHub Editor &rarr;</button>
+        <button type="button" id="tribute-submit">Send My Memory by Email &rarr;</button>
       </p>
       <p id="tribute-status" style="display: none; white-space: pre-wrap;"></p>
     </div>
@@ -291,10 +289,6 @@
         });
 
       (function () {
-        function escapeHtml(s) {
-          return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
-
         document.getElementById('tribute-submit').addEventListener('click', function () {
           var name = document.getElementById('tribute-name').value.trim();
           var affil = document.getElementById('tribute-affil').value.trim();
@@ -307,38 +301,18 @@
             return;
           }
 
-          var paragraphs = text.split(/\n\s*\n/).map(function (p) {
-            return '    <p>' + escapeHtml(p.trim()) + '</p>';
-          }).join('\n');
+          var body = 'Name: ' + name + '\n' +
+            (affil ? 'Affiliation: ' + affil + '\n' : '') +
+            '\n' + text + '\n';
 
-          var byline = escapeHtml(name) + (affil ? ', ' + escapeHtml(affil) : '');
-          var snippet = '  <blockquote>\n' + paragraphs +
-            '\n    <footer>&mdash; <strong>' + escapeHtml(name) + '</strong>' +
-            (affil ? ', ' + escapeHtml(affil) : '') + '</footer>\n  </blockquote>\n';
+          var mailto = 'mailto:tvn@roars.dev' +
+            '?subject=' + encodeURIComponent('Memory of Deepak Kapur — ' + name) +
+            '&body=' + encodeURIComponent(body);
 
-          var editUrl = 'https://github.com/dynaroars/dynaroars.github.io/edit/main/people/kapur/community-tributes.html';
-
-          function openEditor() {
-            window.open(editUrl, '_blank');
-          }
-
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(snippet).then(function () {
-              status.style.display = 'block';
-              status.textContent = 'Copied! In the GitHub editor that just opened, paste your entry below the "ADD NEW ENTRIES BELOW THIS LINE" marker, then scroll down and click "Propose changes" to open a pull request.';
-              openEditor();
-            }).catch(function () {
-              status.style.display = 'block';
-              status.textContent = 'Could not copy automatically. Please copy this manually before the editor opens:\n\n' + snippet +
-                '\n\nOr, if that\'s easier, just email your memory to root@roars.dev instead.';
-              openEditor();
-            });
-          } else {
-            status.style.display = 'block';
-            status.textContent = 'Please copy this manually and paste it in the GitHub editor that just opened:\n\n' + snippet +
-              '\n\nOr, if that\'s easier, just email your memory to root@roars.dev instead.';
-            openEditor();
-          }
+          status.style.display = 'block';
+          status.textContent = 'Your email app should open with your memory prefilled — just hit send. ' +
+            'If nothing opens, copy the text below and email it to tvn@roars.dev:\n\n' + body;
+          window.location.href = mailto;
         });
       })();
     </script>
