@@ -305,13 +305,13 @@
             (affil ? 'Affiliation: ' + affil + '\n' : '') +
             '\n' + text + '\n';
 
-          var mailto = 'mailto:tvn@roars.dev' +
+          var mailto = 'mailto:root@roars.dev,varma@unm.edu' +
             '?subject=' + encodeURIComponent('Memory of Deepak Kapur — ' + name) +
             '&body=' + encodeURIComponent(body);
 
           status.style.display = 'block';
           status.textContent = 'Your email app should open with your memory prefilled — just hit send. ' +
-            'If nothing opens, copy the text below and email it to tvn@roars.dev:\n\n' + body;
+            'If nothing opens, copy the text below and email it to root@roars.dev and varma@unm.edu:\n\n' + body;
           window.location.href = mailto;
         });
       })();
