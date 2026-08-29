@@ -9,6 +9,7 @@ body {
 
 .header-flex {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2em;
 }
@@ -57,6 +58,20 @@ details > summary {
 .myborder {
   padding: 0 10px;
   border: 2px dotted transparent;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6em;
+  }
+
+  #toc {
+    max-width: 45vw;
+  }
+
+  header {
+    padding-right: 45vw;
+  }
 }
 
 @media (prefers-color-scheme: light) {
