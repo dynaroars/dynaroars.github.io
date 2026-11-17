@@ -61,16 +61,59 @@ details > summary {
 }
 
 @media (max-width: 600px) {
+  body {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
   h1 {
-    font-size: 1.6em;
+    font-size: 1.4em;
+  }
+
+  /* leave room only for the collapsed Contents button, not the whole header */
+  #toc ~ header h1 {
+    padding-right: 3.5rem;
+    margin-top: 0.3em;
   }
 
   #toc {
     max-width: 45vw;
   }
 
-  header {
-    padding-right: 45vw;
+  /* collapse the Contents button to just its icon (label returns when opened) */
+  #toc details:not([open]) summary strong {
+    display: none;
+  }
+
+  /* keep the dino beside the info list instead of wrapping onto its own row */
+  .header-flex {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.75em;
+  }
+
+  .header-flex img {
+    width: 64px;
+    height: auto;
+  }
+
+  .header-flex .myborder {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .header-flex .styled {
+    margin: 0;
+  }
+
+  .header-flex .styled li {
+    margin-bottom: 0.4em;
+    line-height: 1.4;
+  }
+
+  .header-flex .styled a {
+    white-space: nowrap;
   }
 }
 
