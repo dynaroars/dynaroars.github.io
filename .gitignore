@@ -1,2 +1,7 @@
 resources/letter/signature.png
 wiki/
+
+# Private source and shared password; publish only the encrypted HTML.
+/project-ideas.md
+/.project-ideas-password
+
